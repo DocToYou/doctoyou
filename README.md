@@ -19,7 +19,7 @@
 ## 🧠 Tech Stack
 
 ### Frontend
-- React.js (with React Router)
+- React.js (with React Router) powered by vite
 - Axios (for API calls)
 - Tailwind CSS or Bootstrap (UI)
 
@@ -40,5 +40,17 @@
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/<your-username>/doctoyou.git
+git clone https://github.com/suryapugazh/doctoyou.git
 cd doctoyou
+git checkout your-assingned-branch
+code .
+```
+### After your coding
+
+```bash
+git add .
+git commit -m "Your detailed message on the code."
+git checkout parent-branch
+git merge your-assigned-branch
+# after commiting resolve all possible conflicts.
+```
