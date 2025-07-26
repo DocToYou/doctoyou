@@ -15,9 +15,28 @@
 - 🔔 Email/SMS Reminders (Optional)
 
 ---
+## Project structure
+
+mern-project/<br>
+├── client/      <-- React <br>
+│   ├── public/<br>
+│   ├── src/<br>
+│   ├── package.json<br>
+│   └── ...<br>
+├── server/            <- Backend<br>
+│   ├── config/            
+│   ├── controllers/       
+│   ├── models/            
+│   ├── routes/            
+│   ├── app.js             
+│   ├── server.js          
+│   ├── .env              
+│   └── package.json
+├── .gitignore
+├── README.md
 
 ## 🧠 Tech Stack
-
+![alt text](image.png)
 ### Frontend
 - React.js (with React Router) powered by vite
 - Axios (for API calls)
