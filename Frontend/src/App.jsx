@@ -1,10 +1,10 @@
-import { useState, type JSX } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App(): JSX.Element {
-  const [count, setCount]= useState(0)
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -22,7 +22,7 @@ function App(): JSX.Element {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
