@@ -31,8 +31,8 @@ mern-project/<br>
 │   ├── app.js             
 │   ├── server.js          
 │   ├── .env              
-│   └── package.json
-├── .gitignore
+│   └── package.json<br>
+├── .gitignore<br>
 ├── README.md
 
 ## 🧠 Tech Stack
