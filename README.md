@@ -18,12 +18,12 @@
 ## Project structure
 
 mern-project/<br>
-├── client/      <-- React <br>
+├── Frontend/      <-- React <br>
 │   ├── public/<br>
 │   ├── src/<br>
 │   ├── package.json<br>
 │   └── ...<br>
-├── server/            <- Backend<br>
+├── Backend/            <- Backend<br>
 │   ├── config/            
 │   ├── controllers/       
 │   ├── models/            
