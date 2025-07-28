@@ -1,7 +1,7 @@
 const express = require("express");
-const bodyParser = require('body-parser');
-const cors = require('cors');
-//const db = require('./database'); // Import the database connection pool
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const db = require('./database'); // Import the database connection pool
 
 // Create an Express application
 const app = express();
@@ -10,14 +10,14 @@ const app = express();
 app.use(bodyParser.json());
 // Middleware to enable CORS
 app.use(cors());
-
+//hh
 // Define a simple route to test the server
 app.use("/", (req, res) => {
   res.send("Hello, World! The server is running.");
 });
-// listen on a specific port
+// listen on a specific port selena gomez
 const PORT = process.env.PORT || 3000;
-
+// hello
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
