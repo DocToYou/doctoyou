@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 // Middleware to enable CORS
 app.use(cors());
-//hh
+
 // Define a simple route to test the server
 app.use("/", (req, res) => {
   res.send("Hello, World! The server is running.");
