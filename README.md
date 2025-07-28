@@ -2,7 +2,6 @@
 
 **DocToYou** is a full-stack web application that connects patients with verified doctors for **home visit consultations**, **online appointments**, and **real-time doctor tracking**. It is designed to help elderly people, chronically ill patients, and busy families receive medical care from the comfort of their homes.
 
----
 
 ## 🚀 Project Overview
 
