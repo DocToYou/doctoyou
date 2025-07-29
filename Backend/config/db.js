@@ -1,10 +1,4 @@
 const mysql = require("mysql2");
-const dotenv = require("dotenv"); 
-
-//configure dotenv to load environment variables
-dotenv.config({
-  path: "./.env",
-});
 
 // Check if database credentials are missing
 if (
@@ -17,11 +11,11 @@ if (
   process.exit(1); // Stop execution if database credentials are missing
 }
 // Log the database connection details for debugging
-console.log("Database connection details:");
-console.log(`Host: ${process.env.MYSQL_HOST}`);
-console.log(`User: ${process.env.MYSQL_USER}`);
-console.log(`Database: ${process.env.MYSQL_DATABASE}`);
-console.log(`Password: ${process.env.MYSQL_PASSWORD}`); // Do not log password for security reasons
+// console.log("Database connection details:");
+// console.log(`Host: ${process.env.MYSQL_HOST}`);
+// console.log(`User: ${process.env.MYSQL_USER}`);
+// console.log(`Database: ${process.env.MYSQL_DATABASE}`);
+// console.log(`Password: ${process.env.MYSQL_PASSWORD}`); // Do not log password for security reasons
 
 // prints the database connection details for debugging
 console.log("Connecting to database with the above details:");
@@ -49,4 +43,4 @@ db.getConnection((err, connection) => {
 });
 
 // Export the database connection pool
-module.exports = db.promise();
+module.exports = db;
