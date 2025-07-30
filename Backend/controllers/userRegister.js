@@ -3,17 +3,6 @@ const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 const otpVerification = require("./otpVerification"); // Import OTP verification controller
 
-const db = mysql.createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  timezone: "Z", // Set timezone to UTC
-});
-
 console.log("Connecting to database with the above details:");
 
 exports.register = async (req, res) => {
