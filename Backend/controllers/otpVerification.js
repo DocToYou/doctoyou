@@ -23,13 +23,13 @@ exports.sendOtp = async (req, res) => {
   // Send OTP via SMS using Twilio
   await client.messages
     .create({
-      body: `Your OTP for doc2you is ${otp}`,
+      body: `Your OTP for DocToYou is ${otp}`,
       from: process.env.TWILIO_PHONE_NUMBER, // Your Twilio phone number
       to: `+91${phone}` // Phone number in E.164 format
     })
     .then(message => {
-      console.log(`OTP sent successfully: ${message.sid}`);
-      res.json({ message: "OTP sent successfully!" });
+      console.log(`OTP Sent Successfully: ${message.sid}`);
+      res.json({ message: "OTP Sent Successfully!" });
     })
     .catch(error => {
       console.error("Error sending OTP:", error);
@@ -41,8 +41,8 @@ exports.verifyOtp = async (req, res) => {
   const userOtp = req.body.otp;
 
   if (userOtp === otp) {
-    console.log("OTP verified successfully!");
-    res.json({ message: "OTP verified successfully!" });
+    console.log("OTP Verified Successfully!");
+    res.json({ message: "OTP Verified Successfully!" });
   } else {
     console.log("Invalid OTP!");
     res.status(400).json({ message: "Invalid OTP!" });
