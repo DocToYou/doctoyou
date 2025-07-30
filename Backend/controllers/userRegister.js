@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 const otpVerification = require("./otpVerification"); // Import OTP verification controller
-
+ 
 console.log("Connecting to database with the above details:");
 
 exports.register = async (req, res) => {
@@ -15,11 +15,11 @@ exports.register = async (req, res) => {
   const confirmPassword = req.body.confirmPassword;
 
   db.query(
-    "select phone from user where phone=?",
+    "select phone from users where phone=?",
     [phone],
     async (error, result) => {
       if (error) {
-        console.log(error);
+        console.log(error); 
       }
       if (result.length > 0) {
         // return res.render("register", { message: "Email id Already taken!" }); -- used handlebars to render the html for register page
@@ -29,15 +29,10 @@ exports.register = async (req, res) => {
         // return res.render("register", { message: "Password doesn't match!" }); -- used handlebars to render the html for register page
         return res.json({ message: "Password doesn't match with Confirm Password!" });
       }
-
-      // Generate OTP and send it via SMS
-      await otpVerification.sendOtp(req, res);
-      // Verify OTP
-      await otpVerification.verifyOtp(req, res);
       
       let hashedPassword = await bcrypt.hash(password, 8);
       db.query(
-        "insert into user values (?,?,?,?,?,?)",
+        "insert into users values (?,?,?,?,?,?)",
         [fname, lname, gender, phone, email, hashedPassword],
         (error, result) => {
           if (error) {
