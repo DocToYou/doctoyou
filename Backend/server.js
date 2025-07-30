@@ -1,11 +1,12 @@
 const express = require("express");
 
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config(
+);
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const db = require("./config/db"); // Import the database connection pool
+//const db = require("./config/db"); // Import the database connection pool
 const routes = require("./routes/allRoutes");
 
 const PORT = process.env.PORT || 3000;
