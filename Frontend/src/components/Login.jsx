@@ -18,7 +18,7 @@ export const Login = ({ changeToSignUp }) => {
         const form = loginForm.current
         const data = new FormData(form)
         try {
-            let res = await axios.post('http://localhost:3000/login', data)
+            let res = await axios.post('http://localhost:3000/login', {phone: data.get('phone'), password: data.get('password')})
             if (res.status == 200) {
                 localStorage.setItem('userName', res.data.userName)
                 navigate('/')
@@ -35,7 +35,7 @@ export const Login = ({ changeToSignUp }) => {
         <form ref={loginForm} onSubmit={handleLoginSubmit} onChange={checkFormValidity} className='flex flex-col gap-5 m-0'>
             <div>
                 <label className='text-[15px]' htmlFor="mobile">Phone number</label>
-                <input className='w-full border-1 px-5 py-3 rounded placeholder:text-[14px]' type="tel" name="mobile" id="mobile" placeholder='Enter your phone no' required pattern="[6-9]\d{9}" maxLength={10} />
+                <input className='w-full border-1 px-5 py-3 rounded placeholder:text-[14px]' type="tel" name="phone" id="mobile" placeholder='Enter your phone no' required pattern="[6-9]\d{9}" maxLength={10} />
             </div>
             <div>
                 <label className='text-[15px]'  htmlFor="password">Password</label>

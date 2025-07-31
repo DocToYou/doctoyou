@@ -17,15 +17,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
-<<<<<<< HEAD
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-=======
     "axios": "^1.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1",
->>>>>>> b66cc76552a79348146011ce8649e71fcf4dc65c
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {

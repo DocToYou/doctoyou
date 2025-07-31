@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 3000;
 // Create an Express application
 const app = express();
 
+//CORS
+app.use(cors({ origin: 'http://localhost:5173' }));
+
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 

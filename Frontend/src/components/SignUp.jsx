@@ -20,14 +20,12 @@ export const SignUp = ({ changeToLogin }) => {
 
   const handleSignUpSubmit = async e => {
     e.preventDefault()
-    const currForm = signUpFrom.current
-    const data = new FormData(currForm)
+    const data = new FormData(signUpFrom.current)
     try {
-      let res = await axios.post('http://localhost:3000/register', data)
-      if (res.status == 200) {
-        localStorage.setItem('userName', res.data.userName)
-
-      }
+      let res = await axios.post('http://localhost:3000/register', {
+        fname: data.get('fname'), lname: data.get('lname'), email: data.get('email'),
+        gender: data.get('gender'), phone: data.get('phone'), password: data.get('password'), confirmPassword: data.get('confirmpassword')
+      })
     } catch (error) {
       console.log(error.message)
     }
@@ -39,7 +37,7 @@ export const SignUp = ({ changeToLogin }) => {
   const handleOtpSubmit = async () => {
     try {
       if (otp.length == 4) {
-        const res = await axios.post('', { 'otp': Number(otp) })
+        const res = await axios.post('', { 'http://localhost:3000/verifyOtp': Number(otp) })
         if (res.status === 200) {
           changeToLogin(false)
         }
@@ -83,21 +81,21 @@ export const SignUp = ({ changeToLogin }) => {
             <div>
               <label htmlFor="name">Name*</label>
               <div className='flex gap-4'>
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="firstName" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="firstName" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
               </div>
             </div>
             <div>
               <label htmlFor="gender">Gender</label><br />
               <select className='w-full border-1 rounded pl-5 py-2' name="gender" id="gender" required>
                 <option value="" disabled selected>Select Your Gender</option>
-                <option value="male">Male</option>
+                <option value="Male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
             <div>
               <label htmlFor="mobile">Mobile no*</label><br />
-              <input className='w-full border-1 px-5 py-2 rounded' type="tel" name="mobile" id="mobile" placeholder='(+91) xxxxxxxxxx' required pattern="[6-9]\d{9}" maxLength={10} />
+              <input className='w-full border-1 px-5 py-2 rounded' type="tel" name="phone" id="mobile" placeholder='(+91) xxxxxxxxxx' required pattern="[6-9]\d{9}" maxLength={10} />
             </div>
             <div className='mt-2'>
               <label htmlFor="mail">Mail Id</label>
