@@ -10,6 +10,7 @@ export const SignUp = ({ changeToLogin }) => {
   const [mobileNo, setMobileNo] = useState('')
   const [otp, setOtp] = useState('')
   // const [otpError, setOtpError] = useState('wwwwww')
+  const [fullNumber, setFullNumber] = useState(null);
   const [otpTime, setOtpTime] = useState(60)
   const signUpFrom = useRef(null)
   const checkFormValidity = () => {
@@ -26,10 +27,11 @@ export const SignUp = ({ changeToLogin }) => {
         fname: data.get('fname'), lname: data.get('lname'), email: data.get('email'),
         gender: data.get('gender'), phone: data.get('phone'), password: data.get('password'), confirmPassword: data.get('confirmpassword')
       })
+      setFullNumber(data.get('phone'));
     } catch (error) {
       console.log(error.message)
     }
-    setMobileNo(data.get('mobile').substring(6))
+    setMobileNo(data.get('phone').substring(6))
     setIsOtpSent(true)
     startOtpTimer()
   }
@@ -37,7 +39,7 @@ export const SignUp = ({ changeToLogin }) => {
   const handleOtpSubmit = async () => {
     try {
       if (otp.length == 4) {
-        const res = await axios.post('', { 'http://localhost:3000/verifyOtp': Number(otp) })
+        const res = await axios.post('http://localhost:3000/verifyOtp', { otp: otp, phone: Number(fullNumber) })
         if (res.status === 200) {
           changeToLogin(false)
         }
