@@ -1,0 +1,103 @@
+import React from 'react'
+import { Link } from 'react-router-dom';
+
+export const Navbar = () => {
+    return (
+        <section className="bg-white">
+            <div className="w-full mx-auto px-4">
+                <div className="flex p-4">
+                    <Link to={'/'} className="text-2xl font-bold text-[#1815a1] pr-5 ">
+                        Doc2you
+                    </Link>
+                    <div className="my-auto">
+                        <button className="lg:hidden pt-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="size-6"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                                />
+                            </svg>
+                        </button>
+                        <ul className=" hidden lg:flex font-bold px-5">
+                            <li className="pr-5">
+                                <Link to={'/'} className="px-5 hover:underline hover:decoration-[#1815a1]">Home</Link>
+                            </li>
+                            <li className="pr-5">
+                                <Link to={'services'} className="px-5 hover:underline hover:decoration-[#1815a1]">Services</Link>
+                            </li>
+                            <li className="pr-5">
+                                <Link to={'/contact'} className="px-5 hover:underline hover:decoration-[#1815a1]">Contact Us</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <Link to={'/location'} className=" flex text-medium bg-[#1815a1] text-white font-bold px-3 py-2 rounded-2xl  ml-auto">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="size-5 "
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                            />
+                        </svg>
+                        <span className="hidden lg:block">location</span>
+                    </Link>
+                    <Link to={'/auth'} className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded-2xl ml-3">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="size-5 "
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                            />
+                        </svg>
+                        <span className="hidden lg:block">login/signup</span>
+                    </Link>
+                </div>
+                <div>
+                    <ul className="lg:hidden font-bold px-5">
+                        <li className="mt-1">
+                            <Link className="py-2 " href="">
+                                Home
+                            </Link>
+                        </li>
+                        <li className="m1-1">
+                            <Link className="py-2 " href="">
+                                Services
+                            </Link>
+                        </li>
+                        <li className="pb-5">
+                            <Link className="py-2 " href="">
+                                Contact Us
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    )
+}

@@ -1,0 +1,120 @@
+import React, { useRef, useState } from 'react'
+import axios from 'axios'
+import Otp from './Otp'
+
+export const SignUp = ({ changeToLogin }) => {
+
+  const [isValidSignUpForm, setIsValidSignUpForm] = useState(false)
+  const [isPasswordMatch, SetIsPasswordMatch] = useState(true)
+  const [isOtpSent, setIsOtpSent] = useState(false)
+  const [mobileNo, setMobileNo] = useState('')
+  const [otp, setOtp] = useState('')
+  // const [otpError, setOtpError] = useState('wwwwww')
+  const [otpTime, setOtpTime] = useState(60)
+  const signUpFrom = useRef(null)
+  const checkFormValidity = () => {
+    const currForm = signUpFrom.current
+    SetIsPasswordMatch(currForm.password.value === currForm.confirmpassword.value)
+    if (currForm) setIsValidSignUpForm(currForm.checkValidity())
+  }
+
+  const handleSignUpSubmit = async e => {
+    e.preventDefault()
+    const currForm = signUpFrom.current
+    const data = new FormData(currForm)
+    try {
+      let res = await axios.post('api', data)
+      if (res.status == 200) {
+        localStorage.setItem('userName', res.data.userName)
+
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+    setMobileNo(data.get('mobile').substring(6))
+    setIsOtpSent(true)
+    startOtpTimer()
+  }
+
+  const handleOtpSubmit = async () => {
+    try {
+      if (otp.length == 4) {
+        const res = await axios.post('', { 'otp': Number(otp) })
+        if (res.status === 200) {
+          changeToLogin(false)
+        }
+      }
+    } catch (error) {
+
+    }
+  }
+
+  const handleOtpChange = (code) => {
+    setOtp(code)
+  }
+
+  const startOtpTimer = () => {
+    let startTime = 60
+    const timer = setInterval(() => {
+      setOtpTime(--startTime)
+      if (startTime == 0) clearInterval(timer)
+    }, 1000)
+  }
+
+
+  return (
+    <>
+      {isOtpSent ?
+        <div className='flex flex-col gap-3 items-center justify-center h-full'>
+          <h1 className='text-[20px] font-bold text-blue-800'>Verify Your Mobile Number</h1>
+          <div>
+            <p>{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo}`}</p>
+            <p>Enter the code below to continue</p>
+          </div>
+          <p>{"00:" + otpTime}</p>
+          <Otp onChangeOTP={handleOtpChange} />
+          <button onClick={handleOtpSubmit} className={`w-[90%] py-2 bg-blue-800 rounded text-white ${otp.length == 4 ? 'opacity-100 cursor-pointer' : 'opacity-50'}`}>Verify</button>
+          <p>Didn't receive the code? [<span className='text-blue-800 cursor-pointer'>Resend OTP</span>]</p>
+        </div>
+        :
+        <>
+          <h1 className='text-[25px] font-bold text-blue-800 text-center'>Create Your Account</h1>
+          <form ref={signUpFrom} onSubmit={handleSignUpSubmit} className='mt-3 flex flex-col gap-3.5' onChange={checkFormValidity}>
+            <div>
+              <label htmlFor="name">Name*</label>
+              <div className='flex gap-4'>
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="firstName" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="firstName" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="gender">Gender</label><br />
+              <select className='w-full border-1 rounded pl-5 py-2' name="gender" id="gender" required>
+                <option value="" disabled selected>Select Your Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="mobile">Mobile no*</label><br />
+              <input className='w-full border-1 px-5 py-2 rounded' type="tel" name="mobile" id="mobile" placeholder='(+91) xxxxxxxxxx' required pattern="[6-9]\d{9}" maxLength={10} />
+            </div>
+            <div className='mt-2'>
+              <label htmlFor="mail">Mail Id</label>
+              <input className='w-full border-1 px-5 py-2 rounded mr-3' type="email" name="email" id="mail" placeholder='Enter Your Mail Id' required />
+            </div>
+            <div>
+              <label htmlFor="password">Create New Password</label>
+              <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="password" id="password" placeholder='Enter New Password' required minLength={6} maxLength={20} />
+            </div>
+            <div>
+              <label className={!isPasswordMatch && isValidSignUpForm && 'text-red-600'} htmlFor="password">{!isPasswordMatch && isValidSignUpForm ? 'Please Enter Correct Password' : 'Confirm Password'}</label>
+              <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="confirmpassword" id="confirmpassword" placeholder='Enter Your Password' required minLength={6} maxLength={20} />
+            </div>
+            <button className={`mt-3 mx-auto w-[80%] border-1 py-2 rounded-[10px] text-white ${isValidSignUpForm ? 'bg-blue-800 cursor-pointer' :
+              'bg-gray-400 cursor-not-allowed'}`}>Sign Up</button>
+          </form></>}
+
+    </>
+  )
+}
