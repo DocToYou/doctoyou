@@ -23,7 +23,7 @@ export const SignUp = ({ changeToLogin }) => {
     const currForm = signUpFrom.current
     const data = new FormData(currForm)
     try {
-      let res = await axios.post('api', data)
+      let res = await axios.post('http://localhost:3000/register', data)
       if (res.status == 200) {
         localStorage.setItem('userName', res.data.userName)
 
