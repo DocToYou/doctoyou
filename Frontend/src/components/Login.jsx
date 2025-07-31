@@ -18,7 +18,7 @@ export const Login = ({ changeToSignUp }) => {
         const form = loginForm.current
         const data = new FormData(form)
         try {
-            let res = await axios.post('api', data)
+            let res = await axios.post('api', {phone : data.get('mobile'), password : data.get('password')})
             if (res.status == 200) {
                 localStorage.setItem('userName', res.data.userName)
                 navigate('/')
