@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
         return res.json({ message: "Server error occured" });
       }
       if (result.length === 0){
-        return res.json({ message: "User not found!" });
+        return res.status(404).json({ message: "User not found!" });
       }
       const hashedPassword = result[0].Password;
       bcrypt.compare(password, hashedPassword, (error, match) => {
