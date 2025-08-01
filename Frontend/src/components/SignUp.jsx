@@ -6,7 +6,7 @@ export const SignUp = ({ changeToLogin }) => {
 
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(false)
   const [isPasswordMatch, SetIsPasswordMatch] = useState(true)
-  const [isOtpSent, setIsOtpSent] = useState(true)
+  const [isOtpSent, setIsOtpSent] = useState(false)
   const [mobileNo, setMobileNo] = useState('')
   const [otp, setOtp] = useState('')
   // const [otpError, setOtpError] = useState('wwwwww')

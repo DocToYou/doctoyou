@@ -3,13 +3,13 @@ import { Navbar } from '../components/Navbar'
 
 export const Home = () => {
     return (
-      <div className="bg-[#e4ebf2] h-screen">
-        <div className="h-5"></div>
+      <div className="bg-[#e4ebf2]">
+        <div className="h-0 lg:h-5"></div>
         <Navbar />
-        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460]">
+        <div className="relative flex mt-5 mx-5 lg:mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460]">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
-              src="/doc.png"
+              src="home/doc.png"
               alt="Background"
               className="absolute inset-0 w-full h-full object-cover z-0 opacity-20  pointer-events-none lg:hidden"
             />
@@ -92,7 +92,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="w-1/2 hidden lg:flex">
-            <img src="/doc2.png" alt="docter" />
+            <img src="home/doc2.png" alt="docter" />
           </div>
           <div className="absolute bottom-[15px] lg:bottom-[23px] left-1/2 transform -translate-x-1/2 w-11/12 lg:w-[60%] bg-white shadow-lg rounded-2xl p-4 flex flex-col lg:flex-row justify-between items-center gap-1 z-10 text-[#1815a1]">
             <div className="relative w-full lg:w-auto">

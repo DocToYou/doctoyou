@@ -3,7 +3,7 @@ import { SignUp } from '../components/SignUp'
 import { Login } from '../components/Login'
 
 export const AuthPage = () => {
-    const [showSignUp, setShowSignUp] = useState(true)
+    const [showSignUp, setShowSignUp] = useState(false)
     return (
         <div className='flex w-screen bg-[#1815A1]' style={{'height' : '100dvh'}}>
             <div className="bg-white l rounded-3xl px-5 py-5 my-10 mx-10 lg:mx-20 w-[100vw] md:w-1/3">

@@ -39,9 +39,9 @@ export const Login = ({ changeToSignUp }) => {
             </div>
             <div>
                 <label className='text-[15px]'  htmlFor="password">Password</label>
-                <input className='w-full border-1 px-5 py-3 rounded mr-3 placeholder:text-[14px]' type="password" name="password" id="password" placeholder='Enter the password' required minLength={6} maxLength={20} />
-                <div className='flex justify-between m-2'>
-                    <label htmlFor="checkbox"><input type="checkbox" name="checkbox" id="checkbox" />Remember me</label>
+                <input className='w-full border-1 px-5 py-4 rounded mr-3 placeholder:text-[14px]' type="password" name="password" id="password" placeholder='Enter the password' required minLength={6} maxLength={20} />
+                <div className='text-sm lg:text- flex justify-between mx-1 my-2 lg:m-2'>
+                    <label htmlFor="checkbox"><input className='h-3 ' type="checkbox" name="checkbox" id="checkbox" />Remember me</label>
                     <p className='text-red-500 cursor-pointer'>Forgot your password?</p>
                 </div>
             </div>
