@@ -6,7 +6,7 @@ export const SignUp = ({ changeToLogin }) => {
 
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(false)
   const [isPasswordMatch, SetIsPasswordMatch] = useState(true)
-  const [isOtpSent, setIsOtpSent] = useState(false)
+  const [isOtpSent, setIsOtpSent] = useState(true)
   const [mobileNo, setMobileNo] = useState('')
   const [otp, setOtp] = useState('')
   // const [otpError, setOtpError] = useState('wwwwww')
@@ -68,9 +68,11 @@ export const SignUp = ({ changeToLogin }) => {
     <>
       {isOtpSent ?
         <div className='flex flex-col gap-3 items-center justify-center h-full'>
-          <h1 className='text-[20px] font-bold text-blue-800'>Verify Your Mobile Number</h1>
+          <h1 className='text-3xl lg:text-2xl font-bold text-center text-blue-800'>Verify Your Mobile Number</h1>
           <div>
-            <p>{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo}`}</p>
+            <p className='hidden lg:block'>{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo}`}</p>
+            <p className='text-center lg:hidden'>we've sent a 4-digitcode to</p>
+            <p className='text-center lg:hidden'>{`+91 xxxxxx${mobileNo}`}</p>
             <p>Enter the code below to continue</p>
           </div>
           <p>{"00:" + otpTime}</p>
@@ -79,14 +81,16 @@ export const SignUp = ({ changeToLogin }) => {
           <p>Didn't receive the code? [<span className='text-blue-800 cursor-pointer'>Resend OTP</span>]</p>
         </div>
         :
-        <>
+        <div className='flex flex-col justify-center h-full'>
           <h1 className='text-[25px] font-bold text-blue-800 text-center'>Create Your Account</h1>
           <form ref={signUpFrom} onSubmit={handleSignUpSubmit} className='mt-3 flex flex-col gap-3.5' onChange={checkFormValidity}>
             <div>
               <label htmlFor="name">Name*</label>
               <div className='flex gap-4'>
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name"
+                  placeholder='First name' required pattern="[A-Za-z0-9\s\-']{3,20}" maxLength={20} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname"
+                  placeholder='Last name' required pattern="[A-Za-z0-9\s\-']{1,20}" maxLength={15} />
               </div>
             </div>
             <div>
@@ -115,7 +119,7 @@ export const SignUp = ({ changeToLogin }) => {
             </div>
             <button className={`mt-3 mx-auto w-[80%] border-1 py-2 rounded-[10px] text-white ${isValidSignUpForm ? 'bg-blue-800 cursor-pointer' :
               'bg-gray-400 cursor-not-allowed'}`}>Sign Up</button>
-          </form></>}
+          </form></div>}
 
     </>
   )

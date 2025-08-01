@@ -78,7 +78,7 @@ export const Navbar = () => {
                         <span className="hidden lg:block">login/signup</span>
                     </Link>
                 </div>
-                <div>
+                {/* <div>
                     <ul className="lg:hidden font-bold px-5">
                         <li className="mt-1">
                             <Link className="py-2 " href="">
@@ -96,7 +96,7 @@ export const Navbar = () => {
                             </Link>
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </section>
     )

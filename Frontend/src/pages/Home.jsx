@@ -9,30 +9,12 @@ export const Home = () => {
             <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460]">
                 <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
                     <img
-                        src="/doc.png"
+                        src="home/doc.png"
                         alt="Background"
                         className="absolute inset-0 w-full h-full object-cover z-0 opacity-20  pointer-events-none lg:hidden"
                     />
                     <div className="ml-5 items-center gap-3 px-6 py-3 bg-white rounded-full shadow-md text-gray-800 text-base w-fit hidden lg:flex">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            className="w-6 h-6 text-[#020460]"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 
-       3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593
-       a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12
-       c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 
-       3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593
-       a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
-                            />
-                        </svg>
+                        <img src="home/vector.svg" alt="" className=''/>
                         <span className="font-medium">100% verified and licensed doctors</span>
                     </div>
                     <div className="flex pt-3 pl-2 pb-2">
@@ -102,7 +84,7 @@ export const Home = () => {
                     </div>
                 </div>
                 <div className="w-1/2 hidden lg:flex">
-                    <img src="/doc2.png" alt="docter" />
+                    <img src="home/doc2.png" alt="docter" />
                 </div>
                 <div className="absolute bottom-[15px] lg:bottom-[23px] left-1/2 transform -translate-x-1/2 w-11/12 lg:w-[60%] bg-white shadow-lg rounded-2xl p-4 flex flex-col lg:flex-row justify-between items-center gap-1 z-10 text-[#1815a1]">
                     <div className="relative w-full lg:w-auto">
@@ -244,7 +226,7 @@ export const Home = () => {
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                                 />
                             </svg>
-                            <label className="text-[#1815a1] lg:mr-7" htmlFor='dateTime'>Date & Time</label> 
+                            <label className="text-[#1815a1] lg:mr-7" htmlFor='dateTime'>Date & Time</label>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="absolute right-2 w-4 h-4  text-[#1815a1] pointer-events-none"
