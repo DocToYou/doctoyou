@@ -6,12 +6,12 @@ export const Home = () => {
       <div className="bg-[#e4ebf2]">
         <div className="h-0 lg:h-5"></div>
         <Navbar />
-        <div className="relative flex mt-5 mx-5 lg:mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460]">
+        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
               src="home/doc.png"
               alt="Background"
-              className="absolute inset-0 w-full h-full object-cover z-0 opacity-20  pointer-events-none lg:hidden"
+              className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-3xl"
             />
             <div className="ml-5 items-center gap-3 px-6 py-3 bg-white rounded-full shadow-md text-black text-base w-fit hidden lg:flex">
               <svg
@@ -270,41 +270,86 @@ export const Home = () => {
           className="bg-[#e4ebf2]"
           style={{ fontFamily: '"Poppins", sans-serif' }}
         >
-          <div className="relative min-h-screen flex items-center justify-center px-4">
+          <div className="min-h-screen flex items-center justify-center lg:px-4  ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-10 pb-45 lg:px-20 lg:pb-7 w-full">
-              <div className="space-y-9">
-                <h1 className="text-2xl lg:text-6xl font-bold text-[#1815a1]">
+              <div className="lg:space-y-9 lg:pt-2 pt-12 relative ">
+                <h1 className="text-2xl lg:text-6xl font-bold text-[#1815a1]  absolute">
                   Emergency? Get Help Instantly.
                 </h1>
-                <p className="text-gray-700 lg:text-xl text-[12px]  ">
+                <div className="text-gray-700 lg:text-xl text-[15px] pt-20 lg:pt-40">
                   Your safety is our priority — get quick access to doctors,
                   ambulances, or home care.
-                </p>
-                <div className="space-y-0.5">
-                  <div className="text-black px-4 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
-                    • Emergency doctors available 24/7{" "}
+                </div>
+                <img
+                  src="/Emergencybutton.png"
+                  alt="Emergency Visual"
+                  className="lg:hidden"
+                />
+                <div className=" text-[13px] lg:text-[15px] lg:space-y-0.5">
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-[#149b56] size-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Emergency doctors available 24/7{" "}
                     <img
-                      className="h-6 w-6"
+                      className="lg:h-6 lg:w-6 h-5 w-5"
                       src="/DoctorIcon.svg"
                       alt="doctor"
                     />
                   </div>
-                  <div className="text-black px-4 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
-                    • Avg response time: under 5 minutes
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-[#149b56] size-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Avg response time: under 5 minutes
                     <img
-                      className="h-5 w-5"
+                      className="lg:h-5 lg:w-5 h-4 w-4"
                       src="/SecurityIcon.svg"
                       alt="security"
                     />
                   </div>
-                  <div className="text-black px-4 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
-                    • Quick response, trusted care, zero hassle.{" "}
-                    <img className="h-6 w-6" src="/TimeIcon.svg" alt="time" />
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-[#149b56] size-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Quick response, trusted care, zero hassle.
+                    <img
+                      className="lg:h-6 lg:w-6 h-5 w-5"
+                      src="/TimeIcon.svg"
+                      alt="time"
+                    />
                   </div>
                 </div>
 
-                <div className="flex justify-center lg:justify-start">
-                  <button className="bg-red-500 hover:bg-red-600 text-[14px] px-10 py-1 text-white lg:px-16 lg:py-3 rounded-xl font-semibold text-lg">
+                <div className="flex justify-center py-3 lg:pt-5 lg:justify-start">
+                  <button className="bg-red-500 hover:bg-red-600 text-[14px]  px-18 py-3 text-white lg:px-16 lg:py-3 rounded-xl font-semibold ">
                     Book Emergency Help Now
                   </button>
                 </div>
