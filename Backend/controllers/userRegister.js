@@ -41,11 +41,7 @@ exports.register = async (req, res) => {
       if (error) return res.status(500).json({ message: "DB Error!" });
 
       if (result.length > 0) {
-        return res.json({ message: "User Already Registered!" });
-      } else if (password !== confirmPassword) {
-        return res.json({
-          message: "Password doesn't match with Confirm Password!",
-        });
+        return res.status(409).json({ message: "User Already Registered!" });
       }
 
       // Generate 4-digit OTP
