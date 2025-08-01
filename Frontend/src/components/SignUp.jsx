@@ -10,6 +10,7 @@ export const SignUp = ({ changeToLogin }) => {
   const [mobileNo, setMobileNo] = useState('')
   const [otp, setOtp] = useState('')
   // const [otpError, setOtpError] = useState('wwwwww')
+  const [fullNumber, setFullNumber] = useState(null);
   const [otpTime, setOtpTime] = useState(60)
   const signUpFrom = useRef(null)
   const checkFormValidity = () => {
@@ -22,18 +23,15 @@ export const SignUp = ({ changeToLogin }) => {
     e.preventDefault()
     const data = new FormData(signUpFrom.current)
     try {
-      let res = await axios.post('http://localhost:5000/api/sign', {
+      let res = await axios.post('http://localhost:3000/register', {
         fname: data.get('fname'), lname: data.get('lname'), email: data.get('email'),
         gender: data.get('gender'), phone: data.get('phone'), password: data.get('password'), confirmPassword: data.get('confirmpassword')
       })
-      if (res.status == 200) {
-        localStorage.setItem('userName', res.data.userName)
-
-      }
+      setFullNumber(data.get('phone'));
     } catch (error) {
       console.log(error.message)
     }
-    setMobileNo(data.get('mobile').substring(6))
+    setMobileNo(data.get('phone').substring(6))
     setIsOtpSent(true)
     startOtpTimer()
   }
@@ -41,7 +39,7 @@ export const SignUp = ({ changeToLogin }) => {
   const handleOtpSubmit = async () => {
     try {
       if (otp.length == 4) {
-        const res = await axios.post('', { 'otp': Number(otp) })
+        const res = await axios.post('http://localhost:3000/verifyOtp', { otp: otp, phone: Number(fullNumber) })
         if (res.status === 200) {
           changeToLogin(false)
         }
@@ -87,10 +85,8 @@ export const SignUp = ({ changeToLogin }) => {
             <div>
               <label htmlFor="name">Name*</label>
               <div className='flex gap-4'>
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name"
-                  placeholder='First name' required pattern="[A-Za-z0-9\s\-']{3,20}" maxLength={20} />
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname"
-                  placeholder='Last name' required pattern="[A-Za-z0-9\s\-']{1,20}" maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
               </div>
             </div>
             <div>
@@ -103,7 +99,7 @@ export const SignUp = ({ changeToLogin }) => {
             </div>
             <div>
               <label htmlFor="mobile">Mobile no*</label><br />
-              <input className='w-full border-1 px-5 py-2 rounded' type="tel" name="mobile" id="mobile" placeholder='(+91) xxxxxxxxxx' required pattern="[6-9]\d{9}" maxLength={10} />
+              <input className='w-full border-1 px-5 py-2 rounded' type="tel" name="phone" id="mobile" placeholder='(+91) xxxxxxxxxx' required pattern="[6-9]\d{9}" maxLength={10} />
             </div>
             <div className='mt-2'>
               <label htmlFor="mail">Mail Id</label>
