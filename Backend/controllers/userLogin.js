@@ -17,9 +17,10 @@ exports.login = async (req, res) => {
     (error, result) => {
       if (error) {
         console.log(error);
-        return res.json({ message: "Server error occured" });
+        return res.status(500).json({ message: "Server error occured" });
       }
       if (result.length === 0){
+        return res.status(404).send("User not found")
         return res.json({ message: "User not found!" });
       }
       const hashedPassword = result[0].Password;
@@ -27,7 +28,8 @@ exports.login = async (req, res) => {
         if (error) {
           // console.log(match)
           console.log(error);
-          return res.json({ message: "Error checking password" });
+          return res.status(401).send("Invalid credentials")
+          return res.json(400,{ message: "Error checking password" });
         }
         if (match) {
           console.log("Successfully Logged in!");
