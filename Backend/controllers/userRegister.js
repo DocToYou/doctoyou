@@ -1,25 +1,6 @@
-const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const db = require("../config/db");
-// const otpVerification = require("./otpVerification"); // Import OTP verification controller
-
-console.log("Connecting to database with the above details:");
-
-if (
-  !process.env.TWILIO_ACCOUNT_SID ||
-  !process.env.TWILIO_AUTH_TOKEN ||
-  !process.env.TWILIO_PHONE_NUMBER
-) {
-  console.error("Twilio credentials are not set in the environment variables.");
-  process.exit(1);
-} else {
-  console.log("Twilio credentials are set.");
-  //console.log(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN, process.env.TWILIO_PHONE_NUMBER)
-}
-const client = require("twilio")(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+const client = require("../config/twilio");
 
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
@@ -28,12 +9,11 @@ exports.register = async (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const email = req.body.email;
-  const gender = req.body.gender === "Male" ? "M" : "F";
+  const gender =
+    req.body.gender === "Male" ? "M" : req.body.gender === "Female" ? "F" : "O";
   const phone = parseInt(req.body.phone);
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
 
-  // Querying DB to check whether the user already exists
   db.query(
     "SELECT phone FROM users WHERE phone = ?",
     [phone],
@@ -77,7 +57,7 @@ exports.register = async (req, res) => {
         console.error("Error sending OTP:", err);
         res.status(500).json({ message: "Failed to send OTP." });
       }
-    }
+    },
   );
 };
 
@@ -104,7 +84,7 @@ exports.verifyOtp = async (req, res) => {
         userData.phone,
         userData.password,
       ],
-      (error, result) => {
+      (error) => {
         if (error) {
           console.log(error);
           return res.status(500).json({ message: "Database error!" });
@@ -114,7 +94,7 @@ exports.verifyOtp = async (req, res) => {
             .status(200)
             .json({ message: "User Registration Success!" });
         }
-      }
+      },
     );
   } else {
     return res.status(400).json({ message: "Invalid OTP!" });

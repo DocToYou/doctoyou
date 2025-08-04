@@ -33,9 +33,12 @@ export const Login = ({ changeToSignUp }) => {
         <h1 className='text-[22px] font-extrabold text-blue-800'>Welcome back</h1>
         <p>Dont't wait days for doctor. Getinstant care from top professionals - anytime, anywhere.</p>
         <form ref={loginForm} onSubmit={handleLoginSubmit} onChange={checkFormValidity} className='flex flex-col gap-5 m-0'>
-            <div>
+            <div className="flex flex-col">
                 <label className='text-[15px]' htmlFor="mobile">Phone number</label>
-                <input className='w-full border-1 px-5 py-3 rounded placeholder:text-[14px]' type="tel" name="phone" id="mobile" placeholder='Enter your phone no' required pattern="[6-9]\d{9}" maxLength={10} />
+                <div className="flex items-center w-full border rounded">
+                <span className="px-4 py-3 bg-gray-100 text-[14px] border-r">+91</span>
+                <input className='w-full px-5 py-3 placeholder:text-[14px]' type="tel" name="phone" id="mobile" placeholder='Enter your phone no' required pattern="[6-9]\d{9}" maxLength={10} />
+            </div>
             </div>
             <div>
                 <label className='text-[15px]'  htmlFor="password">Password</label>
