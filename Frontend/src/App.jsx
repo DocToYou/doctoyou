@@ -8,14 +8,13 @@ import { Cato } from './components/cato';
 
 const App = () => {
   return (
-    // <Router>
-    //   <Routes>
-    //     <Route path='/' element={<Home />}/>
-    //     <Route path='/auth' element={<AuthPage />} />
-    //     {/* <Route path='/signup' element={<Service />} /> */}
-    //   </Routes>
-    // </Router>
-   <Cato/>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/auth' element={<AuthPage />} />
+        {/* <Route path='/signup' element={<Service />} /> */}
+      </Routes>
+    </Router>
   );
 };
 

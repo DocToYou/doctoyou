@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from '../components/Navbar'
+import { Cato } from '../components/cato';
 
 export const Home = () => {
     return (
@@ -364,6 +365,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
+        <Cato />
       </div>
     );
 }
