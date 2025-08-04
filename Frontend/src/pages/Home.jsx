@@ -4,7 +4,7 @@ import { Cato } from '../components/cato';
 
 export const Home = () => {
     return (
-      <div className="lg:bg-[#e4ebf2] h-screen">
+      <div className="lg:bg-white h-screen">
         <div className="h-5"></div>
         <Navbar />
         <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
@@ -268,7 +268,7 @@ export const Home = () => {
         </div>
 
         <div
-          className="bg-[#e4ebf2]"
+          className="bg-white"
           style={{ fontFamily: '"Poppins", sans-serif' }}
         >
           <div className="min-h-screen flex items-center justify-center lg:px-4  ">

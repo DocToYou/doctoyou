@@ -61,7 +61,7 @@ export const Navbar = () => {
           </div>
           <Link
             to={"/location"}
-            className=" flex text-medium justify-center bg-[#1815a1] text-white font-bold px-3 py-2 rounded ml-auto"
+            className=" flex text-medium justify-center bg-[#1815a1] text-white font-bold pl-3 pr-3 py-2 rounded ml-auto"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +70,7 @@ export const Navbar = () => {
               fill="currentColor"
               class="bi bi-geo-alt-fill"
               viewBox="0 0 16 16"
+              className="mt-1"
             >
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
             </svg>

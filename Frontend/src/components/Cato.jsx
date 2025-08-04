@@ -4,7 +4,7 @@ export const Cato = () => {
   return (
     <div className="relative">
       <div className="bg-[#3232ca]">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold lg:text-center pt-10 pb-4 text-white lg:mb-2 lg:pt-7 lg:z-20 pl-5 pt-5">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold lg:text-center pt-10 pb-4 text-white lg:mb-2 lg:pt-7 lg:z-20 pl-5">
           How Can We Help You Today?
         </h1>
         <p className="lg:text-center text-white   lg:px-4  pl-5 pr-30 text-[15px] text-base sm:text-lg md:text-xl ">
