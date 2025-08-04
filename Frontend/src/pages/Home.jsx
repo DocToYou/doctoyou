@@ -1,12 +1,12 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
+import { Navbar } from '../components/home/Navbar'
 
 export const Home = () => {
     return (
       <div className="bg-[#e4ebf2]">
         <div className="h-0 lg:h-5"></div>
         <Navbar />
-        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="relative flex mt-5 mx-5 lg:mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
               src="home/doc.png"

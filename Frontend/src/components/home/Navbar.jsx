@@ -60,7 +60,7 @@ export const Navbar = () => {
                         </svg>
                         <span className="hidden lg:block">location</span>
                     </Link>
-                    <Link to={'/auth'} className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded-2xl ml-3">
+                    <Link to={'/auth/login'} className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded-2xl ml-3">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

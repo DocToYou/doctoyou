@@ -12,16 +12,16 @@ export const SignUp = ({ changeToLogin }) => {
   // const [otpError, setOtpError] = useState('wwwwww')
   const [fullNumber, setFullNumber] = useState(null);
   const [otpTime, setOtpTime] = useState(60)
-  const signUpFrom = useRef(null)
+  const signUpForm = useRef(null)
   const checkFormValidity = () => {
-    const currForm = signUpFrom.current
+    const currForm = signUpForm.current
     SetIsPasswordMatch(currForm.password.value === currForm.confirmpassword.value)
     if (currForm) setIsValidSignUpForm(currForm.checkValidity())
   }
 
   const handleSignUpSubmit = async e => {
     e.preventDefault()
-    const data = new FormData(signUpFrom.current)
+    const data = new FormData(signUpForm.current)
     try {
       let res = await axios.post('http://localhost:3000/register', {
         fname: data.get('fname'), lname: data.get('lname'), email: data.get('email'),
@@ -81,18 +81,18 @@ export const SignUp = ({ changeToLogin }) => {
         :
         <div className='flex flex-col justify-center h-full'>
           <h1 className='text-[25px] font-bold text-blue-800 text-center'>Create Your Account</h1>
-          <form ref={signUpFrom} onSubmit={handleSignUpSubmit} className='mt-3 flex flex-col gap-3.5' onChange={checkFormValidity}>
+          <form ref={signUpForm} onSubmit={handleSignUpSubmit} className='mt-1 flex flex-col gap-3' onChange={checkFormValidity}>
             <div>
-              <label htmlFor="name">Name*</label>
+              <label>Name*</label>
               <div className='flex gap-4'>
-                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={15} />
+                <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="fname" id="name" placeholder='First name' required pattern='[a-zA-Z]+' maxLength={25} />
                 <input className='border-1 w-1/2 px-3 py-2 rounded' type="text" name="lname" id="lastname" placeholder='Last name' required pattern='[a-zA-Z]+' maxLength={15} />
               </div>
             </div>
             <div>
               <label htmlFor="gender">Gender</label><br />
-              <select className='w-full border-1 rounded pl-5 py-2' name="gender" id="gender" required>
-                <option value="" disabled selected>Select Your Gender</option>
+              <select className='w-full border-1 rounded pl-5 py-2' name="gender" id="gender" required defaultValue="">
+                <option value="" disabled>Select Your Gender</option>
                 <option value="Male">Male</option>
                 <option value="female">Female</option>
               </select>
@@ -110,7 +110,7 @@ export const SignUp = ({ changeToLogin }) => {
               <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="password" id="password" placeholder='Enter New Password' required minLength={6} maxLength={20} />
             </div>
             <div>
-              <label className={!isPasswordMatch && isValidSignUpForm && 'text-red-600'} htmlFor="password">{!isPasswordMatch && isValidSignUpForm ? 'Please Enter Correct Password' : 'Confirm Password'}</label>
+              <label className={!isPasswordMatch && isValidSignUpForm && 'text-red-600'} htmlFor="confirmpassword">{!isPasswordMatch && isValidSignUpForm ? 'Please Enter Correct Password' : 'Confirm Password'}</label>
               <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="confirmpassword" id="confirmpassword" placeholder='Enter Your Password' required minLength={6} maxLength={20} />
             </div>
             <button className={`mt-3 mx-auto w-[80%] border-1 py-2 rounded-[10px] text-white ${isValidSignUpForm ? 'bg-blue-800 cursor-pointer' :
