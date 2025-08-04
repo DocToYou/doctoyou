@@ -151,7 +151,7 @@ const Card = ({ image, title, description }) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white">
     <img src={image} alt={title} className="w-full h-full object-cover" />
 
-    <div className="absolute top-4 left-4 text-gray-900 w-[60%] pr-6 flex flex-col lg:h-[140px]">
+    <div className="absolute top-4 left-4 text-gray-900 w-[70%] pr-6 flex flex-col h-[120px]">
       <div className="flex-1">
         <h2 className="text-lg sm:text-xl font-bold text-[#1815a1]">{title}</h2>
         <p className="text-sm sm:text-base">{description}</p>
@@ -159,7 +159,7 @@ const Card = ({ image, title, description }) => (
 
       <div className="flex items-center pt-4 lg:pb-4 mt-auto">
         <img className="lg:h-4 lg:w-4 h-6 w-6" src="/TimeIcon.svg" alt="time" />
-        <p className="lg:text-[13px] font-bold pl-2">
+        <p className="lg:text-[13px] text-[15px] font-bold pl-2">
           Get Care Within 60 Minutes
         </p>
       </div>
