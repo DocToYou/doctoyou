@@ -7,11 +7,14 @@ export const Cato = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold lg:text-center pt-10 pb-4 text-white lg:mb-2 lg:pt-7 lg:z-20 pl-5 pt-5">
           How Can We Help You Today?
         </h1>
-        <p className="lg:text-center text-white lg:mb-8 lg:pt-4 lg:px-4 pb-8 pl-5 pr-30 text-[15px] text-base sm:text-lg md:text-xl ">
-          No need to visit the hospital. Choose your condition and we'll send a
-          certified doctor to your home.
+        <p className="lg:text-center text-white   lg:px-4  pl-5 pr-30 text-[15px] text-base sm:text-lg md:text-xl ">
+          No need to visit the hospital.
         </p>
 
+         <p className="lg:text-center text-white   lg:px-4 pb-8 pl-5 pr-30 text-[15px] text-base sm:text-lg md:text-xl ">
+          Choose your condition and we'll send a
+          certified doctor to your home.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
           {/* Card 1 */}
           <Card
