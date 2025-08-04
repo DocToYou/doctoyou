@@ -3,17 +3,17 @@ import { Navbar } from '../components/Navbar'
 
 export const Home = () => {
     return (
-      <div className="bg-[#e4ebf2] h-screen">
+      <div className="lg:bg-[#e4ebf2] h-screen">
         <div className="h-5"></div>
         <Navbar />
-        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-3xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
               src="/doc.png"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-3xl"
             />
-            <div className="ml-5 items-center gap-3 px-6 py-3 bg-white rounded-full shadow-md text-black text-base w-fit hidden lg:flex">
+            <div className="ml-5 items-center gap-3 px-6 py-3 bg-white rounded-2xl shadow-md text-black text-base w-fit hidden lg:flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -32,7 +32,7 @@ export const Home = () => {
               </span>
             </div>
             <div className="flex pt-3 pl-2 pb-2">
-              <div className="flex  gap-1 px-2 py-1 bg-white rounded-full shadow text-black text-xs w-fit  lg:hidden">
+              <div className="flex  gap-1 px-2 py-1 bg-white rounded shadow text-black text-xs w-fit  lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
