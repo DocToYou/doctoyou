@@ -4,7 +4,7 @@ import { SignUp } from './components/SignUp';
 import { Home } from './pages/Home';
 import { AuthPage } from './pages/AuthPage';
 import { Login } from './components/Login';
-import { Cato } from './components/cato';
+import { Cards } from './components/Cards';
 
 const App = () => {
   return (

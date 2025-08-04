@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar } from '../components/Navbar'
-import { Cato } from '../components/cato';
+import { Cards } from '../components/Cards';
 
 export const Home = () => {
     return (
@@ -365,7 +365,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <Cato />
+        <Cards/>
       </div>
     );
 }
