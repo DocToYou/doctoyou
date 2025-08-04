@@ -1,4 +1,3 @@
-const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 // const otpVerification = require("./otpVerification"); // Import OTP verification controller
@@ -28,7 +27,7 @@ exports.register = async (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const email = req.body.email;
-  const gender = req.body.gender === "Male" ? "M" : "Female" ? "F" : "O";
+  const gender = (req.body.gender == "Male") ? "M" : (req.body.gender === "Female") ? "F" : "O";
   const phone = parseInt(req.body.phone);
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
