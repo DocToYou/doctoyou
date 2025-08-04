@@ -7,12 +7,12 @@ export const Home = () => {
       <div className="lg:bg-white h-screen">
         <div className="h-5"></div>
         <Navbar />
-        <div className="relative flex mt-5 mx-10 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="relative flex  mt-5 mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
               src="/doc.png"
               alt="Background"
-              className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-3xl"
+              className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-2xl"
             />
             <div className="ml-5 items-center gap-3 px-6 py-3 bg-white rounded-2xl shadow-md text-black text-base w-fit hidden lg:flex">
               <svg
@@ -59,39 +59,27 @@ export const Home = () => {
               From cough to care - Book trusted doctors online and get treatment
               at your doorstep.
             </div>
-            <div className="px-2 text-white pt-1 text-[10px] lg:hidden">
+            <div className="px-2 text-white pt-1 text-[13px] lg:hidden">
               From cough to care - Book trusted doctors online and get treatment
               at your doorstep.
             </div>
-            <div className="pl-5 pt-8 hidden lg:flex">
+
+            <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5">
               <a
-                className="bg-white text-[#020460] rounded-3xl p-2 lg:px-3 lg:py-2 mr-5"
+                className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-4 lg:px-8  lg:py-2 text-sm lg:text-base mr-3 lg:mr-5"
                 href=""
               >
                 Emergency Service
               </a>
               <a
-                className="bg-transparent rounded-3xl px-3 py-2 border border-white text-white"
-                href=""
-              >
-                Book Appointment
-              </a>
-            </div>
-            <div className="pt-5 lg:hidden flex justify-center gap-1">
-              <a
-                className="bg-white text-[#020460] rounded-xl px-4 py-[5px] text-[12px] mr-2"
-                href=""
-              >
-                Emergency Service
-              </a>
-              <a
-                className="bg-transparent border border-white text-white rounded-xl px-4 py-[5px] text-[12px] ml-2 "
+                className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-4 lg:px-8 lg:py-2 text-sm lg:text-base ml-3 lg:ml-0"
                 href=""
               >
                 Book Appointment
               </a>
             </div>
           </div>
+
           <div className="w-1/2 hidden lg:flex">
             <img src="/doc2.png" alt="docter" />
           </div>
@@ -272,9 +260,9 @@ export const Home = () => {
           style={{ fontFamily: '"Poppins", sans-serif' }}
         >
           <div className="min-h-screen flex items-center justify-center lg:px-4  ">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-10 pb-45 lg:px-20 lg:pb-7 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4  lg:px-20 lg:pb-7 w-full">
               <div className="lg:space-y-9 lg:pt-2 pt-12 relative ">
-                <h1 className="text-2xl lg:text-6xl font-bold text-[#1815a1]  absolute">
+                <h1 className="text-3xl lg:text-6xl font-bold text-[#1815a1]  absolute">
                   Emergency? Get Help Instantly.
                 </h1>
                 <div className="text-gray-700 lg:text-xl text-[15px] pt-20 lg:pt-40">
@@ -286,8 +274,8 @@ export const Home = () => {
                   alt="Emergency Visual"
                   className="lg:hidden"
                 />
-                <div className=" text-[13px] lg:text-[15px] lg:space-y-0.5">
-                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                <div className=" text-[13px] lg:text-[15px] lg:space-y-0.5 px-2">
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -307,7 +295,7 @@ export const Home = () => {
                       alt="doctor"
                     />
                   </div>
-                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -327,7 +315,7 @@ export const Home = () => {
                       alt="security"
                     />
                   </div>
-                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit font-bold">
+                  <div className="text-black px-2 py-2 rounded-md flex items-center gap-2 w-fit ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -350,7 +338,7 @@ export const Home = () => {
                 </div>
 
                 <div className="flex justify-center py-3 lg:pt-5 lg:justify-start">
-                  <button className="bg-red-500 hover:bg-red-600 text-[14px]  px-18 py-3 text-white lg:px-16 lg:py-3 rounded-xl font-semibold ">
+                  <button className="bg-red-500 hover:bg-red-600 text-[14px]  px-21 py-4 text-white lg:px-30 lg:py-3 rounded-xl font-semibold ">
                     Book Emergency Help Now
                   </button>
                 </div>
@@ -364,8 +352,10 @@ export const Home = () => {
               </div>
             </div>
           </div>
+
+
         </div>
-        <Cards/>
+        <Cards />
       </div>
     );
 }
