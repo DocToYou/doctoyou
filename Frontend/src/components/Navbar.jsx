@@ -5,7 +5,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <section className="lg:bg-white">
-      <div className="w-full mx-auto px-4">
+      <div className="w-full mx-auto lg:px-3">
         <div className="flex p-4">
           <div className="flex items-start justify-between w-1/8 lg:w-auto">
             <button
@@ -18,7 +18,7 @@ export const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6"
+                className="size-8 "
               >
                 <path
                   strokeLinecap="round"
@@ -28,11 +28,11 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-          <Link to={"/"} className="text-2xl font-bold text-[#1815a1] pr-5 ">
+          <Link to={"/"} className="text-2xl font-bold text-[#1815a1] pr-5 pt-2 ">
             Doc2you
           </Link>
           <div className="my-auto">
-            <ul className=" hidden lg:flex font-bold px-5">
+            <ul className=" hidden lg:flex font-bold px-5 pt-4">
               <li className="pr-5">
                 <Link
                   to={"/"}
@@ -74,9 +74,8 @@ export const Navbar = () => {
             >
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
             </svg>
-            
 
-            <span className="hidden lg:block">location</span>
+            <span className="hidden lg:block lg:px-3">location</span>
           </Link>
           <Link
             to={"/auth"}
@@ -96,7 +95,7 @@ export const Navbar = () => {
                 d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
               />
             </svg>
-            <span className="hidden lg:block">login/signup</span>
+            <span className="hidden lg:block lg:px-3 ">login/signup</span>
           </Link>
         </div>
         <div>

@@ -66,13 +66,13 @@ export const Home = () => {
 
             <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5">
               <a
-                className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-4 lg:px-8  lg:py-2 text-sm lg:text-base mr-3 lg:mr-5"
+                className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2 text-sm lg:text-base mr-3 lg:mr-5"
                 href=""
               >
                 Emergency Service
               </a>
               <a
-                className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-4 lg:px-8 lg:py-2 text-sm lg:text-base ml-3 lg:ml-0"
+                className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2 text-sm lg:text-base ml-3 lg:ml-0"
                 href=""
               >
                 Book Appointment
