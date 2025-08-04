@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 // const otpVerification = require("./otpVerification"); // Import OTP verification controller
 
-console.log("Connecting to database with the above details:");
+// console.log("Connecting to database with the above details:");
 
 if (
   !process.env.TWILIO_ACCOUNT_SID ||
@@ -28,7 +28,7 @@ exports.register = async (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const email = req.body.email;
-  const gender = req.body.gender === "Male" ? "M" : "F";
+  const gender = req.body.gender === "Male" ? "M" : "Female" ? "F" : "O";
   const phone = parseInt(req.body.phone);
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
