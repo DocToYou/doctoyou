@@ -132,7 +132,7 @@ export const Cards = () => {
             description="Mental wellness support from certified professionals."
           />
           <Card
-            image="/card8.png"
+            image="/card8.jpg"
             title="Diabetes Care"
             description="Ongoing diabetes monitoring and personalized plans."
           />
