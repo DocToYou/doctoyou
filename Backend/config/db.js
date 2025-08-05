@@ -10,15 +10,7 @@ if (
   console.error("Missing database environment variables!");
   process.exit(1); // Stop execution if database credentials are missing
 }
-// Log the database connection details for debugging
-// console.log("Database connection details:");
-// console.log(`Host: ${process.env.MYSQL_HOST}`);
-// console.log(`User: ${process.env.MYSQL_USER}`);
-// console.log(`Database: ${process.env.MYSQL_DATABASE}`);
-// console.log(`Password: ${process.env.MYSQL_PASSWORD}`); // Do not log password for security reasons
 
-// prints the database connection details for debugging
-console.log("Connecting to database with the above details:");
 //create a connection to the database
 const db = mysql.createPool({
   host: process.env.MYSQL_HOST,

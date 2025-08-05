@@ -1,7 +1,6 @@
 const db = require("../config/db");
 const bcrypt = require("bcryptjs");
 
-
 exports.login = async (req, res) => {
   const phone = req.body.phone;
   const password = req.body.password;
@@ -19,17 +18,17 @@ exports.login = async (req, res) => {
         console.log(error);
         return res.status(500).json({ message: "Server error occured" });
       }
-      if (result.length === 0){
-        return res.status(404).send("User not found")
-        return res.json({ message: "User not found!" });
+      if (result.length === 0) {
+        return res.status(404).send("User not found");
+        //return res.json({ message: "User not found!" });
       }
       const hashedPassword = result[0].Password;
       bcrypt.compare(password, hashedPassword, (error, match) => {
         if (error) {
           // console.log(match)
           console.log(error);
-          return res.status(401).send("Invalid credentials")
-          return res.json(400,{ message: "Error checking password" });
+          return res.status(401).send("Invalid credentials");
+          //return res.json(400,{ message: "Error checking password" });
         }
         if (match) {
           console.log("Successfully Logged in!");
@@ -39,6 +38,6 @@ exports.login = async (req, res) => {
           return res.json({ message: "Incorrect match" });
         }
       });
-    }
+    },
   );
 };

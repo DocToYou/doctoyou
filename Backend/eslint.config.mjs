@@ -6,18 +6,21 @@
  * Created and written by Dheena Krishna on 2025-07-27
  */
 // Importing necessary modules for ESLint configuration
+import eslintPluginNode from 'eslint-plugin-node';
+import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
+import eslintPluginSecurity from "eslint-plugin-security";
 
-import js from "@eslint/js"; // Importing the recommended ESLint configuration for JavaScript
-import globals from "globals"; // Importing global variables for different environments such as Node.js and browser
-import { defineConfig } from "eslint/config"; // Importing the defineConfig function to create a configuration object
-
-// Defining the ESLint configuration
-// This configuration applies to all JavaScript files in the project
-// It extends the recommended rules from ESLint and includes custom rules for better code quality
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"], // Targeting all JavaScript files
-    plugins: { js },
+    plugins: { js,
+      node: eslintPluginNode,
+      security: eslintPluginSecurity,
+      //import: eslintPluginImport,
+      //promise: eslintPluginPromise,
+    },
     extends: ["js/recommended"],
     languageOptions: {
       ecmaVersion: 2021,
@@ -28,11 +31,40 @@ export default defineConfig([
       },
     },
     rules: {
-      "no-unused-vars": "warn", // Warn about unused variables
-      "no-undef": "error", // Warn about undefined variables
-      "no-console": "off", // Allow console statements for debugging
-      "no-process-env": "off", // Allow process.env usage
-      semi: ["error", "always"], // Enforce semicolons at the end of statements
+      // ✅ Core Best Practices
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      //'no-console': 'warn',
+      'no-debugger': 'error',
+      'eqeqeq': ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'arrow-body-style': ['error', 'as-needed'],
+      'no-mixed-spaces-and-tabs': 'error',
+      'no-trailing-spaces': 'error',
+      'object-curly-spacing': ['error', 'always'],
+      'semi': ['error', 'always'],
+      'indent': ['error', 2, { SwitchCase: 1 }],
+      //'no-nested-ternary': 'warn',
+
+      // // 🔒 Security
+      'security/detect-object-injection': 'warn',
+
+      // // 📦 Node.js Specific
+      'node/no-missing-import': 'off',
+      'node/no-unpublished-import': 'off',
+
+      // // 📥 Import Rules
+      // 'import/order': ['error', {
+      //   groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      //   'newlines-between': 'always',
+      // }],
+      // 'import/no-unresolved': 'error',
+      // 'import/newline-after-import': 'error',
+
+      // // ⏳ Promises
+      // 'promise/always-return': 'warn',
+      // 'promise/no-nesting': 'warn',
+      // 'promise/no-return-wrap': 'warn',
     },
   },
 ]);
