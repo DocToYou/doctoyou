@@ -8,7 +8,7 @@ export const AuthPage = () => {
 
     return (
         <div className='flex bg-[#1815A1] min-h-screen'>
-            <div className='lg:my-10 mx-10 md:mx-auto mb-10 lg:mx-20 md:w-1/2 lg:w-1/3'>
+            <div className='flex flex-col justify-center lg:my-10 mx-10 md:mx-auto mb-10 lg:mx-20 md:w-1/2 lg:w-1/3'>
                 <div className={`my-10 text-center text-white text-5xl ${mode === "signup" && 'lg:hidden'}`}>DOC2YOU</div>
                 <div className="bg-white rounded-3xl px-5 py-5 lg:py-10">
                     {mode === "signup" ? <SignUp /> : mode === "login" ? <Login /> : null}

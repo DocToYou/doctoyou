@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Cato = () => {
+  const [showAll, setShowAll] = useState(false)
   return (
     <div className="relative">
       <div className="bg-[#3232ca]">
@@ -16,7 +17,7 @@ export const Cato = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md"
+              className={`relative aspect-[16/9] rounded-xl overflow-hidden shadow-md lg:block ${!showAll && index > 1 && "hidden"}`}
             >
               <img
                 src={card.image}
@@ -46,6 +47,7 @@ export const Cato = () => {
               </div>
             </div>
           ))}
+          <button className="lg:hidden" onClick={() => setShowAll(!showAll)}>{showAll ? 'View Less' : 'View More'}</button>
         </div>
       </div>
     </div>

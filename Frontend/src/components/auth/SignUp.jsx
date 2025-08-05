@@ -1,18 +1,19 @@
-import React, { useRef, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import axiosClient from '../../axiosConfig'
 import Otp from './Otp'
 
 export const SignUp = ({ changeToLogin }) => {
 
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(false)
   const [isPasswordMatch, SetIsPasswordMatch] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [isOtpSent, setIsOtpSent] = useState(false)
   const [mobileNo, setMobileNo] = useState('')
   const [otp, setOtp] = useState('')
-  // const [otpError, setOtpError] = useState('wwwwww')
-  const [fullNumber, setFullNumber] = useState(null);
-  const [otpTime, setOtpTime] = useState(60)
+  const [otpError, setOtpError] = useState('')
+  const [otpTime, setOtpTime] = useState(30)
   const signUpForm = useRef(null)
+
   const checkFormValidity = () => {
     const currForm = signUpForm.current
     SetIsPasswordMatch(currForm.password.value === currForm.confirmpassword.value)
@@ -21,43 +22,55 @@ export const SignUp = ({ changeToLogin }) => {
 
   const handleSignUpSubmit = async e => {
     e.preventDefault()
+    setIsLoading(true)
     const data = new FormData(signUpForm.current)
+    setMobileNo(data.get('phone'));
     try {
-      let res = await axios.post('http://localhost:3000/register', {
+      let res = await axiosClient.post('/register', {
         fname: data.get('fname'), lname: data.get('lname'), email: data.get('email'),
         gender: data.get('gender'), phone: data.get('phone'), password: data.get('password'), confirmPassword: data.get('confirmpassword')
       })
-      setFullNumber(data.get('phone'));
     } catch (error) {
       console.log(error.message)
     }
-    setMobileNo(data.get('phone').substring(6))
+    setIsLoading(false)
     setIsOtpSent(true)
     startOtpTimer()
   }
 
   const handleOtpSubmit = async () => {
+    setIsLoading(true)
     try {
       if (otp.length == 4) {
-        const res = await axios.post('http://localhost:3000/verifyOtp', { otp: otp, phone: Number(fullNumber) })
+        const res = await axiosClient.post('/verifyOtp', { otp: otp, phone: Number(mobileNo) })
         if (res.status === 200) {
           changeToLogin(false)
         }
+        else {
+          setOtpError("Invalid OTP. Please try again.");
+        }
       }
     } catch (error) {
-
+      console.log(error)
     }
+    setIsLoading(false)
   }
 
   const handleOtpChange = (code) => {
     setOtp(code)
   }
 
+  const handleResendOtp = () => {
+    console.log(mobileNo)
+    setOtpTime(30)
+    startOtpTimer()
+  }
+
   const startOtpTimer = () => {
-    let startTime = 60
+    let time = 30
     const timer = setInterval(() => {
-      setOtpTime(--startTime)
-      if (startTime == 0) clearInterval(timer)
+      setOtpTime(--time)
+      if (time == 0) clearInterval(timer)
     }, 1000)
   }
 
@@ -65,18 +78,23 @@ export const SignUp = ({ changeToLogin }) => {
   return (
     <>
       {isOtpSent ?
-        <div className='flex flex-col gap-3 items-center justify-center h-full'>
+        <div className='flex flex-col gap-5 items-center justify-center lg:py-30'>
           <h1 className='text-3xl lg:text-2xl font-bold text-center text-blue-800'>Verify Your Mobile Number</h1>
           <div>
-            <p className='hidden lg:block'>{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo}`}</p>
+            <p className='hidden lg:block'>{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo.substring(6)}`}</p>
             <p className='text-center lg:hidden'>we've sent a 4-digitcode to</p>
-            <p className='text-center lg:hidden'>{`+91 xxxxxx${mobileNo}`}</p>
+            <p className='text-center lg:hidden'>{`+91 xxxxxx${mobileNo.substring(6)}`}</p>
             <p>Enter the code below to continue</p>
           </div>
-          <p>{"00:" + otpTime}</p>
           <Otp onChangeOTP={handleOtpChange} />
-          <button onClick={handleOtpSubmit} className={`w-[90%] py-2 bg-blue-800 rounded text-white ${otp.length == 4 ? 'opacity-100 cursor-pointer' : 'opacity-50'}`}>Verify</button>
-          <p>Didn't receive the code? [<span className='text-blue-800 cursor-pointer'>Resend OTP</span>]</p>
+          {otpError && <p className="text-red-600 text-sm">{otpError}</p>}
+          <button onClick={handleOtpSubmit} className={`w-[80%] py-2 bg-blue-800 rounded text-white flex justify-center items-center gap-2 cursor-pointer ${otp.length == 4 ? 'opacity-100' : 'opacity-50'}`}>{isLoading && (
+            <div
+              className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
+              aria-label="Loading"
+            ></div>
+          )}Verify</button>
+          <button onClick={handleResendOtp} className={`text-blue-800 cursor-pointer ${otpTime === 0 ? 'opacity-100' : 'opacity-50'}`} disabled={otpTime !== 0}>Resend OTP {otpTime > 0 && <span>({"00:" + otpTime})</span>}</button>
         </div>
         :
         <div className='flex flex-col justify-center h-full'>
@@ -110,12 +128,25 @@ export const SignUp = ({ changeToLogin }) => {
               <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="password" id="password" placeholder='Enter New Password' required minLength={6} maxLength={20} />
             </div>
             <div>
-              <label className={!isPasswordMatch && isValidSignUpForm && 'text-red-600'} htmlFor="confirmpassword">{!isPasswordMatch && isValidSignUpForm ? 'Please Enter Correct Password' : 'Confirm Password'}</label>
+              <label className={!isPasswordMatch && isValidSignUpForm ? 'text-red-600' : undefined} htmlFor="confirmpassword">{!isPasswordMatch && isValidSignUpForm ? 'Please Enter Correct Password' : 'Confirm Password'}</label>
               <input className='w-full border-1 px-5 py-2 rounded mr-3' type="password" name="confirmpassword" id="confirmpassword" placeholder='Enter Your Password' required minLength={6} maxLength={20} />
             </div>
-            <button className={`mt-3 mx-auto w-[80%] border-1 py-2 rounded-[10px] text-white ${isValidSignUpForm ? 'bg-blue-800 cursor-pointer' :
-              'bg-gray-400 cursor-not-allowed'}`}>Sign Up</button>
-          </form></div>}
+            <button
+              className={`mt-3 mx-auto w-[80%] border py-2 rounded-[10px] text-white flex justify-center items-center gap-2
+    ${isValidSignUpForm ? 'bg-blue-800 cursor-pointer' : 'bg-gray-400 cursor-not-allowed'}`}
+              disabled={!isValidSignUpForm || isLoading}
+            >
+              {isLoading && (
+                <div
+                  className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
+                  aria-label="Loading"
+                ></div>
+              )}
+              Sign Up
+            </button>
+
+          </form>
+        </div>}
 
     </>
   )

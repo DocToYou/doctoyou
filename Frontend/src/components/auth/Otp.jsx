@@ -7,6 +7,7 @@ const Otp = ({ length = 4, onChangeOTP }) => {
     const handleChange = (value, index) => {
 
         const char = value.slice(-1);
+        if (!/^\d?$/.test(char)) return;
         const newOtp = [...otp];
         newOtp[index] = char;
         setOtp(newOtp);
@@ -34,7 +35,7 @@ const Otp = ({ length = 4, onChangeOTP }) => {
                 <input
                     key={idx}
                     ref={(el) => (inputsRef.current[idx] = el)}
-                    type="number"
+                    type="text"
                     maxLength="1"
                     value={digit}
                     onChange={(e) => handleChange(e.target.value, idx)}

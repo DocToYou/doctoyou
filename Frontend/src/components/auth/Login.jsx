@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axiosClient from '../../axiosConfig'
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
@@ -18,10 +18,13 @@ export const Login = ({ changeToSignUp }) => {
         const form = loginForm.current
         const data = new FormData(form)
         try {
-            let res = await axios.post('http://localhost:3000/login', {phone: data.get('phone'), password: data.get('password')})
+            let res = await axiosClient.post('/login', {phone: data.get('phone'), password: data.get('password')})
             if (res.status == 200) {
                 localStorage.setItem('userName', res.data.userName)
                 navigate('/')
+            }
+            else if (res.status === 404){
+                setError(res.data.message)
             }
         } catch (error) {
             console.log(error.message)
