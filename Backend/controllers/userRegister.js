@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 const client = require("../config/twilio");
+const generateOtp =require("../utils/sendOtp")
 
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
@@ -52,7 +53,7 @@ exports.register = async (req, res) => {
           to: `+91${phone}`,
         });
         console.log(`OTP sent: ${message.sid}`);
-        res.json({ message: "OTP Sent Successfully!" });
+        res.status(200).json({ message: "OTP Sent Successfully!" });
       } catch (err) {
         console.error("Error sending OTP:", err);
         res.status(500).json({ message: "Failed to send OTP." });
