@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const Cards = () => {
   return (
     <div className="relative bg-[#3232ca] overflow-hidden">

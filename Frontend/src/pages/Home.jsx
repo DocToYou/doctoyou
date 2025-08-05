@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
-import { Cards } from '../components/Cards';
+import { Navbar } from '../components/home/Navbar';
+import { Cards } from '../components/home/Cards';
+import {doc, doc2, greenTick} from '../assets/home'
 
 export const Home = () => {
     return (
@@ -10,7 +11,7 @@ export const Home = () => {
         <div className="relative flex  mt-5 mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <img
-              src="/doc.png"
+              src={doc}
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-2xl"
             />
@@ -22,9 +23,9 @@ export const Home = () => {
                 className="text-[#149b56] size-6"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
 
@@ -81,7 +82,7 @@ export const Home = () => {
           </div>
 
           <div className="w-1/2 hidden lg:flex">
-            <img src="/doc2.png" alt="docter" />
+            <img src={doc2} alt="docter" />
           </div>
           <div className="absolute bottom-[15px] lg:bottom-[23px] left-1/2 transform -translate-x-1/2 w-11/12 lg:w-[60%] bg-white shadow-lg rounded-2xl p-4 flex flex-col lg:flex-row justify-between items-center gap-1 z-10 text-[#1815a1]">
             <div className="relative w-full lg:w-auto">
@@ -283,9 +284,9 @@ export const Home = () => {
                       className="text-[#149b56] size-5"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     Emergency doctors available 24/7{" "}
@@ -303,9 +304,9 @@ export const Home = () => {
                       className="text-[#149b56] size-5"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     Avg response time: under 5 minutes
@@ -323,9 +324,9 @@ export const Home = () => {
                       className="text-[#149b56] size-5"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     Quick response, trusted care, zero hassle.
