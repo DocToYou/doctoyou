@@ -1,5 +1,6 @@
 const { where } = require("sequelize");
 const User = require("../models/Users");
+const bcrypt = require("bcryptjs");
 
 if (
   !process.env.TWILIO_ACCOUNT_SID ||
@@ -32,9 +33,9 @@ exports.sendOtp = async (req, res) => {
     .then(async (result) => {
       if (!result)
         return res.status(500).json({ message: "DB Error!", result: result });
-      // console.log(result);
+      //   console.log(result);
 
-      if (result === null) {
+      if (result !== null) {
         // Generate 4-digit OTP
         const digits = "0123456789";
         var otp = "";
@@ -49,32 +50,33 @@ exports.sendOtp = async (req, res) => {
 
         // Send OTP via SMS
         try {
-          const message = await client.messages.create({
-            body: `Your OTP for DocToYou is ${otp}`,
-            from: process.env.TWILIO_PHONE_NUMBER,
-            to: `+91${phone}`,
-          });
-          console.log(`OTP sent: ${message.sid}`);
-          res.status(200).json({ message: "OTP Sent Successfully!" });
-        //   console.log(otp);
-        //   console.log(otpMap.get(phone));
+          //   const message = await client.messages.create({
+          //     body: `Your OTP for DocToYou is ${otp}`,
+          //     from: process.env.TWILIO_PHONE_NUMBER,
+          //     to: `+91${phone}`,
+          //   });
+          //   console.log(`OTP sent: ${message.sid}`);
+          //   console.log(otp);
+          console.log(otpMap.get(phone));
+          return res.status(200).json({ message: "OTP Sent Successfully!" });
         } catch (err) {
           console.error("Error sending OTP:", err);
-          res.status(500).json({ message: "Failed to send OTP." });
+          return res.status(500).json({ message: "Failed to send OTP." });
         }
       }
     })
     .catch((error) => {
       console.log(`Error while fetching: ${error.message}`);
+      return res.status(500).json({ message: "Error in Server" });
     });
 };
 
-exports.verifyOtp = async (req, res) => {
+exports.verifyOtpFP = async (req, res) => {
   const phone = parseInt(req.body.phone);
   const userOtp = req.body.otp;
 
   const entry = otpMap.get(phone);
-  // console.log(entry);
+  console.log(entry);
   if (!entry) {
     return res.status(400).json({ message: "OTP not sent or expired!" });
   }
@@ -92,12 +94,11 @@ exports.changePassword = async (req, res) => {
   const newPassword = req.body.newPassword;
   const phone = parseInt(req.body.phone);
 
-  await User.update(
-    { password: await bcrypt.hash(newPassword, 8) },
-    { where: { phone: phone } }
-  )
-    .then((result) => {
-      console.log(result.values());
+  const newHashPassword = await bcrypt.hash(newPassword, 8);
+  await User.update({ password: newHashPassword }, { where: { phone: phone } })
+    .then(result => {
+      console.log(result); // if result success, it'll return 1 or 0 if fails
+    // console.dir(result, { depth: null });
       res.status(200).json({ message: "Password reset sucessfully!" });
     })
     .catch((error) => {

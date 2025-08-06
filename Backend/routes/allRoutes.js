@@ -3,7 +3,7 @@ const router = express.Router();
 const userRegister = require("../controllers/userRegister");
 const userLogin = require("../controllers/userLogin");
 const homePage = require("../controllers/homePage");
-const UserForgotPass = require("../controllers/userForgotPass");
+const userForgotPass = require("../controllers/userForgotPass");
 
 // Home Page
 router.get("/", homePage.home);
@@ -17,7 +17,9 @@ router.post("/verifyOtp", userRegister.verifyOtp);
 router.get("/contents", userLogin.authToken, userLogin.contents);
 
 // User forgot passsword functionality => OTP Verification, Validation and Change Password
-router.post("/sendOtp", UserForgotPass.sendOtp);
+router.post("/sendOtp", userForgotPass.sendOtp);
+router.post("/verifyOtpFP", userForgotPass.verifyOtpFP);
+router.post("/changePassword", userForgotPass.changePassword);
 
 
 module.exports = router; 
