@@ -20,6 +20,7 @@ export const SignUp = ({ changeToLogin }) => {
   }
 
   const handleSignUpSubmit = async e => {
+    console.log("submit button")
     e.preventDefault()
     const data = new FormData(signUpFrom.current)
     try {

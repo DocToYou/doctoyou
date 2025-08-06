@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navbar } from '../components/Navbar'
 import { Cards } from '../components/Cards';
 
@@ -352,8 +351,6 @@ export const Home = () => {
               </div>
             </div>
           </div>
-
-
         </div>
         <Cards />
       </div>
