@@ -1,12 +1,11 @@
 const express = require("express");
 
 const dotenv = require("dotenv");
-dotenv.config(
-);
+dotenv.config();
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
-//const db = require("./config/db"); // Import the database connection pool
+const db = require("./config/db"); // Import the database connection pool
 const routes = require("./routes/allRoutes");
 
 const PORT = process.env.PORT || 3000;
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 //CORS
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: "http://localhost:5173" }));
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -27,6 +26,15 @@ app.use(cors());
 
 //Add all routes
 app.use("/", routes);
+
+//Sync all models (It'll create table if not exists)
+db.sync()
+  .then(() => {
+    console.log("Database Synced Successfully!");
+  })
+  .catch((error) => {
+    console.log(`Error while syncing: ${error.message}`);
+  });
 
 // Start the server
 app.listen(PORT, () => {
