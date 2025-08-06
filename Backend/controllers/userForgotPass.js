@@ -1,8 +1,5 @@
-const bcrypt = require("bcryptjs");
+const { where } = require("sequelize");
 const User = require("../models/Users");
-// const otpVerification = require("./otpVerification"); // Import OTP verification controller
-
-// console.log("Connecting to database with the above details:");
 
 if (
   !process.env.TWILIO_ACCOUNT_SID ||
@@ -23,17 +20,9 @@ const client = require("twilio")(
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
 
-exports.register = async (req, res) => {
-  const fname = req.body.fname;
-  const lname = req.body.lname;
-  const email = req.body.email;
-  const gender =
-    req.body.gender == "Male" ? "M" : req.body.gender === "Female" ? "F" : "O";
+exports.sendOtp = async (req, res) => {
   const phone = parseInt(req.body.phone);
-  const password = req.body.password;
-  // const confirmPassword = req.body.confirmPassword;
 
-  // Querying DB to check whether the user already exists
   await User.findOne({
     attributes: ["phone"],
     where: {
@@ -44,9 +33,7 @@ exports.register = async (req, res) => {
       if (!result)
         return res.status(500).json({ message: "DB Error!", result: result });
       // console.log(result);
-      if (result != null) {
-        return res.status(409).json({ message: "User Already Registered!" });
-      }
+
       if (result === null) {
         // Generate 4-digit OTP
         const digits = "0123456789";
@@ -58,14 +45,6 @@ exports.register = async (req, res) => {
         // Save OTP mapped to phone in otpMap object
         otpMap.set(phone, {
           otp,
-          userData: {
-            fname,
-            lname,
-            email,
-            gender,
-            phone,
-            password: await bcrypt.hash(password, 8),
-          },
         });
 
         // Send OTP via SMS
@@ -77,8 +56,8 @@ exports.register = async (req, res) => {
           });
           console.log(`OTP sent: ${message.sid}`);
           res.status(200).json({ message: "OTP Sent Successfully!" });
-          // console.log(otp);
-          // console.log(otpMap.get(phone));
+        //   console.log(otp);
+        //   console.log(otpMap.get(phone));
         } catch (err) {
           console.error("Error sending OTP:", err);
           res.status(500).json({ message: "Failed to send OTP." });
@@ -90,7 +69,6 @@ exports.register = async (req, res) => {
     });
 };
 
-// Verifying OTP
 exports.verifyOtp = async (req, res) => {
   const phone = parseInt(req.body.phone);
   const userOtp = req.body.otp;
@@ -101,26 +79,29 @@ exports.verifyOtp = async (req, res) => {
     return res.status(400).json({ message: "OTP not sent or expired!" });
   }
 
-  const { otp, userData } = entry;
+  const { otp } = entry;
 
   if (userOtp === otp) {
-    await User.create({
-      fname: userData.fname,
-      lname: userData.lname,
-      email: userData.email,
-      gender: userData.gender,
-      phone: userData.phone,
-      password: userData.password,
-    }).then((result) => {
-      if (!result) {
-        console.log(error);
-        return res.status(500).json({ message: "Database error!" });
-      } else {
-        otpMap.delete(phone);
-        return res.status(200).json({ message: "User Registration Success!" });
-      }
-    });
+    return res.status(200).json({ message: "Enter a New Password" });
   } else {
     return res.status(400).json({ message: "Invalid OTP!" });
   }
+};
+
+exports.changePassword = async (req, res) => {
+  const newPassword = req.body.newPassword;
+  const phone = parseInt(req.body.phone);
+
+  await User.update(
+    { password: await bcrypt.hash(newPassword, 8) },
+    { where: { phone: phone } }
+  )
+    .then((result) => {
+      console.log(result.values());
+      res.status(200).json({ message: "Password reset sucessfully!" });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ message: "Internal server error!" });
+    });
 };

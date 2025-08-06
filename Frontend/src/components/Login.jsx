@@ -23,9 +23,10 @@ export const Login = ({ changeToSignUp }) => {
                 localStorage.setItem('userName', res.data.userName)
                 navigate('/')
             }
+
         } catch (error) {
             console.log(error.message)
-            setError('wrong credentials')
+            setError('Wrong Credentials')
         }
     }
 
