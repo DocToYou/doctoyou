@@ -21,6 +21,7 @@ export const SignUp = ({ changeToLogin }) => {
   }
 
   const handleSignUpSubmit = async e => {
+    console.log("submit button")
     e.preventDefault()
     setIsLoading(true)
     const data = new FormData(signUpForm.current)
