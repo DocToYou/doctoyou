@@ -32,13 +32,13 @@ exports.sendOtp = async (req, res) => {
 
         // Send OTP via SMS
         try {
-          //   const message = await client.messages.create({
-          //     body: `Your OTP for DocToYou is ${otp}`,
-          //     from: process.env.TWILIO_PHONE_NUMBER,
-          //     to: `+91${phone}`,
-          //   });
-          //   console.log(`OTP sent: ${message.sid}`);
-          //   console.log(otp);
+            // const message = await client.messages.create({
+            //   body: `Your OTP for DocToYou is ${otp}`,
+            //   from: process.env.TWILIO_PHONE_NUMBER,
+            //   to: `+91${phone}`,
+            // });
+            // console.log(`OTP sent: ${message.sid}`);
+            // console.log(otp);
           console.log(otpMap.get(phone));
           return res.status(200).json({ message: "OTP Sent Successfully!" });
         } catch (err) {
@@ -58,7 +58,7 @@ exports.verifyOtpFP = async (req, res) => {
   const userOtp = req.body.otp;
 
   const entry = otpMap.get(phone);
-  console.log(entry);
+  // console.log(entry);
   if (!entry) {
     return res.status(400).json({ message: "OTP not sent or expired!" });
   }

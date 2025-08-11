@@ -1,5 +1,5 @@
 // Generate 4-digit OTP
-exports.generateOtp = () => {
+const generateOtp = () => {
     const digits = "0123456789";
     let otp = "";
     for (let i = 0; i < 4; i++) {
@@ -7,3 +7,5 @@ exports.generateOtp = () => {
     }
     return otp;
 };
+
+module.exports = generateOtp;
