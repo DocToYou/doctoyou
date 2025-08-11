@@ -5,9 +5,9 @@ const Otp = ({ length = 4, onChangeOTP }) => {
     const [otp, setOtp] = useState(new Array(length).fill(''));
 
     const handleChange = (value, index) => {
-        if (!/^\d*$/.test(value)) return;
 
         const char = value.slice(-1);
+        if (!/^\d?$/.test(char)) return;
         const newOtp = [...otp];
         newOtp[index] = char;
         setOtp(newOtp);

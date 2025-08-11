@@ -1,24 +1,10 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/Users");
+const client = require("../config/twilio");
+const generateOtp = require("../utils/sendOtp");
 // const otpVerification = require("./otpVerification"); // Import OTP verification controller
 
 // console.log("Connecting to database with the above details:");
-
-if (
-  !process.env.TWILIO_ACCOUNT_SID ||
-  !process.env.TWILIO_AUTH_TOKEN ||
-  !process.env.TWILIO_PHONE_NUMBER
-) {
-  console.error("Twilio credentials are not set in the environment variables.");
-  process.exit(1);
-} else {
-  console.log("Twilio credentials are set.");
-  //console.log(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN, process.env.TWILIO_PHONE_NUMBER)
-}
-const client = require("twilio")(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
 
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
@@ -49,11 +35,7 @@ exports.register = async (req, res) => {
       }
       if (result === null) {
         // Generate 4-digit OTP
-        const digits = "0123456789";
-        var otp = "";
-        for (let i = 0; i < 4; i++) {
-          otp += digits[Math.floor(Math.random() * 10)];
-        }
+        const otp = generateOtp();
 
         // Save OTP mapped to phone in otpMap object
         otpMap.set(phone, {

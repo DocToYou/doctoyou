@@ -1,22 +1,8 @@
 const { where } = require("sequelize");
 const User = require("../models/Users");
 const bcrypt = require("bcryptjs");
-
-if (
-  !process.env.TWILIO_ACCOUNT_SID ||
-  !process.env.TWILIO_AUTH_TOKEN ||
-  !process.env.TWILIO_PHONE_NUMBER
-) {
-  console.error("Twilio credentials are not set in the environment variables.");
-  process.exit(1);
-} else {
-  console.log("Twilio credentials are set.");
-  //console.log(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN, process.env.TWILIO_PHONE_NUMBER)
-}
-const client = require("twilio")(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+const client = require("../config/twilio");
+const generateOtp = require("../utils/sendOtp");
 
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
@@ -37,11 +23,7 @@ exports.sendOtp = async (req, res) => {
 
       if (result !== null) {
         // Generate 4-digit OTP
-        const digits = "0123456789";
-        var otp = "";
-        for (let i = 0; i < 4; i++) {
-          otp += digits[Math.floor(Math.random() * 10)];
-        }
+        const otp = generateOtp();
 
         // Save OTP mapped to phone in otpMap object
         otpMap.set(phone, {
@@ -50,13 +32,13 @@ exports.sendOtp = async (req, res) => {
 
         // Send OTP via SMS
         try {
-          //   const message = await client.messages.create({
-          //     body: `Your OTP for DocToYou is ${otp}`,
-          //     from: process.env.TWILIO_PHONE_NUMBER,
-          //     to: `+91${phone}`,
-          //   });
-          //   console.log(`OTP sent: ${message.sid}`);
-          //   console.log(otp);
+            // const message = await client.messages.create({
+            //   body: `Your OTP for DocToYou is ${otp}`,
+            //   from: process.env.TWILIO_PHONE_NUMBER,
+            //   to: `+91${phone}`,
+            // });
+            // console.log(`OTP sent: ${message.sid}`);
+            // console.log(otp);
           console.log(otpMap.get(phone));
           return res.status(200).json({ message: "OTP Sent Successfully!" });
         } catch (err) {
@@ -76,7 +58,7 @@ exports.verifyOtpFP = async (req, res) => {
   const userOtp = req.body.otp;
 
   const entry = otpMap.get(phone);
-  console.log(entry);
+  // console.log(entry);
   if (!entry) {
     return res.status(400).json({ message: "OTP not sent or expired!" });
   }

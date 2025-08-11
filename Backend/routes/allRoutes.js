@@ -11,6 +11,7 @@ router.get("/", homePage.home);
 // User side OTP Verification, Register and Login
 router.post("/register",userRegister.register);
 router.post("/login", userLogin.login);
+// router.post("/forgotPassword");
 router.post("/verifyOtp", userRegister.verifyOtp);
 
 // User page with contents by JWT Authentication Middleware

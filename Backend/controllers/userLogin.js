@@ -41,7 +41,7 @@ exports.login = async (req, res) => {
 
   //login logic here
   if (!phone || !password) {
-    return res.json({ message: "Phone/Password field missing!" });
+    return res.status(403).json({ message: "Phone/Password field missing!" });
   }
   // User.findOne({ where: {phone: phone}}).then(result => {console.log('User found: ', result.toJSON())})
   await User.findOne({

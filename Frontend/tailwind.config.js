@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+        cursivee: ["Playwrite HU" , ...defaultTheme.fontFamily.sans],
       },
     },
   },

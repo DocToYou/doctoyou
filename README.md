@@ -35,7 +35,7 @@ mern-project/<br>
 ├── README.md
 
 ## 🧠 Tech Stack
-![alt text](image.png)
+![alt text](image-1.png)
 ### Frontend
 - React.js (with React Router) powered by vite
 - Axios (for API calls)
