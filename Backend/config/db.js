@@ -1,38 +1,24 @@
-const mysql = require("mysql2");
-
-// Check if database credentials are missing
-if (
-  !process.env.MYSQL_HOST ||
-  !process.env.MYSQL_USER ||
-  !process.env.MYSQL_PASSWORD ||
-  !process.env.MYSQL_DATABASE
-) {
-  console.error("Missing database environment variables!");
-  process.exit(1); // Stop execution if database credentials are missing
-}
-
-//create a connection to the database
-const db = mysql.createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  timezone: "Z", // Set timezone to UTC
-});
-
-// Test the connection immediately
-db.getConnection((err, connection) => {
-  if (err) {
-    console.error("❌ Error connecting to the database:", err);
-    process.exit(1);
-  } else {
-    console.log("✅ Successfully connected to the database!");
-    connection.release(); // Return connection to pool
+const { Sequelize } = require("sequelize");
+const db = new Sequelize(
+  process.env.MYSQL_DATABASE,
+  process.env.MYSQL_USER,
+  process.env.MYSQL_PASSWORD,
+  {
+    host: process.env.MYSQL_HOST,
+    dialect: process.env.MYSQL_DIALECT,
   }
-});
+);
 
-// Export the database connection pool
+const createConnection = () => {
+  try {
+    db.authenticate()
+      .then(() => console.log("Database Connection Established!"))
+      .catch((error) => console.log("Error in authenticatin!"));
+  } catch (error) {
+    console.log(`Sequelize Error: ${error}`);
+  }
+};
+
+createConnection();
+
 module.exports = db;

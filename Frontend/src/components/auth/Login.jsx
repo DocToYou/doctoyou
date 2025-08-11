@@ -28,7 +28,7 @@ export const Login = ({ changeToSignUp }) => {
             }
         } catch (error) {
             console.log(error.message)
-            setError('wrong credentials')
+            setError('Wrong Credentials')
         }
     }
 
