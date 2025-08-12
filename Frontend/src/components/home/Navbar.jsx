@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+export const Navbar = ({ handleScrollToServices }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   return (
     <section className="lg:bg-white">
       <div className="w-full mx-auto lg:px-3">
@@ -42,12 +43,12 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="pr-5">
-                <Link
-                  to={"services"}
+                <button
+                  onClick={() => handleScrollToServices()}
                   className="px-5 hover:underline hover:decoration-[#1815a1]"
                 >
                   Services
-                </Link>
+                </button>
               </li>
               <li className="pr-5">
                 <Link
@@ -78,7 +79,7 @@ export const Navbar = () => {
             <span className="hidden lg:block lg:px-3">location</span>
           </Link>
           <Link
-            to={"/auth"}
+            to={"/auth/login"}
             className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded ml-3"
           >
             <svg
