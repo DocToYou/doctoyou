@@ -9,7 +9,7 @@ const userForgotPass = require("../controllers/userForgotPass");
 router.get("/", homePage.home);
 
 // User side OTP Verification, Register and Login
-router.post("/register",userRegister.register);
+router.post("/register", userRegister.register);
 router.post("/login", userLogin.login);
 // router.post("/forgotPassword");
 router.post("/verifyOtp", userRegister.verifyOtp);
@@ -22,5 +22,4 @@ router.post("/sendOtp", userForgotPass.sendOtp);
 router.post("/verifyOtpFP", userForgotPass.verifyOtpFP);
 router.post("/changePassword", userForgotPass.changePassword);
 
-
-module.exports = router; 
+module.exports = router;

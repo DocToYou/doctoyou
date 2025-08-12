@@ -22,7 +22,7 @@ exports.authToken = (req, res, next) => {
     return res.status(401).json({ message: "Missing Authenticate Token" });
 
   jwt.verify(token, process.env.SIGNATURE_TOKEN, (error, user) => {
-    if (error) return res.status(403).json({message: "Token Mismatch!"});
+    if (error) return res.status(403).json({ message: "Token Mismatch!" });
     req.user = user;
     // console.log(req.user);
     next();
@@ -31,7 +31,9 @@ exports.authToken = (req, res, next) => {
 
 exports.contents = (req, res) => {
   // console.log(req.user.userId);
-  res.status(200).json(sampContent.filter((content) => content.phone === req.user.userId));
+  res
+    .status(200)
+    .json(sampContent.filter((content) => content.phone === req.user.userId));
 };
 
 exports.login = async (req, res) => {
@@ -68,7 +70,10 @@ exports.login = async (req, res) => {
           const accessToken = jwt.sign(user, process.env.SIGNATURE_TOKEN);
           console.log("Successfully Logged in!");
           // console.log(match);
-          return res.json({ message: "User login successful!", accessToken: accessToken });
+          return res.json({
+            message: "User login successful!",
+            accessToken: accessToken,
+          });
           // return res.json({ message: "User login successful!" });
         } else {
           return res.status(401).json({ message: "Incorrect match" });

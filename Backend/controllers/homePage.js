@@ -4,6 +4,6 @@ exports.home = (req, res) => {
   res.status(200).send("The server is running.");
 };
 
-exports.reg =(req,res) =>{
-  res.send("register page wrking")
-}
+exports.reg = (req, res) => {
+  res.send("register page wrking");
+};

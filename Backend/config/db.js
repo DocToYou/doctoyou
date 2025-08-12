@@ -13,7 +13,7 @@ const createConnection = () => {
   try {
     db.authenticate()
       .then(() => console.log("Database Connection Established!"))
-      .catch((error) => console.log("Error in authenticatin!"));
+      .catch((error) => console.log("Error in authenticatin!", error));
   } catch (error) {
     console.log(`Sequelize Error: ${error}`);
   }

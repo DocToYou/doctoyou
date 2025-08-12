@@ -33,7 +33,7 @@ const User = db.define(
   },
   {
     tableName: "users",
-    timestamps: false,  // prevent create auto columns: createdAt/updatedAt
+    timestamps: false, // prevent create auto columns: createdAt/updatedAt
   }
 );
 
