@@ -14,7 +14,7 @@ exports.register = async (req, res) => {
   const lname = req.body.lname;
   const email = req.body.email;
   const gender =
-    req.body.gender == "Male" ? "M" : req.body.gender === "Female" ? "F" : "O";
+    req.body.gender === "Male" ? "M" : req.body.gender === "Female" ? "F" : "O";
   const phone = parseInt(req.body.phone);
   const password = req.body.password;
   // const confirmPassword = req.body.confirmPassword;
@@ -27,10 +27,7 @@ exports.register = async (req, res) => {
     },
   })
     .then(async (result) => {
-      if (!result)
-        return res.status(500).json({ message: "DB Error!", result: result });
-      // console.log(result);
-      if (result != null) {
+      if (result !== null) {
         return res.status(409).json({ message: "User Already Registered!" });
       }
       if (result === null) {
@@ -58,12 +55,12 @@ exports.register = async (req, res) => {
             to: `+91${phone}`,
           });
           console.log(`OTP sent: ${message.sid}`);
-          res.status(200).json({ message: "OTP Sent Successfully!" });
           // console.log(otp);
-          // console.log(otpMap.get(phone));
+          console.log(otpMap.get(phone));
+          return res.status(200).json({ message: "OTP Sent Successfully!" });
         } catch (err) {
           console.error("Error sending OTP:", err);
-          res.status(500).json({ message: "Failed to send OTP." });
+          return res.status(500).json({ message: "Failed to send OTP." });
         }
       }
     })
@@ -94,10 +91,8 @@ exports.verifyOtp = async (req, res) => {
       phone: userData.phone,
       password: userData.password,
     }).then((result) => {
-      if (!result) {
-        console.log(error);
-        return res.status(500).json({ message: "Database error!" });
-      } else {
+      if (result) {
+        console.log("Successfully registered a new User!");
         otpMap.delete(phone);
         return res.status(200).json({ message: "User Registration Success!" });
       }

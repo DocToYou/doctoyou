@@ -12,7 +12,7 @@ const User = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    fname: {
+    lname: {
       type: DataTypes.STRING,
     },
     gender: {

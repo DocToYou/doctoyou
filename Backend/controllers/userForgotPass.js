@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const User = require("../models/Users");
 const bcrypt = require("bcryptjs");
 const client = require("../config/twilio");
@@ -32,12 +31,12 @@ exports.sendOtp = async (req, res) => {
 
         // Send OTP via SMS
         try {
-            // const message = await client.messages.create({
-            //   body: `Your OTP for DocToYou is ${otp}`,
-            //   from: process.env.TWILIO_PHONE_NUMBER,
-            //   to: `+91${phone}`,
-            // });
-            // console.log(`OTP sent: ${message.sid}`);
+            const message = await client.messages.create({
+              body: `Your OTP for DocToYou is ${otp}`,
+              from: process.env.TWILIO_PHONE_NUMBER,
+              to: `+91${phone}`,
+            });
+            console.log(`OTP sent: ${message.sid}`);
             // console.log(otp);
           console.log(otpMap.get(phone));
           return res.status(200).json({ message: "OTP Sent Successfully!" });
