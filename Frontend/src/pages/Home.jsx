@@ -1,6 +1,6 @@
 import React from 'react'
-import { Navbar } from "../components/Navbar";
-import { Cards } from "../components/Cards";
+import { Navbar } from "../components/home/Navbar";
+import { Cards } from "../components//home/Cards";
 import { Hiw } from "../components/Hiw";
 import { Footer } from "../components/Footer";
 import { doc, doc2, greenTick } from "../assets/home";
