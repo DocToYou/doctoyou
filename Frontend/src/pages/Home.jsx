@@ -1,6 +1,9 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
+import { Navbar } from '../components/Navbar';
 import { Cards } from '../components/Cards';
+import { Hiw } from "../components/Hiw";
+import { Footer } from "../components/Footer";
+
 
 export const Home = () => {
     return (
@@ -354,8 +357,10 @@ export const Home = () => {
           </div>
 
 
+        </div> 
+        <Cards /> 
+        <Hiw />
+        <Footer />
         </div>
-        <Cards />
-      </div>
     );
 }
