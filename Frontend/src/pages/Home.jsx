@@ -358,7 +358,7 @@ export const Home = () => {
           </div>
 
 
-        </div> 
+        </div>  */}
         <Cards /> 
         <Hiw />
         <Footer />

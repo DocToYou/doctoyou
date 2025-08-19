@@ -7,9 +7,15 @@ export const Footer = () => {
         <div>
           <h1 className="text-2xl text-white font-bold">Product</h1>
           <ul className="text-white mr-25">
-            <li>Home</li>
-            <li>Service</li>
-            <li>Contect Us</li>
+            <li>
+              <a href="">Home</a>
+            </li>
+            <li>
+              <a href="">Service</a>
+            </li>
+            <li>
+              <a href="">Contect Us</a>
+            </li>
           </ul>
         </div>
 
@@ -25,7 +31,7 @@ export const Footer = () => {
         <div>
           <h1 className="text-2xl text-white font-bold">More</h1>
           <ul className="text-white">
-            <li>Our Story</li>
+            <li><a href="">Our Story</a></li>
           </ul>
         </div>
 
@@ -101,7 +107,7 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='pb-2'>
+      <div className="pb-2">
         <h1 className="text-center text-white">Copyright</h1>
         <h1 className="text-center text-white">
           © 2025 Doc2You. All rights reserved.
