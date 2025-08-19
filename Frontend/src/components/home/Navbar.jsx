@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = ({ handleScrollToServices }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   return (
     <section className="lg:bg-white">
       <div className="w-full mx-auto lg:px-3">
@@ -29,7 +29,10 @@ export const Navbar = ({ handleScrollToServices }) => {
               </svg>
             </button>
           </div>
-          <Link to={"/"} className="text-2xl font-bold text-[#1815a1] pr-5 pt-2 ">
+          <Link
+            to={"/"}
+            className="text-2xl font-bold text-[#1815a1] pr-5 pt-2 "
+          >
             Doc2you
           </Link>
           <div className="my-auto">

@@ -27,6 +27,9 @@ exports.register = async (req, res) => {
     },
   })
     .then(async (result) => {
+      if (!result)
+        return res.status(500).json({ message: "DB Error!", result: result });
+      // console.log(result);
       if (result !== null) {
         return res.status(409).json({ message: "User Already Registered!" });
       }

@@ -6,7 +6,7 @@ const db = new Sequelize(
   {
     host: process.env.MYSQL_HOST,
     dialect: process.env.MYSQL_DIALECT,
-  }
+  },
 );
 
 const createConnection = () => {
