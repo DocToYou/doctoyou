@@ -5,10 +5,12 @@ export const Navbar = ({ handleScrollToServices }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   return (
-    <section className="lg:bg-white">
-      <div className="w-full mx-auto lg:px-3">
-        <div className="flex p-4">
-          <div className="flex items-start justify-between w-1/8 lg:w-auto">
+    <section className="lg:bg-white ">
+      <div className="w-full mx-auto lg:px-10 absolute z-10 pt-5">
+
+        
+        <div className="flex px-6 py-3  bg-white  rounded-[10px] ">
+          <div className="flex items-start justify-between w-1/8 lg:w-auto ">
             <button
               className="lg:hidden pt-2 bottom-3.5"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -29,11 +31,11 @@ export const Navbar = ({ handleScrollToServices }) => {
               </svg>
             </button>
           </div>
-          <Link to={"/"} className="text-2xl font-bold text-[#1815a1] pr-5 pt-2 ">
+          <Link to={"/"} className="text-2xl font-bold text-[#1815a1] pr-5 pt-[2px]">
             Doc2you
           </Link>
           <div className="my-auto">
-            <ul className=" hidden lg:flex font-bold px-5 pt-4">
+            <ul className=" hidden lg:flex font-bold px-5 ">
               <li className="pr-5">
                 <Link
                   to={"/"}
@@ -99,6 +101,9 @@ export const Navbar = ({ handleScrollToServices }) => {
             <span className="hidden lg:block lg:px-3 ">login/signup</span>
           </Link>
         </div>
+
+
+
         <div>
           {isMobileMenuOpen && (
             <ul className="lg:hidden font-bold px-5">
