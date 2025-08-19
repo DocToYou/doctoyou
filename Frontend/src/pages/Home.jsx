@@ -12,7 +12,7 @@ export const Home = () => {
       <div className="lg:bg-white h-screen">
         <div className="h-5"></div>
         <Navbar />
-        {/* <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <div className="mt-25">
               <img
@@ -363,8 +363,7 @@ export const Home = () => {
         </div>
         <Cards />
         <Hiw />
-        <Footer /> */}
-        <Train_att />
+        <Footer />
       </div>
     );
 }
