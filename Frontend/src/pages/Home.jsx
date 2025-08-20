@@ -364,6 +364,5 @@ export const Home = () => {
         <Cards />
         <Hiw />
         <Footer />
-      </div>
-    );
+      </div> );
 }
