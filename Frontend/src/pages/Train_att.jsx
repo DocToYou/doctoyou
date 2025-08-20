@@ -5,8 +5,8 @@ import { Navbar } from "../components/home/Navbar";
 export const Train_att = () => {
   return (
     <>
-      
-      <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+    <Navbar />
+      <div className="relative flex  mt-5  mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
         <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
           <img
             src={doc}

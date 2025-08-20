@@ -1,4 +1,6 @@
 import React from "react";
+import { Train_att } from "../../pages/Train_att";
+import { Link } from "react-router-dom";
 
 export const Cards = () => {
   return (
@@ -166,9 +168,11 @@ const Card = ({ image, title, description }) => (
     </div>
 
     <div className="absolute bottom-4 left-4">
-      <button className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition">
-        Book Home Visit
-      </button>
+      <Link to={"/trained"}>
+        <button className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
+          Book Home Visit
+        </button>
+      </Link>
     </div>
   </div>
 );

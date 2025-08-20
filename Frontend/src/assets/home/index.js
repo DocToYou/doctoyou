@@ -4,5 +4,4 @@ import greenTick from './vector.svg';
 import femdoc from "./femdoc.png"
 // import   from './';
 
-
 export {doc, doc2, greenTick, femdoc};

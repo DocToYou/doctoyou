@@ -3,7 +3,7 @@ import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
 import { Hiw } from "../components/Hiw";
 import { Footer } from "../components/Footer";
-import {Train_att} from "../components/Train_att";
+import {Train_att} from "./Train_att";
 import { doc, doc2, greenTick } from "../assets/home";
 
 
