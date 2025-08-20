@@ -6,7 +6,7 @@
  * Created and written by Dheena Krishna on 2025-07-27
  */
 // Importing necessary modules for ESLint configuration
-import eslintPluginNode from 'eslint-plugin-node';
+import eslintPluginNode from "eslint-plugin-node";
 import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig } from "eslint/config";
@@ -15,7 +15,8 @@ import eslintPluginSecurity from "eslint-plugin-security";
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"], // Targeting all JavaScript files
-    plugins: { js,
+    plugins: {
+      js,
       node: eslintPluginNode,
       security: eslintPluginSecurity,
       //import: eslintPluginImport,
@@ -32,26 +33,26 @@ export default defineConfig([
     },
     rules: {
       // ✅ Core Best Practices
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
       //'no-console': 'warn',
-      'no-debugger': 'error',
-      'eqeqeq': ['error', 'always'],
-      'no-var': 'error',
-      'prefer-const': 'error',
-      'arrow-body-style': ['error', 'as-needed'],
-      'no-mixed-spaces-and-tabs': 'error',
-      'no-trailing-spaces': 'error',
-      'object-curly-spacing': ['error', 'always'],
-      'semi': ['error', 'always'],
-      'indent': ['error', 2, { SwitchCase: 1 }],
+      "no-debugger": "error",
+      eqeqeq: ["error", "always"],
+      "no-var": "error",
+      "prefer-const": "error",
+      "arrow-body-style": ["error", "as-needed"],
+      "no-mixed-spaces-and-tabs": "error",
+      "no-trailing-spaces": "error",
+      "object-curly-spacing": ["error", "always"],
+      semi: ["error", "always"],
+      indent: ["error", 2, { SwitchCase: 1 }],
       //'no-nested-ternary': 'warn',
 
       // // 🔒 Security
-      'security/detect-object-injection': 'warn',
+      "security/detect-object-injection": "warn",
 
       // // 📦 Node.js Specific
-      'node/no-missing-import': 'off',
-      'node/no-unpublished-import': 'off',
+      "node/no-missing-import": "off",
+      "node/no-unpublished-import": "off",
 
       // // 📥 Import Rules
       // 'import/order': ['error', {

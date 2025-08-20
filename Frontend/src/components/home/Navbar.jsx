@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = ({ handleScrollToServices }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   return (
     <section className="lg:bg-white ">
       <div className="w-full mx-auto lg:px-10 absolute z-10 pt-5">
