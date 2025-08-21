@@ -30,8 +30,16 @@ export const Hiw = () => {
           Experience a seamless, step-by-step care process designed around your
           needs.
         </p>
-        <img className="w-340 mx-auto" src="howitworks.png" alt="howitworks" />
+
+        <img
+          className="w-340 mx-auto select-none pointer-events-none"
+          src="howitworks.png"
+          alt="howitworks"
+          onContextMenu={(e) => e.preventDefault()}
+          draggable="false"
+        />
       </div>
+
       <h1 className="text-[60px] text-[#d1d0ec] font-bold px-35 text-center pb-20">
         "Your health, delivered fast. Anytime, anywhere."
       </h1>
