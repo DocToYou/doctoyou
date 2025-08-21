@@ -14,7 +14,7 @@ export const Home = () => {
         <Navbar />
         <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
-            <div className="mt-25">
+            <div className="lg:mt-25">
               <img
                 src={doc}
                 alt="Background"
@@ -92,7 +92,7 @@ export const Home = () => {
             <img className="mt-15" src={doc2} alt="docter" />
           </div>
 
-          <div className="absolute bottom-[15px] lg:bottom-[23px] left-1/2 transform -translate-x-1/2 w-11/12 lg:w-[75%] bg-white shadow-lg rounded-2xl lg:py-5 lg:pr-5 lg:pl-5 px-10 py-5 flex flex-col lg:flex-row justify-between items-center gap-1 z-10 text-[#1815a1]">
+          <div className="absolute bottom-[15px] lg:bottom-[23px] left-1/2 transform -translate-x-1/2 w-11/12 lg:w-[75%] bg-white shadow-lg rounded-2xl lg:py-5 lg:pr-5 lg:pl-5 px-2 py-2 flex flex-col lg:flex-row justify-between items-center gap-1 z-10 text-[#1815a1]  lg:flex">
             <div className="relative w-full lg:w-auto">
               <div className="flex items-center px-2 py-2 border border-black rounded-lg text-sm text-[#1815a1] bg-white pointer-events-none">
                 <svg
@@ -361,8 +361,8 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <Cards />
-        <Hiw />
-        <Footer />
+        <Cards/>
+        <Hiw/>
+        <Footer/>
       </div> );
 }

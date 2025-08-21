@@ -115,9 +115,13 @@ export const Cards = () => {
 
 const Card = ({ image, title, description }) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white">
-    <img src={image} alt={title} className="w-full h-full object-cover" />
-
-  
+    <img
+      src={image}
+      alt={title}
+      className="w-full h-full object-cover select-none pointer-events-none "
+      onContextMenu={(e) => e.preventDefault()}
+      draggable="false"
+    />
 
     <div className="absolute bottom-4 left-4">
       <Link to={"/trained"}>

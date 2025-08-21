@@ -3,13 +3,19 @@ import React from 'react'
 export const Hiw = () => {
   return (
     <div>
-      <div className="mx-30 mt-20 relative flex">
+      <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex">
         <div>
-          <h1 className="text-6xl text-[#1815a1] font-semibold">Who we are?</h1>
-          <p className="pt-12 text-[18px]">
+          <h1 className="lg:text-6xl text-[#1815a1] lg:font-bold font-bold text-4xl  ">
+            Who we are?
+          </h1>
+          <p className="pt-10 lg:text-[18px]">
             Bringing Healthcare to Your Doorstep, Instantly — Just Like{" "}
           </p>
-          <p className="pr-18 mt-12 text-[21px]">
+
+          <div className="relative lg:hidden mt-5">
+            <img className="w-600 mt- bottom-0" src="/docgroups.png" alt="" />
+          </div>
+          <p className="lg:pr-18 mt-12 lg:text-[21px]">
             Doc2you is a modern healthcare service platform that connects
             patients with verified doctors near them, providing quick and
             convenient medical consultations at their home or preferred
@@ -18,12 +24,15 @@ export const Hiw = () => {
           </p>
         </div>
         <div className="relative">
-          <img className="w-600 mt- bottom-0" src="/docgroups.png" alt="" />
+          <img
+            className="w-600 mt- bottom-0 hidden md:block"
+            src="/docgroups.png"
+            alt=""
+          />
         </div>
       </div>
-
-      <div className="pb-30 pt-5">
-        <h1 className="text-6xl text-[#1815a1] pt-17 text-center font-semibold ">
+      <div className="pb-30 pt-3">
+        <h1 className="lg:text-6xl text-[#1815a1] pt-17 text-center font-bold text-4xl">
           How It Works?..
         </h1>
         <p className="pt-4 text-[18px] text-center">
@@ -39,10 +48,9 @@ export const Hiw = () => {
           draggable="false"
         />
       </div>
-
-      <h1 className="text-[60px] text-[#d1d0ec] font-bold px-35 text-center pb-20">
+      <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20">
         "Your health, delivered fast. Anytime, anywhere."
-      </h1>
+      </h1>{" "}
     </div>
   );
 }
