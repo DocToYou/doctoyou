@@ -48,7 +48,7 @@ export const Hiw = () => {
           draggable="false"
         />
       </div>
-      <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20">
+      <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20 mb-10">
         "Your health, delivered fast. Anytime, anywhere."
       </h1>{" "}
     </div>
