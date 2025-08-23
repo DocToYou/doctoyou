@@ -1,5 +1,5 @@
 import React from "react";
-import { doc,femdoc, doc2, greenTick } from "../assets/home";
+import { doc,femdoc} from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
  
 export const Train_att = () => {

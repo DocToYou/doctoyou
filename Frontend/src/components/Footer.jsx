@@ -14,7 +14,7 @@ export const Footer = () => {
               <a href="">Service</a>
             </li>
             <li>
-              <a href="">Contect Us</a>
+              <a href="">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -22,8 +22,9 @@ export const Footer = () => {
         <div className="lg:mb-0 mb-10">
           <h1 className="text-2xl text-white font-bold">Resources</h1>
           <ul className="text-white mr-25">
-            <li>Location: Chennai, Tamil Nadu, India</li>
-            <li>Phone: +91 98765 43210</li>
+            <li>Location: IFET Incubation cell, IFETCE,<br />
+              Villupuram, Tamil Nadu, India</li>
+            <li>Phone: +91 93446 88406</li>
             <li>Email: support@doc2you.in</li>
           </ul>
         </div>
@@ -48,20 +49,20 @@ export const Footer = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  class="w-6 h-6"
+                  className="w-6 h-6"
                   stroke="currentColor"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                 >
                   <rect x="2.75" y="2.75" width="18.5" height="18.5" rx="5.5" />
                   <path
                     d="M16.5 7.5h.01"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M7.5 12a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </a>
@@ -74,7 +75,7 @@ export const Footer = () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                   fill="currentColor"
-                  class="text-white w-6 h-6 pr-1"
+                  className="text-white w-6 h-6 pr-1"
                 >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
@@ -120,20 +121,20 @@ export const Footer = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  class="w-6 h-6"
+                  className="w-6 h-6"
                   stroke="currentColor"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                 >
                   <rect x="2.75" y="2.75" width="18.5" height="18.5" rx="5.5" />
                   <path
                     d="M16.5 7.5h.01"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M7.5 12a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </a>
@@ -146,7 +147,7 @@ export const Footer = () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                   fill="currentColor"
-                  class="text-white w-6 h-6 pr-1"
+                  className="text-white w-6 h-6 pr-1"
                 >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>

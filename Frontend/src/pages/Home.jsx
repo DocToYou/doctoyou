@@ -1,18 +1,26 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
 import { Hiw } from "../components/Hiw";
 import { Footer } from "../components/Footer";
 import {Train_att} from "./Train_att";
-import { doc, doc2, greenTick } from "../assets/home";
-
+import { doc, doc2 } from "../assets/home";
 
 export const Home = () => {
+  const servicesRef = useRef(null);
+  
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
     return (
       <div className="lg:bg-white h-screen">
-        <div className="h-5"></div>
-        <Navbar />
-        <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="h-5">
+          
+        </div>
+        <div className="relative flex top-16  mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        {/* <Navbar2/> */}
+        <Navbar handleScrollToServices={scrollToServices} className />
+        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, tempore minus molestiae blanditiis ipsam laudantium consequuntur, numquam odit voluptatibus hic labore quisquam fuga amet quas. Molestiae reprehenderit saepe error omnis.</p> */}
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <div className="lg:mt-25">
               <img
@@ -361,7 +369,10 @@ export const Home = () => {
             </div>
           </div>
         </div>
+        <section ref={servicesRef}>
+
         <Cards/>
+        </section>
         <Hiw/>
         <Footer/>
       </div> );
