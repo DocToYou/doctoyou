@@ -9,10 +9,10 @@ import { doc, doc2, greenTick } from "../assets/home";
 
 export const Home = () => {
     return (
-      <div className="lg:bg-white h-screen">
+      <div className="lg:bg-white h-screen font-[Poppins]">
         <div className="h-5"></div>
         <Navbar />
-        <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins]">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <div className="lg:mt-25">
               <img
@@ -140,7 +140,9 @@ export const Home = () => {
             <div className="relative w-full lg:w-auto">
               <div className="flex items-center px-2 py-2 border border-black rounded-lg text-sm text-[#1815a1] bg-white pointer-events-none">
                 <img className="h-5 w-5 mr-1" src="/tab.svg" alt="tab" />
+                {/* tablet */}
                 <span className="lg:pr-15">Specialization</span>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 ml-auto "
@@ -361,8 +363,9 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <Cards/>
-        <Hiw/>
-        <Footer/>
-      </div> );
+        <Cards />
+        <Hiw />
+        <Footer />
+      </div>
+    );
 }

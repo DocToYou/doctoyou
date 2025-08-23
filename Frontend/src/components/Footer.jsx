@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className="bg-[#1815a1]">
+    <div className="bg-[#1815a1] font-[Poppins]">
       <div className="lg:mx-30 ml-10 lg:flex pt-15 pb-15 relative    ">
         <div className="lg:mb-0 mb-10">
           <h1 className="text-2xl text-white font-bold">Product</h1>

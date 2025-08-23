@@ -1,11 +1,13 @@
 import React from "react";
 import { doc,femdoc, doc2, greenTick } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
+import { Real_doc } from "./Real_doc";
+
  
 export const Train_att = () => {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="relative flex  mt-5  mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
         <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
           <img
@@ -46,6 +48,8 @@ export const Train_att = () => {
           <img className="w-110 ml-40 pt-30" src={femdoc} alt="docter" />
         </div>
       </div>
+
+      <Real_doc/>
     </>
   );
 };
