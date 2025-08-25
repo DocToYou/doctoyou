@@ -3,9 +3,9 @@ import React from 'react'
 export const Hiw = () => {
   return (
     <div>
-      <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex">
+      <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex font-[Poppins]">
         <div>
-          <h1 className="lg:text-6xl text-[#1815a1] lg:font-bold font-bold text-4xl  ">
+          <h1 className="font-[Poppins] lg:text-6xl text-[#1815a1] lg:font-bold font-bold text-4xl ">
             Who we are?
           </h1>
           <p className="pt-10 lg:text-[18px]">

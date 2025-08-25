@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className="bg-[#1815a1]">
+    <div className="bg-[#1815a1] font-[Poppins]">
       <div className="lg:mx-30 ml-10 lg:flex pt-15 pb-15 relative    ">
         <div className="lg:mb-0 mb-10">
           <h1 className="text-2xl text-white font-bold">Product</h1>
@@ -44,7 +44,7 @@ export const Footer = () => {
           <h1 className="text-2xl pr-1 mr-10 text-white font-bold ">Doc2you</h1>
           <ul className="text-white flex">
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/gowtham___sankar?igsh=dTBmNGhjMDd2NzB3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ export const Footer = () => {
           <h1 className="text-2xl pr-1 text-white font-bold ">Doc2you</h1>
           <ul className="text-white flex">
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/gowtham___sankar?igsh=dTBmNGhjMDd2NzB3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -141,7 +141,7 @@ export const Footer = () => {
             </li>
 
             <li>
-              <a href="">
+              <a href="https://www.instagram/virat.kohli.com">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

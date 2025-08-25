@@ -3,8 +3,8 @@ import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
 import { Hiw } from "../components/Hiw";
 import { Footer } from "../components/Footer";
-import {Train_att} from "./Train_att";
-import { doc, doc2 } from "../assets/home";
+import { doc, doc2, greenTick } from "../assets/home";
+
 
 export const Home = () => {
   const servicesRef = useRef(null);
@@ -13,14 +13,10 @@ export const Home = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
     return (
-      <div className="lg:bg-white h-screen">
-        <div className="h-5">
-          
-        </div>
-        <div className="relative flex top-16  mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
-        {/* <Navbar2/> */}
-        <Navbar handleScrollToServices={scrollToServices} className />
-        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, tempore minus molestiae blanditiis ipsam laudantium consequuntur, numquam odit voluptatibus hic labore quisquam fuga amet quas. Molestiae reprehenderit saepe error omnis.</p> */}
+      <div className="lg:bg-white h-screen font-[Poppins]">
+        <div className="h-5"></div>
+        <Navbar />
+        <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins]">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <div className="lg:mt-25">
               <img
@@ -48,7 +44,7 @@ export const Home = () => {
               </div>
 
               <div className="flex pt-3 pl-2 pb-2">
-                <div className="flex  gap-1 px-3 py-2 bg-white rounded-[10px] shadow text-black text-xs w-fit  lg:hidden">
+                <div className="flex  gap-1 px-3 py-2 bg-white rounded-[10px] shadow text-black text-xs w-fit  lg:hidden z-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -67,27 +63,27 @@ export const Home = () => {
                   </span>
                 </div>
               </div>
-              <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white">
+              <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white sm: z-50 ">
                 Don't wait Days for a Doctor - Get Instant Care Today
               </h2>
               <div className="pl-5  text-white hidden lg:flex">
                 From cough to care - Book trusted doctors online and get
                 treatment at your doorstep.
               </div>
-              <div className="px-2 text-white pt-1 text-[13px] lg:hidden">
+              <div className="px-2 text-white pt-1 text-[13px] lg:hidden z-50">
                 From cough to care - Book trusted doctors online and get
                 treatment at your doorstep.
               </div>
 
-              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5">
+              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5 text-[12px]">
                 <a
-                  className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2 text-sm lg:text-base mr-3 lg:mr-5"
+                  className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2  lg:text-base mr-3 lg:mr-5 z-50"
                   href=""
                 >
                   Emergency Service
                 </a>
                 <a
-                  className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2 text-sm lg:text-base ml-3 lg:ml-0"
+                  className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2  lg:text-base ml-3 lg:ml-0"
                   href=""
                 >
                   Book Appointment
@@ -148,7 +144,9 @@ export const Home = () => {
             <div className="relative w-full lg:w-auto">
               <div className="flex items-center px-2 py-2 border border-black rounded-lg text-sm text-[#1815a1] bg-white pointer-events-none">
                 <img className="h-5 w-5 mr-1" src="/tab.svg" alt="tab" />
+                {/* tablet */}
                 <span className="lg:pr-15">Specialization</span>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 ml-auto "
@@ -369,11 +367,9 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <section ref={servicesRef}>
-
-        <Cards/>
-        </section>
-        <Hiw/>
-        <Footer/>
-      </div> );
+        <Cards />
+        <Hiw />
+        <Footer />
+      </div>
+    );
 }
