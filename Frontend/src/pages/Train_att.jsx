@@ -1,9 +1,8 @@
 import React from "react";
-import { doc,femdoc, doc2, greenTick } from "../assets/home";
+import { doc, femdoc, doc2, greenTick } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
 import { Real_doc } from "./Real_doc";
 
- 
 export const Train_att = () => {
   return (
     <>
@@ -49,7 +48,7 @@ export const Train_att = () => {
         </div>
       </div>
 
-      <Real_doc/>
+      <Real_doc />
     </>
   );
 };

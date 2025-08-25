@@ -43,7 +43,7 @@ export const Footer = () => {
           <h1 className="text-2xl pr-1 mr-10 text-white font-bold ">Doc2you</h1>
           <ul className="text-white flex">
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/gowtham___sankar?igsh=dTBmNGhjMDd2NzB3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export const Footer = () => {
           <h1 className="text-2xl pr-1 text-white font-bold ">Doc2you</h1>
           <ul className="text-white flex">
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/gowtham___sankar?igsh=dTBmNGhjMDd2NzB3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -140,7 +140,7 @@ export const Footer = () => {
             </li>
 
             <li>
-              <a href="">
+              <a href="https://www.instagram/virat.kohli.com">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

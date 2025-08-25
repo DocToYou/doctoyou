@@ -1,5 +1,5 @@
 import React from "react";
-import { Train_att } from "../../pages/Train_att";
+import { Train_att } from "../../pages/Train_att"
 import { Link } from "react-router-dom";
 
 export const Cards = () => {
@@ -98,8 +98,8 @@ export const Cards = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
           {/* Cards go here */}
-          <Card image="/card1.png" />
-          <Card image="/card2.png" />
+          <Card image="/card1.png" navigate='/trained'/>
+          <Card image="/card2.png" navigate='nursing'/>
           <Card image="/card3.png" />
           <Card image="/card4.png" />
           <Card image="/card5.png" />
@@ -113,7 +113,7 @@ export const Cards = () => {
   );
 };
 
-const Card = ({ image, title, description }) => (
+const Card = ({ image, title, description, navigate }) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white">
     <img
       src={image}
@@ -124,10 +124,10 @@ const Card = ({ image, title, description }) => (
     />
 
     <div className="absolute bottom-4 left-4">
-      <Link to={"/trained"}>
-        <button className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
+      <Link to={navigate}>
+        <div className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
           Book Home Visit
-        </button>
+        </div>
       </Link>
     </div>
   </div>

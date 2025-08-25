@@ -3,7 +3,6 @@ import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
 import { Hiw } from "../components/Hiw";
 import { Footer } from "../components/Footer";
-import {Train_att} from "./Train_att";
 import { doc, doc2, greenTick } from "../assets/home";
 
 
@@ -40,7 +39,7 @@ export const Home = () => {
               </div>
 
               <div className="flex pt-3 pl-2 pb-2">
-                <div className="flex  gap-1 px-3 py-2 bg-white rounded-[10px] shadow text-black text-xs w-fit  lg:hidden">
+                <div className="flex  gap-1 px-3 py-2 bg-white rounded-[10px] shadow text-black text-xs w-fit  lg:hidden z-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -59,27 +58,27 @@ export const Home = () => {
                   </span>
                 </div>
               </div>
-              <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white">
+              <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white sm: z-50 ">
                 Don't wait Days for a Doctor - Get Instant Care Today
               </h2>
               <div className="pl-5  text-white hidden lg:flex">
                 From cough to care - Book trusted doctors online and get
                 treatment at your doorstep.
               </div>
-              <div className="px-2 text-white pt-1 text-[13px] lg:hidden">
+              <div className="px-2 text-white pt-1 text-[13px] lg:hidden z-50">
                 From cough to care - Book trusted doctors online and get
                 treatment at your doorstep.
               </div>
 
-              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5">
+              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5 text-[12px]">
                 <a
-                  className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2 text-sm lg:text-base mr-3 lg:mr-5"
+                  className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2  lg:text-base mr-3 lg:mr-5 z-50"
                   href=""
                 >
                   Emergency Service
                 </a>
                 <a
-                  className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2 text-sm lg:text-base ml-3 lg:ml-0"
+                  className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2  lg:text-base ml-3 lg:ml-0"
                   href=""
                 >
                   Book Appointment
