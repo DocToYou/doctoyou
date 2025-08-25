@@ -1,6 +1,6 @@
 import axiosClient from '../../axiosConfig'
 import React, { useRef, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Login = ({ changeToSignUp }) => {
     const navigate = useNavigate()

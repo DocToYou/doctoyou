@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { SignUp } from '../components/auth/SignUp'
 import { Login } from '../components/auth/Login'
 import { useParams} from 'react-router-dom'
+import pic1 from '../assets/auth/pic1.svg'
+import pic2 from '../assets/auth/pic2.svg'
+import pic3 from '../assets/auth/pic3.svg'
 
 export const AuthPage = () => {
     const { mode } = useParams()
@@ -20,13 +23,13 @@ export const AuthPage = () => {
                 <div className="w-[150px] h-[150px] border-2 border-white rounded-full absolute bottom-[-10%] right-[10%]"></div>
                 <div className="w-190 h-190 border border-amber-50 rounded-full absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
                     <div className="z-1 w-100 h-100 border border-amber-50 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <img src="/auth/Ellipse 1.svg" alt="" className='p-7' />
+                        <img src={pic1} alt="" className='p-7' />
                     </div>
                     <div className="w-70 h-70 border border-amber-50 rounded-full absolute left-90 top-8">
-                        <img src="/auth/Ellipse 3.svg" alt="" className='pt-3 pl-2 pr-1' />
+                        <img src={pic3} alt="" className='pt-3 pl-2 pr-1' />
                     </div>
                     <div className="z-2 w-50 h-50 border border-amber-50 rounded-full absolute top-110 left-35">
-                        <img src="/auth/Ellipse 2.svg" alt="" className='pb-2 pl-1' />
+                        <img src={pic2} alt="" className='pb-2 pl-1' />
                     </div>
                     <div className='bg-white relative h-15 w-15 rounded-full top-50 left-40'></div>
                     <div className='bg-white absolute h-13 w-13 rounded-full bottom-45 right-40'></div>
