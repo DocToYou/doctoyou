@@ -12,6 +12,7 @@ export const Navbar = ({ handleScrollToServices }) => {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
   return (
+    <>
     <div className="font-[Poppins]">
       <section className="lg:bg-white lg:hidden">
         <div className="w-full mx-auto lg:px-3">
@@ -296,6 +297,6 @@ export const Navbar = ({ handleScrollToServices }) => {
           {/* end of mobile view */}
         </div>
       </section>
-    </nav>
+    </div></>
   );
 };
