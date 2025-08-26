@@ -15,6 +15,7 @@ const App = () => {
         <Route path="/auth/:mode" element={<AuthPage />} />
         <Route path="/trained" element={<Train_att />} />{" "}
         {/* <Route path='/test' element={<Test />} /> */}
+        {/* <Route  path="/Tracking" element={<Tracking/>}/> */}
       </Routes>
     </Router>
   );
