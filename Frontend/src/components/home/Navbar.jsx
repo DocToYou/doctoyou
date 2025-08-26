@@ -14,9 +14,9 @@ export const Navbar = ({ handleScrollToServices }) => {
   return (
     <>
     <div className="font-[Poppins]">
-      <section className="lg:bg-white lg:hidden">
-        <div className="w-full mx-auto lg:px-3">
-          <div className="flex p-4">
+      <section className="lg:bg-white lg:hidden ">
+        <div className="w-full mx-auto lg:px-3 mb-5">
+          <div className="flex px-4">
             <div className="flex items-start justify-between w-1/8 lg:w-auto">
               <button
                 className="lg:hidden pt-2 bottom-3.5"
