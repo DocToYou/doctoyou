@@ -5,6 +5,8 @@ import { Navbar } from "../components/home/Navbar";
 import { Real_doc } from "./Real_doc";
 
 export const Train_att = ({serviceName}) => {
+  const params = useParams()
+  console.log(params)
   const data = [{
     name: "Trained Attendants",
     desc: "Trained attendants are non-medical professionals who provide essential support to patients in the comfort of their homes. They assist with daily care, monitor health conditions, and ensure patient safety and comfort — especially for the elderly, bedridden, or post-surgery individuals.",

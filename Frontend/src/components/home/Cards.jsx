@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Cards = () => {
   // Card data (images + navigation)
   const cardData = [
-    { image: "/card1.png", navigate: "/trained" },
+    { image: "/card1.png", navigate: "/trained/test" },
     { image: "/card2.png", navigate: "/nursing" },
     { image: "/card3.png", navigate: "/service3" },
     { image: "/card4.png", navigate: "/service4" },
