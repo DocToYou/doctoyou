@@ -1,5 +1,40 @@
-const db = require("../config/db");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/Users");
+
+const sampContent = [
+  {
+    username: "Surya",
+    title: "Software Developer",
+    phone: "9659340023",
+  },
+  {
+    username: "Gowtham",
+    title: "AI Engineer",
+    phone: "1234567890",
+  },
+];
+
+exports.authToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token === null)
+    return res.status(401).json({ message: "Missing Authenticate Token" });
+
+  jwt.verify(token, process.env.SIGNATURE_TOKEN, (error, user) => {
+    if (error) return res.status(403).json({ message: "Token Mismatch!" });
+    req.user = user;
+    // console.log(req.user);
+    next();
+  });
+};
+
+exports.contents = (req, res) => {
+  // console.log(req.user.userId);
+  res
+    .status(200)
+    .json(sampContent.filter((content) => content.phone === req.user.userId));
+};
 
 exports.login = async (req, res) => {
   const phone = req.body.phone;
@@ -7,37 +42,43 @@ exports.login = async (req, res) => {
 
   //login logic here
   if (!phone || !password) {
-    return res.json({ message: "Phone/Password field missing!" });
+    return res.status(403).json({ message: "Phone/Password field missing!" });
   }
-
-  db.query(
-    "SELECT Password FROM USERS WHERE phone=?",
-    [phone],
-    (error, result) => {
-      if (error) {
-        console.log(error);
+  // User.findOne({ where: {phone: phone}}).then(result => {console.log('User found: ', result.toJSON())})
+  await User.findOne({
+    attributes: ["password"],
+    where: { phone: phone },
+  })
+    .then((result) => {
+      // console.log(user.toJSON());
+      if (!result) {
         return res.status(500).json({ message: "Server error occured" });
       }
       if (result.length === 0) {
         return res.status(404).send("User not found");
-        //return res.json({ message: "User not found!" });
       }
-      const hashedPassword = result[0].Password;
+      // console.log(result.password);
+      const hashedPassword = result.password;
       bcrypt.compare(password, hashedPassword, (error, match) => {
         if (error) {
           // console.log(match)
           console.log(error);
           return res.status(401).send("Invalid credentials");
-          //return res.json(400,{ message: "Error checking password" });
         }
         if (match) {
+          const user = { userId: phone };
+          const accessToken = jwt.sign(user, process.env.SIGNATURE_TOKEN);
           console.log("Successfully Logged in!");
           // console.log(match);
-          return res.json({ message: "User login successful!" });
+          return res.json({
+            message: "User login successful!",
+            accessToken: accessToken,
+          });
+          // return res.json({ message: "User login successful!" });
         } else {
-          return res.json({ message: "Incorrect match" });
+          return res.status(401).json({ message: "Incorrect match" });
         }
       });
-    },
-  );
+    })
+    .catch((err) => console.log(err.message));
 };

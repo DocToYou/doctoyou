@@ -1,4 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Train_att } from "../../pages/Train_att"
+import { Link } from "react-router-dom";
 
 export const Cards = () => {
   return (
@@ -94,81 +96,101 @@ export const Cards = () => {
           Choose your condition and we'll send a certified doctor to your home.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
-          {/* Cards go here */}
-          <Card
-            image="/card1.png"
-            title="Trained Attendants"
-            description="Compassionate care for daily needs—right at your doorstep."
-          />
-          <Card
-            image="/card2.png"
-            title="Nursing Care"
-            description="Professional nursing support at home for all medical needs."
-          />
-          <Card
-            image="/card3.png"
-            title="Physiotherapy"
-            description="Personalized recovery sessions to restore strength and mobility."
-          />
-          <Card
-            image="/card4.png"
-            title="Elder Care"
-            description="Gentle care for aging loved ones with respect and attention."
-          />
-          <Card
-            image="/card5.png"
-            title="Doctor Consultation"
-            description="We’ll send a doctor to check and treat at home."
-          />
-          <Card
-            image="/card6.png"
-            title="Vaccination"
-            description="Get vaccinated safely and conveniently at home."
-          />
-          <Card
-            image="/card7.png"
-            title="Counselling"
-            description="Mental wellness support from certified professionals."
-          />
-          <Card
-            image="/card8.jpg"
-            title="Diabetes Care"
-            description="Ongoing diabetes monitoring and personalized plans."
-          />
-          <Card
-            image="/card9.png"
-            title="Not sure what’s wrong?"
-            description="We’ll send a doctor to check and treat at home."
-          />
+        {/* for response */}
+        <div className="lg:hidden">
+          <div className=" h-[490px] w-[400px] grid grid-rows-2  grid-flow-col auto-cols-[415px] overflow-x-auto scroll-snap-x-mandatory   mb-10">
+            <img
+              src="card1.png"
+              alt="card1"
+              className="h-[210px] scroll-snap-start  ml-3"
+            />
+            <img
+              src="card2.png"
+              alt="card2"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card3.png"
+              alt="card3"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card4.png"
+              alt="card4"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card5.png"
+              alt="card5"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card6.png"
+              alt="card6"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card7.png"
+              alt="card7"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+
+            <img
+              src="card8.png"
+              alt="card7"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+
+            <div>
+              <img
+                src="card9.png"
+                alt="card7"
+                className="h-[210px] scroll-snap-start  ml-3 "
+              />
+              <div className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
+                Book Home Visit
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden lg:block">
+          <div className=" grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
+            {/* Cards go here */}
+            <Card image="/card1.png" navigate="/trained" />
+            <Card image="/card2.png" navigate="nursing" />
+            <Card image="/card3.png" />
+            <Card image="/card4.png" />
+            <Card image="/card5.png" />
+            <Card image="/card6.png" />
+            <Card image="/card7.png" />
+            <Card image="/card8.png" />
+            <Card image="/card9.png" />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const Card = ({ image, title, description }) => (
+const Card = ({ image, title,navigate}) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white">
-    <img src={image} alt={title} className="w-full h-full object-cover" />
-
-    <div className="absolute top-4 left-4 text-gray-900 w-[70%] pr-6 flex flex-col h-[120px]">
-      <div className="flex-1">
-        <h2 className="text-lg sm:text-xl font-bold text-[#1815a1]">{title}</h2>
-        <p className="text-sm sm:text-base">{description}</p>
-      </div>
-
-      <div className="flex items-center pt-4 lg:pb-4 mt-auto">
-        <img className="lg:h-4 lg:w-4 h-6 w-6" src="/TimeIcon.svg" alt="time" />
-        <p className="lg:text-[13px] text-[15px] font-bold pl-2">
-          Get Care Within 60 Minutes
-        </p>
-      </div>
-    </div>
+    <img
+      src={image}
+      alt={title}
+      className="w-full h-full object-cover select-none pointer-events-none "
+      onContextMenu={(e) => e.preventDefault()}
+      draggable="false"
+    />
 
     <div className="absolute bottom-4 left-4">
-      <button className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition">
-        Book Home Visit
-      </button>
+      <Link to={navigate}>
+        <div className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
+          Book Home Visit
+        </div>
+      </Link>
     </div>
   </div>
 );
+
+
