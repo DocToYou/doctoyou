@@ -1,9 +1,15 @@
-import React from "react";
+import React  from "react";
+import { useParams } from "react-router-dom";
 import { doc, femdoc, doc2, greenTick } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
 import { Real_doc } from "./Real_doc";
 
-export const Train_att = () => {
+export const Train_att = ({serviceName}) => {
+  const data = [{
+    name: "Trained Attendants",
+    desc: "Trained attendants are non-medical professionals who provide essential support to patients in the comfort of their homes. They assist with daily care, monitor health conditions, and ensure patient safety and comfort — especially for the elderly, bedridden, or post-surgery individuals.",
+    sevices: ["Help with bathing, dressing, and grooming", "Mobility support (wheelchair, walking assistance)", "Feeding and medication reminders", "Monitoring vitals like blood pressure & temperature", "Maintaining hygiene and cleanliness", "Supporting recovery after surgery or hospitalization", "Providing companionship and emotional suppor"]
+  }]
   return (
     <>
       <Navbar />
@@ -16,14 +22,10 @@ export const Train_att = () => {
           />
           <div className="ml-8 mt-29">
             <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2  text-white">
-              Trained Attendants
+              {data[0].name}
             </h2>
             <p className="pl-5  text-white hidden lg:flex text-[18px]">
-              Trained attendants are non-medical professionals who provide
-              essential support to patients in the comfort of their homes. They
-              assist with daily care, monitor health conditions, and ensure
-              patient safety and comfort — especially for the elderly,
-              bedridden, or post-surgery individuals.
+              {data[0].desc}
             </p>
             <div className="ml-5 pt-8">
               <h1 className="bg-white text-[#1815a1] inline px-2 py-1 rounded-[5px]">
@@ -32,13 +34,7 @@ export const Train_att = () => {
             </div>
 
             <ul className="text-white ml-10 pt-5 text-[17px] ">
-              <li>• Help with bathing, dressing, and grooming</li>
-              <li>• Mobility support (wheelchair, walking assistance)</li>
-              <li>• Feeding and medication reminders</li>
-              <li>• Monitoring vitals like blood pressure & temperature</li>
-              <li>• Maintaining hygiene and cleanliness</li>
-              <li>• Supporting recovery after surgery or hospitalization</li>
-              <li>• Providing companionship and emotional suppor</li>
+              {data[0].sevices.map((service, index) => <li key={index}>{`• ${service}`}</li>)}
             </ul>
           </div>
         </div>
