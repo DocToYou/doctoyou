@@ -141,11 +141,16 @@ export const Cards = () => {
               className="h-[210px] scroll-snap-start  ml-3 "
             />
 
-            <img
-              src="card9.png"
-              alt="card7"
-              className="h-[210px] scroll-snap-start  ml-3 "
-            />
+            <div>
+              <img
+                src="card9.png"
+                alt="card7"
+                className="h-[210px] scroll-snap-start  ml-3 "
+              />
+              <div className="bg-[#1815a1] text-white px-4 py-2 rounded-md text-sm hover:bg-indigo-700 transition cursor-pointer">
+                Book Home Visit
+              </div>
+            </div>
           </div>
         </div>
 
