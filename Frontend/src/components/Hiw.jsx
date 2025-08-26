@@ -12,7 +12,7 @@ export const Hiw = () => {
             Bringing Healthcare to Your Doorstep, Instantly — Just Like{" "}
           </p>
 
-          <div className="relative lg:hidden mt-5">
+          <div className="relative lg:hidden md:hiiden mt-5">
             <img className="w-600 mt- bottom-0" src="/docgroups.png" alt="" />
           </div>
           <p className="lg:pr-18 mt-12 lg:text-[21px]">
@@ -23,7 +23,7 @@ export const Hiw = () => {
             emergency care—we're just a tap away.
           </p>
         </div>
-        <div className="relative">
+        <div className="relative md:hidden lg:block">
           <img
             className="w-600 mt- bottom-0 hidden md:block"
             src="/docgroups.png"

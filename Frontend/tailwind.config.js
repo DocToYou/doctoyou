@@ -8,7 +8,13 @@ module.exports = {
         sans: ["Poppins", "sans-serif"],
         cursivee: ["Playwrite HU" , ...defaultTheme.fontFamily.sans],
       },
+      scrollSnapType: {
+        x: "x mandatory",
+      },
+      scrollSnapAlign: {
+        start: "start",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scroll-snap")],
 };
