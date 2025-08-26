@@ -96,24 +96,79 @@ export const Cards = () => {
           Choose your condition and we'll send a certified doctor to your home.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
-          {/* Cards go here */}
-          <Card image="/card1.png" navigate='/trained'/>
-          <Card image="/card2.png" navigate='nursing'/>
-          <Card image="/card3.png" />
-          <Card image="/card4.png" />
-          <Card image="/card5.png" />
-          <Card image="/card6.png" />
-          <Card image="/card7.png" />
-          <Card image="/card8.png" />
-          <Card image="/card9.png" />
+        {/* for response */}
+        <div className="lg:hidden">
+          <div className=" h-[490px] w-[400px] grid grid-rows-2  grid-flow-col auto-cols-[415px] overflow-x-auto scroll-snap-x-mandatory   mb-10">
+            <img
+              src="card1.png"
+              alt="card1"
+              className="h-[210px] scroll-snap-start  ml-3"
+            />
+            <img
+              src="card2.png"
+              alt="card2"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card3.png"
+              alt="card3"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card4.png"
+              alt="card4"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card5.png"
+              alt="card5"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card6.png"
+              alt="card6"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+            <img
+              src="card7.png"
+              alt="card7"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+
+            <img
+              src="card8.png"
+              alt="card7"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+
+            <img
+              src="card9.png"
+              alt="card7"
+              className="h-[210px] scroll-snap-start  ml-3 "
+            />
+          </div>
+        </div>
+
+        <div className="hidden lg:block">
+          <div className=" grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 md:px-16 pb-10 max-w-7xl mx-auto">
+            {/* Cards go here */}
+            <Card image="/card1.png" navigate="/trained" />
+            <Card image="/card2.png" navigate="nursing" />
+            <Card image="/card3.png" />
+            <Card image="/card4.png" />
+            <Card image="/card5.png" />
+            <Card image="/card6.png" />
+            <Card image="/card7.png" />
+            <Card image="/card8.png" />
+            <Card image="/card9.png" />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const Card = ({ image, title, description, navigate }) => (
+const Card = ({ image, title,navigate}) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white">
     <img
       src={image}
@@ -132,3 +187,5 @@ const Card = ({ image, title, description, navigate }) => (
     </div>
   </div>
 );
+
+

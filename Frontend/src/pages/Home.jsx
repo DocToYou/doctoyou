@@ -17,7 +17,7 @@ export const Home = () => {
               <img
                 src={doc}
                 alt="Background"
-                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-2xl"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-2xl "
               />
               <div className="ml-5 items-center gap-3 px-3 py-2 bg-white rounded-[10px] shadow-md text-black text-base w-fit hidden lg:flex">
                 <svg
@@ -70,7 +70,7 @@ export const Home = () => {
                 treatment at your doorstep.
               </div>
 
-              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-2 lg:gap-5 text-[12px]">
+              <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-1 lg:gap-5 text-[12px] lg:mb-20 mb-60 text-center">
                 <a
                   className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2  lg:text-base mr-3 lg:mr-5 z-50"
                   href=""
@@ -167,20 +167,11 @@ export const Home = () => {
             </div>
             <div className="relative w-full lg:w-auto ">
               <div className="flex items-center px-2 py-2 border border-black rounded-lg text-sm text-[#1815a1] bg-white pointer-events-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 mr-2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 mr-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+
+
                 <span className="lg:pr-15">Price Range</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
