@@ -114,7 +114,6 @@ export const Login = ({ changeToSignUp }) => {
           Don't have an account? [
           <Link to={"/auth/signup"}>
             <span
-              onClick={() => changeToSignUp(true)}
               className="text-blue-600 cursor-pointer"
             >
               Sign Up

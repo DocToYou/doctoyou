@@ -16,7 +16,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -58,7 +58,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -100,7 +100,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -141,7 +141,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -182,7 +182,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -223,7 +223,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -264,7 +264,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -305,7 +305,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">
@@ -346,7 +346,7 @@ export const Real_doc = () => {
                   <div className="bg-white w-[346px] h-[472px] rounded-lg mx-auto">
                     <img
                       className="w-[90%] pt-5 mx-auto"
-                      src="docs1.png"
+                      src="/docs1.png"
                       alt=""
                     />
                     <h1 className="text-[17px] text-left pl-4 pt-2 font-bold">

@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import axiosClient from "../../axiosConfig";
 import Otp from "./Otp";
+import { Link } from "react-router-dom";
 
 export const SignUp = ({ changeToLogin }) => {
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(false);
   const [isPasswordMatch, SetIsPasswordMatch] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [isOtpSent, setIsOtpSent] = useState(true);
   const [mobileNo, setMobileNo] = useState("");
   const [otp, setOtp] = useState("");
   const [otpError, setOtpError] = useState("");
@@ -117,6 +118,7 @@ export const SignUp = ({ changeToLogin }) => {
           >
             Resend OTP {otpTime > 0 && <span>({"00:" + otpTime})</span>}
           </button>
+          <div className="">edit info</div>
         </div>
       ) : (
         <div className="flex flex-col justify-center h-full">
@@ -235,9 +237,7 @@ export const SignUp = ({ changeToLogin }) => {
             </div>
             <button
               className={`mt-3 mx-auto w-[80%] border py-2 rounded-[10px] text-white flex justify-center items-center gap-2
-    ${isValidSignUpForm ? "bg-blue-800 cursor-pointer" : "bg-gray-400 cursor-not-allowed"}`}
-              disabled={!isValidSignUpForm || isLoading}
-            >
+    ${isValidSignUpForm ? "bg-blue-800 cursor-pointer" : "bg-gray-400 cursor-not-allowed"}`}>
               {isLoading && (
                 <div
                   className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
@@ -246,6 +246,13 @@ export const SignUp = ({ changeToLogin }) => {
               )}
               Sign Up
             </button>
+            <p>Already have an account? [ <Link to={"/auth/login"}>
+              <span
+                className="text-blue-600 cursor-pointer"
+              >
+                Login
+              </span>
+            </Link> ]</p>
           </form>
         </div>
       )}
