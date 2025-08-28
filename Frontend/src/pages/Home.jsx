@@ -15,7 +15,7 @@ export const Home = () => {
     return (
       <div className="lg:bg-white h-screen font-[Poppins]">
         <div className="h-5"></div>
-        <Navbar />
+        <Navbar handleScrollToServices={scrollToServices} />
         <div className="relative flex   mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins]">
           <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
             <div className="lg:mt-25">
@@ -358,7 +358,10 @@ export const Home = () => {
             </div>
           </div>
         </div>
+        <section ref={servicesRef}>
         <Cards />
+        </section>
+
         <Hiw />
         <Footer />
       </div>
