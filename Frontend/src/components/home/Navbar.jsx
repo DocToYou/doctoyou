@@ -80,7 +80,7 @@ export const Navbar = ({ handleScrollToServices }) => {
               </svg>
             </Link>
             <Link
-              to={"/auth/login"}
+              to={"/auth"}
               className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded ml-3"
             >
               <svg
@@ -190,7 +190,7 @@ export const Navbar = ({ handleScrollToServices }) => {
               <span className="hidden lg:block lg:px-3">location</span>
             </Link>
             <Link
-              to={"/auth/login"}
+              to={"/auth"}
               className="flex items-center text-medium bg-[#1815a1] text-white px-3 py-2 font-bold rounded ml-3"
             >
               <svg

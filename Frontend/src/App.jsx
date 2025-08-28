@@ -13,7 +13,7 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/auth/:mode" element={<AuthPage />} />
+        <Route path="/auth" element={<AuthPage />} />
         <Route path="/services/:name" element={<Train_att />} />
         <Route path="/test" element={<DoctorSearchBar />} />
         {/* <Route path='/test' element={<Test />} /> */}

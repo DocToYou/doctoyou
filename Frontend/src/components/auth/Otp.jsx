@@ -1,46 +1,95 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from 'react'
+import OtpInput from "./OtpInput";
+import axiosClient from '../../axiosConfig';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-const Otp = ({ length = 4, onChangeOTP }) => {
-  const inputsRef = useRef([]);
-  const [otp, setOtp] = useState(new Array(length).fill(""));
+export const Otp = ({ backTosignUp, mobileNo }) => {
+    const startOtpTimer = () => {
+        let time = 30;
+        const timer = setInterval(() => {
+            setOtpTime(--time);
+            if (time == 0) clearInterval(timer);
+        }, 1000);
+    };
 
-  const handleChange = (value, index) => {
-    const char = value.slice(-1);
-    if (!/^\d?$/.test(char)) return;
-    const newOtp = [...otp];
-    newOtp[index] = char;
-    setOtp(newOtp);
-    onChangeOTP?.(newOtp.join(""));
+    useEffect(() => startOtpTimer(), [])
+    const [otp, setOtp] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [otpError, setOtpError] = useState("");
+    const [otpTime, setOtpTime] = useState(30);
 
-    if (char && index < length - 1) {
-      requestAnimationFrame(() => {
-        inputsRef.current[index + 1]?.focus();
-      });
-    }
-  };
+    const handleOtpSubmit = async () => {
+        setOtpError("")
+        setIsLoading(true);
+        try {
+            if (otp.length == 4) {
+                const res = await axiosClient.post("/verifyOtp", {
+                    otp: otp,
+                    phone: Number(mobileNo),
+                });
+                if (res.status === 200) {
 
-  const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputsRef.current[index - 1].focus();
-    }
-  };
+                } else {
+                    setOtpError("Invalid OTP. Please try again.");
+                }
+            }
+        } catch (error) {
+            setOtpError("Invalid OTP. Please try again.");
+            console.log(error);
+        }
+        setIsLoading(false);
+    };
 
-  return (
-    <div className="flex gap-3">
-      {otp.map((digit, idx) => (
-        <input
-          key={idx}
-          ref={(el) => (inputsRef.current[idx] = el)}
-          type="text"
-          maxLength="1"
-          value={digit}
-          onChange={(e) => handleChange(e.target.value, idx)}
-          onKeyDown={(e) => handleKeyDown(e, idx)}
-          className="w-12 h-12 text-center border border-gray-400 rounded text-xl font-semibold focus:outline-blue-500"
-        />
-      ))}
-    </div>
-  );
-};
+    const handleOtpChange = (code) => {
+        setOtp(code);
+    };
 
-export default Otp;
+    const handleResendOtp = () => {
+        console.log(mobileNo);
+        setOtpTime(30);
+        startOtpTimer();
+    };
+
+
+    return (
+        <div className="flex flex-col gap-5 items-center justify-center lg:py-15">
+            <h1 className="text-3xl lg:text-2xl font-bold text-center text-blue-800">
+                Verify Your Mobile Number
+            </h1>
+            <div>
+                <p className="hidden lg:block">{`we've sent a 4-digitcode to +91 xxxxxx${mobileNo.substring(6)}`}</p>
+                <p className="text-center lg:hidden">we've sent a 4-digitcode to</p>
+                <p className="text-center lg:hidden">{`+91 xxxxxx${mobileNo.substring(6)}`}</p>
+                <p>Enter the code below to continue</p>
+            </div>
+            <OtpInput onChangeOTP={handleOtpChange} otpError = {otpError}/>
+            {otpError && <p className="text-red-600 text-sm">{otpError}</p>}
+            <button
+                onClick={handleOtpSubmit}
+                className={`w-[80%] py-2 bg-blue-800 rounded text-white flex justify-center items-center gap-2 cursor-pointer ${otp.length == 4 ? "opacity-100" : "opacity-50"}`}
+            >
+                {isLoading && (
+                    <div
+                        className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
+                        aria-label="Loading"
+                    ></div>
+                )}
+                Verify
+            </button>
+            <button
+                onClick={handleResendOtp}
+                className={`text-blue-800 cursor-pointer ${otpTime === 0 ? "opacity-100" : "opacity-50"}`}
+                disabled={otpTime !== 0}
+            >
+                Resend OTP {otpTime > 0 && <span>({"00:" + otpTime})</span>}
+            </button>
+            <div
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={backTosignUp}
+            >
+                <KeyboardBackspaceIcon sx={{ fontSize: 20 }} />
+                <span>Edit Info</span>
+            </div>
+        </div>
+    )
+}
