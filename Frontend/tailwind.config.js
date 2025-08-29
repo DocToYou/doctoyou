@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
-        cursivee: ["Playwrite HU" , ...defaultTheme.fontFamily.sans],
+        cursivee: ["Playwrite HU", ...defaultTheme.fontFamily.sans],
       },
       scrollSnapType: {
         x: "x mandatory",

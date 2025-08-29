@@ -1,6 +1,5 @@
-import React from 'react'
-
-export const Hiw = () => {
+import React from "react";
+export const HowItWorks = () => {
   return (
     <div>
       <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex font-[Poppins]">
@@ -53,4 +52,4 @@ export const Hiw = () => {
       </h1>{" "}
     </div>
   );
-}
+};

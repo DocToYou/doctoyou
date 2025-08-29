@@ -1,17 +1,26 @@
-import React  from "react";
 import { useParams } from "react-router-dom";
-import { doc, femdoc, doc2, greenTick } from "../assets/home";
+import { doc, femdoc } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
-import { Real_doc } from "./Real_doc";
+import { RealDoc } from "./RealDoc";
 
-export const Train_att = ({serviceName}) => {
-  const params = useParams()
-  console.log(params)
-  const data = [{
-    name: "Trained Attendants",
-    desc: "Trained attendants are non-medical professionals who provide essential support to patients in the comfort of their homes. They assist with daily care, monitor health conditions, and ensure patient safety and comfort — especially for the elderly, bedridden, or post-surgery individuals.",
-    sevices: ["Help with bathing, dressing, and grooming", "Mobility support (wheelchair, walking assistance)", "Feeding and medication reminders", "Monitoring vitals like blood pressure & temperature", "Maintaining hygiene and cleanliness", "Supporting recovery after surgery or hospitalization", "Providing companionship and emotional suppor"]
-  }]
+export const TrainAttend = () => {
+  const params = useParams();
+  console.log(params);
+  const data = [
+    {
+      name: "Trained Attendants",
+      desc: "Trained attendants are non-medical professionals who provide essential support to patients in the comfort of their homes. They assist with daily care, monitor health conditions, and ensure patient safety and comfort — especially for the elderly, bedridden, or post-surgery individuals.",
+      sevices: [
+        "Help with bathing, dressing, and grooming",
+        "Mobility support (wheelchair, walking assistance)",
+        "Feeding and medication reminders",
+        "Monitoring vitals like blood pressure & temperature",
+        "Maintaining hygiene and cleanliness",
+        "Supporting recovery after surgery or hospitalization",
+        "Providing companionship and emotional suppor",
+      ],
+    },
+  ];
   return (
     <>
       <Navbar />
@@ -36,7 +45,9 @@ export const Train_att = ({serviceName}) => {
             </div>
 
             <ul className="text-white ml-10 pt-5 text-[17px] ">
-              {data[0].sevices.map((service, index) => <li key={index}>{`• ${service}`}</li>)}
+              {data[0].sevices.map((service, index) => (
+                <li key={index}>{`• ${service}`}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -46,7 +57,7 @@ export const Train_att = ({serviceName}) => {
         </div>
       </div>
 
-      <Real_doc />
+      <RealDoc />
     </>
   );
 };

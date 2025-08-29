@@ -1,12 +1,11 @@
-import React from 'react'
-import { Navbar } from '../components/home/Navbar'
+import { Navbar } from "../components/home/Navbar";
 
 const Tracking = () => {
   return (
     <div>
-        <Navbar/>
+      <Navbar />
     </div>
-  )
-}
+  );
+};
 
-export default Tracking
+export default Tracking;

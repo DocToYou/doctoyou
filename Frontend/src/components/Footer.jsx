@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 export const Footer = () => {
   return (
     <div className="bg-[#1815a1] font-[Poppins]">
@@ -22,8 +21,11 @@ export const Footer = () => {
         <div className="lg:mb-0 mb-10">
           <h1 className="text-2xl text-white font-bold">Resources</h1>
           <ul className="text-white mr-25">
-            <li>Location: IFET Incubation cell, IFETCE,<br />
-              Villupuram, Tamil Nadu, India</li>
+            <li>
+              Location: IFET Incubation cell, IFETCE,
+              <br />
+              Villupuram, Tamil Nadu, India
+            </li>
             <li>Phone: +91 93446 88406</li>
             <li>Email: support@doc2you.in</li>
           </ul>
@@ -192,4 +194,4 @@ export const Footer = () => {
       </div>
     </div>
   );
-}
+};
