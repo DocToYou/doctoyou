@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = ({ handleScrollToServices }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true); // initially in collapsed state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // initially in collapsed state
   const setNavColour = useState(false);
   useEffect(() => {
     const scrollHandler = () => {

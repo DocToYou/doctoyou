@@ -1,8 +1,8 @@
 import React,{useRef} from 'react'
 import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
-import { Hiw } from "../components/Hiw";
-import { Footer } from "../components/Footer";
+import { Hiw } from "../components/home/Hiw";
+import { Footer } from "../components//home/Footer";
 import { doc, doc2, greenTick } from "../assets/home";
 
 
