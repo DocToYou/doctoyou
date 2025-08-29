@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const OtpInput = ({ length = 4, onChangeOTP, otpError }) => {
-  useEffect(() => setOtp(new Array(length).fill("")), [otpError])
+  useEffect(() => setOtp(new Array(length).fill("")), [otpError]);
 
   const inputsRef = useRef([]);
   const [otp, setOtp] = useState(new Array(length).fill(""));
