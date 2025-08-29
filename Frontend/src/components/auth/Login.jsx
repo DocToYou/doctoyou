@@ -1,15 +1,19 @@
-import axiosClient from '../../axiosConfig'
-import React, { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import axiosClient from "../../axiosConfig";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) => {
-
+export const Login = ({
+  changeToSignUp,
+  changeToReset,
+  formData,
+  setFormData,
+}) => {
   useEffect(() => {
     const currForm = loginForm.current;
     if (currForm) setIsValidLoginForm(currForm.checkValidity());
-  }, [formData])
+  }, [formData]);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [ShowPassword, setShowPassword] = useState(false);
@@ -18,13 +22,13 @@ export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) 
   const loginForm = useRef(null);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true)
-    setError("")
+    setIsLoading(true);
+    setError("");
     const form = loginForm.current;
     const data = new FormData(form);
     try {
@@ -41,15 +45,14 @@ export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) 
     } catch (error) {
       console.log(error.message);
       setError("Wrong Credentials");
+    } finally {
+      setIsLoading(false);
     }
-    finally { setIsLoading(false) }
   };
 
   return (
     <div className="flex flex-col gap-4 justify-center">
-      <h1 className="text-[22px] font-extrabold text-blue-800">
-        Welcome back
-      </h1>
+      <h1 className="text-[22px] font-extrabold text-blue-800">Welcome back</h1>
       <p>
         Dont't wait days for doctor. Getinstant care from top professionals -
         anytime, anywhere.
@@ -85,7 +88,7 @@ export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) 
           <label className="text-[15px]" htmlFor="password">
             Password
           </label>
-          <div className='relative'>
+          <div className="relative">
             <input
               className="w-full border-1 px-5 py-3 rounded mr-3 placeholder:text-[14px]"
               value={formData.password || ""}
@@ -98,7 +101,10 @@ export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) 
               minLength={6}
               maxLength={20}
             />
-            <span className='absolute right-3 top-2.5 cursor-pointer' onClick={() => setShowPassword(!ShowPassword)}>
+            <span
+              className="absolute right-3 top-2.5 cursor-pointer"
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
               {ShowPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </span>
           </div>
@@ -117,25 +123,31 @@ export const Login = ({ changeToSignUp, changeToReset, formData, setFormData }) 
             </p>
           </div>
         </div>
-        <p className={`text-red-500 text-center ${error ? "" : "hidden"}`}>{error}</p>
+        <p className={`text-red-500 text-center ${error ? "" : "hidden"}`}>
+          {error}
+        </p>
         <button
-          className={`mx-auto w-[80%] border-1 py-3 rounded-[10px] text-white flex justify-center items-center gap-2 ${isValidLoginForm
-            ? "bg-blue-800 cursor-pointer"
-            : "bg-gray-400 cursor-not-allowed"
-            }`}
+          className={`mx-auto w-[80%] border-1 py-3 rounded-[10px] text-white flex justify-center items-center gap-2 ${
+            isValidLoginForm
+              ? "bg-blue-800 cursor-pointer"
+              : "bg-gray-400 cursor-not-allowed"
+          }`}
         >
-          {isLoading && <div
-            className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
-            aria-label="Loading"
-          ></div>}
+          {isLoading && (
+            <div
+              className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
+              aria-label="Loading"
+            ></div>
+          )}
           Login
         </button>
       </form>
       <p>
-        Don't have an account?
-        [ <span className="text-blue-600 cursor-pointer" onClick={changeToSignUp}>
+        Don't have an account? [{" "}
+        <span className="text-blue-600 cursor-pointer" onClick={changeToSignUp}>
           Sign Up
-        </span> ]
+        </span>{" "}
+        ]
       </p>
     </div>
   );

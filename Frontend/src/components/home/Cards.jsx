@@ -153,8 +153,6 @@ export const Cards = () => {
   );
 };
 
-
-
 // ===== Reusable Card Component =====
 const Card = ({ image, navigate }) => (
   <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-white snap-start ml-3">

@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import axiosClient from "../../axiosConfig";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) => {
+export const SignUp = ({
+  changeToLogin,
+  changeToOtp,
+  formData,
+  setFormData,
+}) => {
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(false);
   const [ShowPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,15 +17,15 @@ export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) =>
   useEffect(() => {
     const currForm = signUpForm.current;
     if (currForm) setIsValidSignUpForm(currForm.checkValidity());
-  }, [formData])
+  }, [formData]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     setIsLoading(true);
     const data = new FormData(signUpForm.current);
     try {
@@ -33,13 +38,13 @@ export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) =>
         password: data.get("password"),
         confirmPassword: data.get("confirmpassword"),
       });
+      console.log(res);
     } catch (error) {
       console.log(error.message);
     }
     setIsLoading(false);
     changeToOtp();
   };
-
 
   return (
     <div className="flex flex-col justify-center h-full">
@@ -142,14 +147,17 @@ export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) =>
               minLength={6}
               maxLength={20}
             />
-            <span className='absolute right-3 top-1.5 cursor-pointer' onClick={() => setShowPassword(!ShowPassword)}>
+            <span
+              className="absolute right-3 top-1.5 cursor-pointer"
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
               {ShowPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </span>
           </div>
         </div>
         <div>
           <label htmlFor="confirmpassword">Confirm Password</label>
-          <div className="relative"> 
+          <div className="relative">
             <input
               className="w-full border-1 px-5 py-2 rounded mr-3"
               value={formData.confirmpassword || ""}
@@ -162,14 +170,18 @@ export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) =>
               minLength={6}
               maxLength={20}
             />
-            <span className='absolute right-3 top-1.5 cursor-pointer' onClick={() => setShowPassword(!ShowPassword)}>
+            <span
+              className="absolute right-3 top-1.5 cursor-pointer"
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
               {ShowPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </span>
           </div>
         </div>
         <button
           className={`mt-3 mx-auto w-[80%] border py-2 rounded-[10px] text-white flex justify-center items-center gap-2
-    ${isValidSignUpForm ? "bg-blue-800 cursor-pointer" : "bg-gray-400 cursor-not-allowed"}`}>
+    ${isValidSignUpForm ? "bg-blue-800 cursor-pointer" : "bg-gray-400 cursor-not-allowed"}`}
+        >
           {isLoading && (
             <div
               className="w-5 h-5 rounded-full border-4 border-white border-t-transparent animate-spin"
@@ -178,9 +190,16 @@ export const SignUp = ({ changeToLogin, changeToOtp, formData, setFormData }) =>
           )}
           Sign Up
         </button>
-        <p>Already have an account? [ <span className="text-blue-600 cursor-pointer" onClick={changeToLogin}>
-          Login
-        </span> ]</p>
+        <p>
+          Already have an account? [{" "}
+          <span
+            className="text-blue-600 cursor-pointer"
+            onClick={changeToLogin}
+          >
+            Login
+          </span>{" "}
+          ]
+        </p>
       </form>
     </div>
   );
