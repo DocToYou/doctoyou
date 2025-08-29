@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { doc, femdoc } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";

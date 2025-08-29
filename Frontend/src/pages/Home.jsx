@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
-import { HowItWorks } from "../components/HowItWorks";
-import { Footer } from "../components/Footer";
+import { HowItWorks } from "../components/home/HowItWorks";
+import { Footer } from "../components//home/Footer";
 import { doc, doc2 } from "../assets/home";
 
 export const Home = () => {
