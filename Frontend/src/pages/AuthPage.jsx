@@ -8,7 +8,6 @@ import pic2 from "../assets/auth/pic2.svg";
 import pic3 from "../assets/auth/pic3.svg";
 
 export const AuthPage = () => {
-
   const [mode, setMode] = useState("login");
   const [formData, setFormData] = useState({
     fname: "",
