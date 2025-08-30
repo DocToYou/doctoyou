@@ -4,7 +4,7 @@ import { doc, femdoc } from "../assets/home";
 import { Navbar } from "../components/home/Navbar";
 import { RealDoc } from "./RealDoc";
 
-export const TrainAttend = () => {
+export const Services = () => {
   const params = useParams();
   console.log(params);
   const data = [

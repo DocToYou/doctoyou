@@ -3,7 +3,7 @@ import OtpInput from "./OtpInput";
 import axiosClient from "../../axiosConfig";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
-export const Otp = ({ backTosignUp, mobileNo }) => {
+export const Otp = ({ backTosignUp, mobileNo, backToLogin }) => {
   const startOtpTimer = () => {
     let time = 30;
     const timer = setInterval(() => {
@@ -27,7 +27,9 @@ export const Otp = ({ backTosignUp, mobileNo }) => {
           otp: otp,
           phone: Number(mobileNo),
         });
-        if (res.status === 200);
+        if (res.status === 200){
+          backToLogin();
+        }
         else {
           setOtpError("Invalid OTP. Please try again.");
         }

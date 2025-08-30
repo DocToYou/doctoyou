@@ -59,6 +59,7 @@ export const AuthPage = () => {
             <Otp
               mobileNo={formData.phone}
               backTosignUp={() => setMode("signup")}
+              backToLogin={() => setMode("login")}
             />
           )}
         </div>
