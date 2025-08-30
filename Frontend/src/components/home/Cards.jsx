@@ -5,14 +5,14 @@ export const Cards = () => {
   // Card data (images + navigation)
   const cardData = [
     { image: "/card1.png", navigate: "services/trained" },
-    { image: "/card2.png", navigate: "/nursing" },
-    { image: "/card3.png", navigate: "/service3" },
-    { image: "/card4.png", navigate: "/service4" },
-    { image: "/card5.png", navigate: "/service5" },
-    { image: "/card6.png", navigate: "/service6" },
-    { image: "/card7.png", navigate: "/service7" },
-    { image: "/card8.png", navigate: "/service8" },
-    { image: "/card9.png", navigate: "/service9" },
+    { image: "/card2.png", navigate: "services/nursing" },
+    { image: "/card3.png", navigate: "services/physiotherapy" },
+    { image: "/card4.png", navigate: "services/eldercare" },
+    { image: "/card5.png", navigate: "services/doctconsult" },
+    { image: "/card6.png", navigate: "services/vaccine" },
+    { image: "/card7.png", navigate: "services/counselling" },
+    { image: "/card8.png", navigate: "services/diabetescare" },
+    { image: "/card9.png", navigate: "services/helpcare" },
   ];
 
   return (
