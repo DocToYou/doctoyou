@@ -16,8 +16,7 @@ exports.sendOtp = async (req, res) => {
     },
   })
     .then(async (result) => {
-      if (!result)
-        return res.status(500).json({ message: "DB Error!", result: result });
+      
       //   console.log(result);
 
       if (result !== null) {
@@ -48,7 +47,7 @@ exports.sendOtp = async (req, res) => {
     })
     .catch((error) => {
       console.log(`Error while fetching: ${error.message}`);
-      return res.status(500).json({ message: "Error in Server" });
+      return res.status(500).json({ message: "Error in Server!" });
     });
 };
 

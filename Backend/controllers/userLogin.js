@@ -51,9 +51,7 @@ exports.login = async (req, res) => {
   })
     .then((result) => {
       // console.log(user.toJSON());
-      if (!result) {
-        return res.status(500).json({ message: "Server error occured" });
-      }
+
       if (result.length === 0) {
         return res.status(404).send("User not found");
       }
@@ -80,5 +78,8 @@ exports.login = async (req, res) => {
         }
       });
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => {
+      console.log(err.message);
+      return res.status(500).json({ message: "Server error occured!" });
+    });
 };

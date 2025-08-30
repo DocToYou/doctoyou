@@ -27,12 +27,11 @@ exports.register = async (req, res) => {
     },
   })
     .then(async (result) => {
-      if (!result)
-        return res.status(500).json({ message: "DB Error!", result: result });
-      // console.log(result);
-      if (result !== null) {
-        return res.status(409).json({ message: "User Already Registered!" });
-      }
+        if (result !== null) {
+          // console.log(result);
+
+          return res.status(409).json({ message: "User Already Registered!" });
+        }
       if (result === null) {
         // Generate 4-digit OTP
         const otp = generateOtp();
@@ -69,6 +68,7 @@ exports.register = async (req, res) => {
     })
     .catch((error) => {
       console.log(`Error while fetching: ${error.message}`);
+      return res.status(500).json({ message: "Database Error!" });
     });
 };
 
