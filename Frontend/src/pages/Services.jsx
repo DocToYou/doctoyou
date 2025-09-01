@@ -144,7 +144,7 @@ export const Services = () => {
   return (
     <>
       <Navbar />
-      <div className="relative flex  mt-5  mx-4 min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+      <div className="relative flex  mt-5  mx-4 min-h-[500px]  rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
         <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
           <img
             src={doc}
@@ -173,7 +173,7 @@ export const Services = () => {
         </div>
 
         <div className="w-1/2 hidden lg:flex">
-          <img className="w-110 ml-40 pt-30" src={service[0].image} alt="docter" />
+          <img className="w-130 ml-40 pt-30" src={service[0].image} alt="doctor" />
         </div>
       </div>
 

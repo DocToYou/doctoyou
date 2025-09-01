@@ -8,7 +8,7 @@ export const RealDoc = () => {
         <div className="bg-[#1815a1] border-4 w-70 border-white rounded-2xl p-3"></div>
 
         {/* Content */}
-        <div className="bg-[#cacaca] rounded-2xl ml-5 ">
+        <div className="bg-[#f6f8fc] rounded-2xl ml-5 ">
           <div className="w-full h-full overflow-y-scroll scrollbar-none">
             <div className="grid grid-cols-[repeat(3,366px)] grid-rows-[repeat(3,492px)] justify-evenly p-2">
               {/* Card 1 */}
