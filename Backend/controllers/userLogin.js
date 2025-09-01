@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/Users");
+const db = require('../config/db');
+const { QueryTypes } = require('sequelize');
 
 const sampContent = [
   {
@@ -57,7 +59,7 @@ exports.login = async (req, res) => {
       }
       // console.log(result.password);
       const hashedPassword = result.password;
-      bcrypt.compare(password, hashedPassword, (error, match) => {
+      bcrypt.compare(password, hashedPassword, async (error, match) => {
         if (error) {
           // console.log(match)
           console.log(error);
@@ -67,11 +69,21 @@ exports.login = async (req, res) => {
           const user = { userId: phone };
           const accessToken = jwt.sign(user, process.env.SIGNATURE_TOKEN);
           console.log("Successfully Logged in!");
+          //Getting user information
+        const userDetails = await User.findOne({
+        where: { phone: phone }
+        });
+
+        console.log(userDetails?.get({ plain: true }));
+
+
           // console.log(match);
           return res.json({
             message: "User login successful!",
             accessToken: accessToken,
           });
+          // Exporting the user details
+          module.exports = userDetails;
           // return res.json({ message: "User login successful!" });
         } else {
           return res.status(401).json({ message: "Incorrect match" });
@@ -83,3 +95,5 @@ exports.login = async (req, res) => {
       return res.status(500).json({ message: "Server error occured!" });
     });
 };
+
+
