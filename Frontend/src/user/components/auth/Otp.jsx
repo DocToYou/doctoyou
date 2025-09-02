@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OtpInput from "./OtpInput";
-import axiosClient from "../../axiosConfig";
+import axiosClient from "../../../axiosConfig";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 export const Otp = ({ backTosignUp, mobileNo, backToLogin }) => {
