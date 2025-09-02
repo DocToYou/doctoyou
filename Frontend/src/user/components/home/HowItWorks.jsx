@@ -44,12 +44,18 @@ export const HowItWorks = () => {
         </p>
 
         <img
-          className="w-340 mx-auto select-none pointer-events-none"
+          className="w-340 mx-auto select-none pointer-events-none hidden lg:flex "
           src="howitworks.png"
           alt="howitworks"
           onContextMenu={(e) => e.preventDefault()}
           draggable="false"
         />
+        <div className=" flex lg:hidden overflow-x-scroll">
+          <img src="flow1.png" alt="" />
+          <img src="flow2.png" alt="" />
+          <img src="flow3.png" alt="" />
+          <img src="flow4.png" alt="" />
+        </div>
       </div>
       <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20 mb-10 hidden lg:block">
         "Your health, delivered fast. Anytime, anywhere."
