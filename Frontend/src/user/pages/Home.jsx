@@ -18,7 +18,7 @@ export const Home = () => {
       <Navbar handleScrollToServices={scrollToServices} />
 
       {/* for response */}
-      <div className="lg:hidden mt-10 ml-3 mr-3 bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins] rounded-2xl relative overflow-hidden">
+      <div className="lg:hidden mt-10 mx-2 bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins] rounded-2xl relative overflow-hidden">
         <img
           src="dochome2.png"
           className="absolute h-100 right-0 bottom-0 mt-2 object-contain"
