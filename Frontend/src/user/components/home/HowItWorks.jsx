@@ -3,18 +3,22 @@ export const HowItWorks = () => {
   return (
     <div>
       <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex font-[Poppins]">
-        <div>
+        <div className="mt-15">
           <h1 className="font-[Poppins] lg:text-6xl text-[#1815a1] lg:font-bold font-bold text-4xl ">
             Who we are?
           </h1>
-          <p className="pt-10 lg:text-[18px]">
+          <p className="pt-5 lg:text-[18px]">
             Bringing Healthcare to Your Doorstep, Instantly — Just Like{" "}
           </p>
 
-          <div className="relative lg:hidden md:hiiden mt-5">
-            <img className="w-600 mt- bottom-0" src="/docgroups.png" alt="" />
+          <div className="relative lg:hidden  mt-5">
+            <img
+              className="w-90 mt- bottom-0 mx-auto"
+              src="/docgroups.png"
+              alt=""
+            />
           </div>
-          <p className="lg:pr-18 mt-12 lg:text-[21px]">
+          <p className="lg:pr-18 mt-8 lg:text-[21px] text-justify">
             Doc2you is a modern healthcare service platform that connects
             patients with verified doctors near them, providing quick and
             convenient medical consultations at their home or preferred
@@ -24,32 +28,43 @@ export const HowItWorks = () => {
         </div>
         <div className="relative md:hidden lg:block">
           <img
-            className="w-600 mt- bottom-0 hidden md:block"
+            className="w-300 mt- bottom-0 hidden md:block"
             src="/docgroups.png"
             alt=""
           />
         </div>
       </div>
       <div className="pb-30 pt-3">
-        <h1 className="lg:text-6xl text-[#1815a1] pt-17 text-center font-bold text-4xl">
+        <h1 className="lg:text-6xl text-[#1815a1] pt-17 lg:text-center ml-6 font-bold text-4xl">
           How It Works?..
         </h1>
-        <p className="pt-4 text-[18px] text-center">
+        <p className="pt-4 text-[18px] lg:text-center pl-6 pr-10">
           Experience a seamless, step-by-step care process designed around your
           needs.
         </p>
 
         <img
-          className="w-340 mx-auto select-none pointer-events-none"
+          className="w-340 mx-auto select-none pointer-events-none hidden lg:flex "
           src="howitworks.png"
           alt="howitworks"
           onContextMenu={(e) => e.preventDefault()}
           draggable="false"
         />
+        <div className=" flex lg:hidden overflow-x-scroll">
+          <img src="flow1.png" alt="" />
+          <img src="flow2.png" alt="" />
+          <img src="flow3.png" alt="" />
+          <img src="flow4.png" alt="" />
+        </div>
       </div>
-      <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20 mb-10">
+      <h1 className="lg:text-[60px] text-[30px] text-[#d1d0ec] font-bold lg:px-35 px-15 text-center lg:pb-20 mb-10 hidden lg:block">
         "Your health, delivered fast. Anytime, anywhere."
-      </h1>{" "}
+      </h1>
+      <div className="lg:hidden text-[30px] text-[#d1d0ec] font-bold text-center mb-10">
+        <h1>"Your health,</h1>
+        <h1>delivered fast.</h1>
+        <h1>Anytime, anywhere."</h1>
+      </div>{" "}
     </div>
   );
 };

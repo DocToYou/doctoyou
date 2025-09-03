@@ -133,7 +133,7 @@ export const Cards = () => {
 
         {/* ===== Mobile Scrollable Cards ===== */}
         <div className="lg:hidden">
-          <div className="h-[490px] w-[400px] grid grid-rows-2 grid-flow-col auto-cols-[415px] overflow-x-auto snap-x snap-mandatory mb-10">
+          <div className="h-[490px] w-full grid grid-rows-2 grid-flow-col auto-cols-[380px] overflow-x-auto snap-x snap-mandatory">
             {cardData.map((card, index) => (
               <Card key={index} image={card.image} navigate={card.navigate} />
             ))}
