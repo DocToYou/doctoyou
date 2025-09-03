@@ -3,7 +3,7 @@ import { Navbar } from "../components/home/Navbar";
 import { Cards } from "../components//home/Cards";
 import { HowItWorks } from "../components/home/HowItWorks";
 import { Footer } from "../components//home/Footer";
-import { doc, doc2 } from "../assets/home";
+import { doc, doc2, } from "../assets/home";
 import { Emergency } from "./Emergency";
 
 export const Home = () => {
@@ -72,8 +72,8 @@ export const Home = () => {
 
       <div className=" relative lg:flex  hidden  mx-4  min-h-[500px] rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins]">
         <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden ">
-          <div className="lg:mt-25">
-            <div className="ml-5 items-center gap-3 px-3 py-2 bg-white rounded-[7px] shadow-md text-black text-base w-fit hidden lg:flex">
+          <div className="lg:mt-35">
+            <div className="ml-5 items-center gap-3 px-3 py-1 bg-white rounded-[7px] shadow-md text-black text-base w-fit hidden lg:flex mb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -102,13 +102,13 @@ export const Home = () => {
 
             <div className="pt-5 lg:pt-8 flex justify-center lg:justify-start pl-0 lg:pl-5 gap-1 lg:gap-5 text-[12px] lg:mb-20 mb-60 text-center">
               <a
-                className="bg-white text-[#020460] rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8  lg:py-2  lg:text-base mr-3 lg:mr-5 z-50"
+                className="bg-white text-[#020460] rounded-xl lg:rounded-[5px] px-4 py-3 lg:px-8  lg:py-2  lg:text-base mr-3 lg:mr-5 z-50"
                 href=""
               >
                 Emergency Service
               </a>
               <a
-                className="bg-transparent border border-white text-white rounded-xl lg:rounded-2xl px-4 py-3 lg:px-8 lg:py-2  lg:text-base ml-3 lg:ml-0"
+                className="bg-transparent border border-white text-white rounded-xl lg:rounded-[5px] px-4 py-3 lg:px-8 lg:py-2  lg:text-base ml-3 lg:ml-0"
                 href=""
               >
                 Book Appointment
@@ -117,8 +117,12 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="w-1/2 hidden lg:flex">
-          <img className="mt-15" src={doc2} alt="docter" />
+        <div className="w-1/2 hidden lg:flex relative">
+          <img
+            className="h-140 absolute bottom-0  object-cover"
+            src="./dochome.png"
+            alt="docter"
+          />
         </div>
       </div>
 
