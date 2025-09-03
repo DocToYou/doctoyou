@@ -1,19 +1,19 @@
 use doctoyou;
 show tables;
-
+desc providers;
 -- SELECT GROUP_CONCAT('DROP TABLE IF EXISTS ', table_name, ';') 
 -- FROM information_schema.tables 
 -- WHERE table_schema = 'doctoyou';
-DROP TABLE IF EXISTS appointments;
-DROP TABLE IF EXISTS availability;
-DROP TABLE IF EXISTS caretaker_cred;
-DROP TABLE IF EXISTS doctor_cred;
-DROP TABLE IF EXISTS nurse_cred;
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS providers;
-DROP TABLE IF EXISTS services;
-DROP TABLE IF EXISTS users;
-drop procedure add_provider;
+-- DROP TABLE IF EXISTS appointments;
+-- DROP TABLE IF EXISTS availability;
+-- DROP TABLE IF EXISTS caretaker_cred;
+-- DROP TABLE IF EXISTS doctor_cred;
+-- DROP TABLE IF EXISTS nurse_cred;
+-- DROP TABLE IF EXISTS reviews;
+-- DROP TABLE IF EXISTS providers;
+-- DROP TABLE IF EXISTS services;
+-- DROP TABLE IF EXISTS users;
+-- drop procedure add_provider;
 
 CREATE TABLE IF NOT EXISTS providers(
 	id INT auto_increment,
@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS providers(
     constraint UNIQUE_EMAIL UNIQUE(email),
     constraint gender_MFO check(GENDER IN ('M','F','O'))
     );
+    
+desc providers;
 
 CREATE TABLE IF NOT exists doctor_cred (
 id int auto_increment, p_id int , license varchar(255) not null, specialization varchar(60) not null,
@@ -153,7 +155,18 @@ CALL add_provider(
   'Alice', 'Smith', 'F', 'Doctor', 9876543210, 'alice@hospital.com', 'securepass',
   'DOC12345', 'Cardiology', NULL, NULL
 );
+CALL add_provider(
+  'Bob', 'Jones', 'M', 'Nurse', 9876543211, 'bob@nurse.com', 'securepass',
+  NULL, NULL, 'NUR67890', 'Emergency'
+);
 
+CALL add_provider(
+  'Charlie', 'Brown', 'M', 'Caretaker', 9876543212, 'charlie@care.com', 'securepass',
+  NULL, NULL, NULL, NULL
+);
 
 truncate table providers;
-select * from providers; select * from doctor_cred;
+select * from providers; 
+select * from doctor_cred;
+select * from nurse_cred;
+select * from caretaker_cred

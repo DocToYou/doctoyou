@@ -1,6 +1,7 @@
-const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
+const express = require("express");
+const db = require("./config/db"); // Import the database connection pool
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./routes/allRoutes");
@@ -14,6 +15,18 @@ app.use(bodyParser.json());
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Middleware to enable CORS
+app.use(cors());
+
+//Sync all models (It'll create table if not exists)
+db.sync()
+  .then(() => {
+    console.log("********** Database Synced Successfully! *************");
+  })
+  .catch((error) => {
+    console.log(`********** Error while syncing: *********\n${error.message}`);
+  });
 
 //Add all routes
 app.use("/", routes);

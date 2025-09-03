@@ -1,7 +1,8 @@
 const User = require("../models/Users");
 const bcrypt = require("bcryptjs");
-const client = require("../config/twilio");
-const generateOtp = require("../utils/sendOtp");
+const helper = require("../helper");
+const client = helper.twilio;
+const generateOtp = helper.sendOtp;
 
 // Map to store OTPs: phone => otp
 const otpMap = new Map();
@@ -16,7 +17,7 @@ exports.sendOtp = async (req, res) => {
     },
   })
     .then(async (result) => {
-      
+
       //   console.log(result);
 
       if (result !== null) {

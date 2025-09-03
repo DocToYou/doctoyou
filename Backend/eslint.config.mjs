@@ -47,14 +47,14 @@ export default defineConfig([
       indent: ["error", 2, { SwitchCase: 1 }],
       //'no-nested-ternary': 'warn',
 
-      // // 🔒 Security
+      // 🔒 Security
       "security/detect-object-injection": "warn",
 
-      // // 📦 Node.js Specific
+      // 📦 Node.js Specific
       "node/no-missing-import": "off",
       "node/no-unpublished-import": "off",
 
-      // // 📥 Import Rules
+      // 📥 Import Rules
       // 'import/order': ['error', {
       //   groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       //   'newlines-between': 'always',
@@ -62,7 +62,7 @@ export default defineConfig([
       // 'import/no-unresolved': 'error',
       // 'import/newline-after-import': 'error',
 
-      // // ⏳ Promises
+      // ⏳ Promises
       // 'promise/always-return': 'warn',
       // 'promise/no-nesting': 'warn',
       // 'promise/no-return-wrap': 'warn',

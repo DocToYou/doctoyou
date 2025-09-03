@@ -1,7 +1,8 @@
 const bcrypt = require("bcryptjs");
+const helper = require("../helper");
 const User = require("../models/Users");
-const client = require("../config/twilio");
-const generateOtp = require("../utils/sendOtp");
+const client = helper.twilio;
+const generateOtp = helper.generateOtp;
 // const otpVerification = require("./otpVerification"); // Import OTP verification controller
 
 // console.log("Connecting to database with the above details:");
@@ -27,11 +28,11 @@ exports.register = async (req, res) => {
     },
   })
     .then(async (result) => {
-        if (result !== null) {
-          // console.log(result);
+      if (result !== null) {
+        // console.log(result);
 
-          return res.status(409).json({ message: "User Already Registered!" });
-        }
+        return res.status(409).json({ message: "User Already Registered!" });
+      }
       if (result === null) {
         // Generate 4-digit OTP
         const otp = generateOtp();

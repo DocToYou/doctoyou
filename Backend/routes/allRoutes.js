@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const userRegister = require("../controllers/userRegister");
-const userLogin = require("../controllers/userLogin");
-const homePage = require("../controllers/homePage");
-const userForgotPass = require("../controllers/userForgotPass");
+
+const userRegister = require("../user/controllers/userRegister");
+const userLogin = require("../user/controllers/userLogin");
+const homePage = require("../user/controllers/homePage");
+const userForgotPass = require("../user/controllers/userForgotPass");
 
 // Home Page
 router.get("/", homePage.home);

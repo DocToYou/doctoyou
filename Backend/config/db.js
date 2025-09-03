@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+
 const db = new Sequelize(
   process.env.MYSQL_DATABASE,
   process.env.MYSQL_USER,
@@ -12,7 +13,7 @@ const db = new Sequelize(
 const createConnection = () => {
   try {
     db.authenticate()
-      .then(() => console.log("Database Connection Established!"))
+      .then(() => console.log("************ Database Connection Established! **********"))
       .catch((error) => console.log("Error in authenticatin!", error));
   } catch (error) {
     console.log(`Sequelize Error: ${error}`);

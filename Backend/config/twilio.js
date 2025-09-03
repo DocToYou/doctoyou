@@ -1,4 +1,4 @@
-// // Backend/config/twilio.js
+// Backend/config/twilio.js
 if (
   !process.env.TWILIO_ACCOUNT_SID ||
   !process.env.TWILIO_AUTH_TOKEN ||
@@ -9,6 +9,8 @@ if (
 } else {
   console.log("Twilio credentials are set.");
 }
+
+// requires external package from twilio
 const client = require("twilio")(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
