@@ -1,4 +1,4 @@
-import axiosClient from "../../axiosConfig";
+import axiosClient from "../../../axiosConfig";
 import React, { useRef, useState, useEffect } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";

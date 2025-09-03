@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { AuthPage } from "./pages/AuthPage";
-import { Services } from "./pages/Services";
+import { Home } from "./user/pages/Home";
+import { AuthPage } from "./user/pages/AuthPage";
+import { Services } from "./user/pages/Services";
 import ScrollToTop from "./ScrollToTop";
-import DoctorSearchBar from "./components/home/DoctorSearchBar";
+import DoctorSearchBar from "./user/components/home/DoctorSearchBar";
 
 const App = () => {
   return (

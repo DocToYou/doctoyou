@@ -1,4 +1,4 @@
-import axiosClient from "../../axiosConfig";
+import axiosClient from "../../../axiosConfig";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
