@@ -142,42 +142,46 @@ export const Services = () => {
   console.log(service[0]);
 
   return (
-    <>
+    <div className="font-[poppins]">
+      <div className="h-5 lg:h-0"></div>
       <Navbar />
-      <div className="relative flex  mt-5  mx-4 min-h-[500px]  rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
-        <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden">
-          <img
-            src={doc}
-            alt="Background"
-            className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none lg:hidden rounded-2xl"
-          />
-          <div className="ml-8 mt-29">
-            <h2 className="text-2xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2  text-white">
+      <div className="relative flex  mt-4  lg:mx-4 mx-2   rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
+        <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden z-20">
+          <div className="lg:ml-8 lg:mt-29">
+            <h2 className="text-3xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2  text-white lg:pr-0 pr-25 mt-3 lg:mt-0">
               {service[0].name}
             </h2>
-            <p className="pl-5  text-white hidden lg:flex text-[18px]">
+            <p className="pl-5  text-white hidden lg:flex text-[17px]">
               {service[0].desc}
             </p>
-            <div className="ml-5 pt-8">
-              <h1 className="bg-white text-[#1815a1] inline px-2 py-1 rounded-[5px]">
+            <div className="lg:ml-5 lg:pt-8">
+              <h1 className=" text-[#ffffff] font-bold inline px-2 py-1 rounded-[5px] lg:text-[17px] text-[10px]">
                 Services They Provide:
               </h1>
             </div>
 
-            <ul className="text-white ml-10 pt-5 text-[17px] ">
+            <ul className="text-white lg:ml-10 ml-4 lg:text-[17px] text-[10px] mb-3 lg:mb-0 ">
               {service[0].services.map((service, index) => (
                 <li key={index}>{`• ${service}`}</li>
               ))}
             </ul>
           </div>
         </div>
-
-        <div className="w-1/2 hidden lg:flex">
-          <img className="w-130 ml-40 pt-30" src={service[0].image} alt="doctor" />
+        <img
+          className="w-55 absolute bottom-0 right-0 lg:hidden z-10"
+          src={service[0].image}
+          alt="doctor"
+        />
+        <div className="w-1/2 hidden lg:block relative">
+          <img
+            className="w-125 absolute bottom-0 left-1/2 -translate-x-1/2"
+            src={service[0].image}
+            alt="doctor"
+          />
         </div>
       </div>
 
       <RealDoc />
-    </>
+    </div>
   );
 };
