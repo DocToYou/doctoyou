@@ -2,6 +2,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/Users");
 
+let loggedInUser = null;
+
+exports.getLoggedInUser = () => loggedInUser; // function to access it outside
+
 const sampContent = [
   {
     username: "Surya",
@@ -57,7 +61,7 @@ exports.login = async (req, res) => {
       }
       // console.log(result.password);
       const hashedPassword = result.password;
-      bcrypt.compare(password, hashedPassword, (error, match) => {
+      bcrypt.compare(password, hashedPassword, async (error, match) => {
         if (error) {
           // console.log(match)
           console.log(error);
@@ -67,6 +71,13 @@ exports.login = async (req, res) => {
           const user = { userId: phone };
           const accessToken = jwt.sign(user, process.env.SIGNATURE_TOKEN);
           console.log("Successfully Logged in!");
+          //Getting user information
+          let userDetails = await User.findOne({
+            where: { phone: phone },
+          });
+          loggedInUser = userDetails?.get({ plain: true });
+          //jjjconsole.log(loggedInUser);
+
           // console.log(match);
           return res.json({
             message: "User login successful!",

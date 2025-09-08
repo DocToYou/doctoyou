@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS users (
 	password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- time of creation
     constraint pk_user_ID primary key(id),
-    constraint UNIQUE_EMAIL UNIQUE(email),
+    constraint UNIQUE_EMAIL UNIQUE(email,phone),
     constraint gender_MFO_users check(GENDER IN ('M','F','O'))
 );
 
