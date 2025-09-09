@@ -15,6 +15,7 @@ DROP TABLE IF EXISTS providers;
 DROP TABLE IF EXISTS services;
 DROP TABLE IF EXISTS users;
 drop procedure add_provider;
+
 CREATE TABLE IF NOT EXISTS providers(
 	id INT auto_increment,
     fname VARCHAR(100) NOT NULL,
