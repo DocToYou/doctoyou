@@ -1,8 +1,8 @@
 const bcrypt = require("bcryptjs");
-const helper = require("../helper");
+const { twilio, sendOtp } = require("../../helper");
 const User = require("../models/Users");
-const client = helper.twilio;
-const generateOtp = helper.generateOtp;
+const client = twilio;
+const generateOtp = sendOtp;
 // const otpVerification = require("./otpVerification"); // Import OTP verification controller
 
 // console.log("Connecting to database with the above details:");

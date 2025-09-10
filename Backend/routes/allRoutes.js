@@ -5,6 +5,7 @@ const userLogin = require("../user/controllers/userLogin");
 const homePage = require("../user/controllers/homePage");
 const userForgotPass = require("../user/controllers/userForgotPass");
 const userApointmnt = require("../user/controllers/userApointmnt");
+const doctorReviews = require("../provider/controllers/doctorReviews");
 
 // Home Page
 router.get("/", homePage.home);
@@ -15,7 +16,7 @@ router.post("/login", userLogin.login);
 // router.post("/forgotPassword");
 router.post("/verifyOtp", userRegister.verifyOtp);
 
-router.get("/appointment",userApointmnt.appointmentDetails);
+router.get("/appointment", userApointmnt.appointmentDetails);
 //(req,res)=>{res.send({"app":1})})
 
 // User page with contents by JWT Authentication Middleware
@@ -25,5 +26,7 @@ router.get("/contents", userLogin.authToken, userLogin.contents);
 router.post("/sendOtp", userForgotPass.sendOtp);
 router.post("/verifyOtpFP", userForgotPass.verifyOtpFP);
 router.post("/changePassword", userForgotPass.changePassword);
+
+router.get("/reviews", doctorReviews.reviews);
 
 module.exports = router;

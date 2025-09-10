@@ -45,5 +45,8 @@ const DoctorCred = db.define(
       },
     ],
     tableName: "doctor_cred",
+    timestamps: false,
   }
 );
+
+module.exports = DoctorCred;
