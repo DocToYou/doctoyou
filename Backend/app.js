@@ -4,7 +4,8 @@ const express = require("express");
 const db = require("./config/db"); // Import the database connection pool
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const routes = require("./routes/allRoutes");
+const userRoutes = require("./routes/userRoutes");
+const providerRoutes = require("./routes/providerRoutes");
 const app = express();
 
 //CORS
@@ -28,7 +29,10 @@ db.sync()
     console.log(`********** Error while syncing: *********\n${error.message}`);
   });
 
-//Add all routes
-app.use("/", routes);
+//Add all user routes
+app.use("/", userRoutes);
+
+// Add all doctor routes
+app.use("/provider", providerRoutes);
 
 module.exports = app;

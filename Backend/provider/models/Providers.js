@@ -2,7 +2,7 @@ const { DataTypes, ENUM } = require("sequelize");
 const db = require("../../config/db");
 
 const Providers = db.define(
-  "Providers",
+  "providers",
   {
     id: {
       type: DataTypes.INTEGER,
