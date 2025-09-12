@@ -22,9 +22,10 @@ const DoctorCred = db.define(
     },
     license: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
-    degree: {
+    specialization: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -40,7 +41,6 @@ const DoctorCred = db.define(
       },
       {
         name: "UNIQUE_LICENSE_doctor",
-        unique: true,
         fields: ["license"],
       },
     ],
