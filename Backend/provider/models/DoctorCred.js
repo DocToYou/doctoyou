@@ -38,6 +38,7 @@ const DoctorCred = db.define(
       },
       {
         name: "FK_pid_doctor",
+        fields: ["p_id"],
       },
       {
         name: "UNIQUE_LICENSE_doctor",
