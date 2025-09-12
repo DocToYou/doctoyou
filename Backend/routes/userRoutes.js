@@ -5,7 +5,8 @@ const userLogin = require("../user/controllers/userLogin");
 const homePage = require("../user/controllers/homePage");
 const userForgotPass = require("../user/controllers/userForgotPass");
 const userApointmnt = require("../user/controllers/userApointmnt");
-const { authToken } = require("../middleware/authToken");
+const authToken = require("../middleware/authToken");
+const { allProviders, doctors, nurse, caretaker} = require("../user/controllers/providers");
 
 // Home Page
 userRouter.get("/", homePage.home);
@@ -26,5 +27,13 @@ userRouter.get("/contents", authToken, userLogin.contents);
 userRouter.post("/sendOtp", userForgotPass.sendOtp);
 userRouter.post("/verifyOtpFP", userForgotPass.verifyOtpFP);
 userRouter.post("/changePassword", userForgotPass.changePassword);
+
+// returns all providers
+userRouter.get("/providers", allProviders);
+
+// get specific providers
+userRouter.get("/doctors", doctors);
+userRouter.get("/nurse", nurse);
+userRouter.get("/caretaker", caretaker);
 
 module.exports = userRouter;

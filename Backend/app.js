@@ -30,7 +30,7 @@ db.sync()
   });
 
 //Add all user routes
-app.use("/", userRoutes);
+app.use("/user", userRoutes);
 
 // Add all doctor routes
 app.use("/provider", providerRoutes);

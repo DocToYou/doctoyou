@@ -1,5 +1,5 @@
 const { DataTypes, ENUM } = require("sequelize");
-const db = require("../../config/db");
+const { db } = require("../../helper");
 
 const Providers = db.define(
   "providers",
