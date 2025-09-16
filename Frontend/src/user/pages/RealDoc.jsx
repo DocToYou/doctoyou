@@ -57,16 +57,7 @@ const DoctorCard = ({
   );
 };
 
-const handleSingleCheck = (e, groupName) => {
-  if (e.target.checked) {
-    // Uncheck all other checkboxes in the same group
-    document
-      .querySelectorAll(`input[name='${groupName}']`)
-      .forEach((el) => {
-        if (el !== e.target) el.checked = false;
-      });
-  }
-};
+
 
 
 export const RealDoc = () => {
@@ -674,7 +665,7 @@ export const RealDoc = () => {
           </div>
         </div>
       </div>
-     <Footer/>?
+     <Footer/>
     </>
   );
 };

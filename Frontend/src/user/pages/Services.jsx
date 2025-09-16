@@ -1,7 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { doc, femdoc } from "../assets/home";
-import { trained, nursing, physiotherapy, eldercare, doctconsult, vaccine, counselling, diabetescare } from "../assets/services";
+import {
+  trained,
+  nursing,
+  physiotherapy,
+  eldercare,
+  doctconsult,
+  vaccine,
+  counselling,
+  diabetescare,
+} from "../assets/services";
 import { Navbar } from "../components/home/Navbar";
 import { RealDoc } from "./RealDoc";
 
@@ -139,6 +148,20 @@ export const Services = () => {
 
   handleService();
 
+  // 🔑 Map service ID to image size
+  const sizeMap = {
+    trained: "w-120",
+    nursing: "w-170",
+    physiotherapy: "w-[500px]",
+    eldercare: "w-150",
+    doctconsult: "w-170",
+    vaccine: "w-190",
+    counselling: "w-172",
+    diabetescare: "w-150",
+  };
+
+  const imgSize = sizeMap[service[0].id] || "w-96"; // fallback size
+
   console.log(service[0]);
 
   return (
@@ -174,7 +197,7 @@ export const Services = () => {
         />
         <div className="w-1/2 hidden lg:block relative">
           <img
-            className="w-125 absolute bottom-0 left-1/2 -translate-x-1/2"
+            className={`${imgSize} absolute bottom-0 left-1/2 -translate-x-1/2`}
             src={service[0].image}
             alt="doctor"
           />
