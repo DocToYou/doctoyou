@@ -16,7 +16,6 @@ import { RealDoc } from "./RealDoc";
 
 export const Services = () => {
   const params = useParams();
-  console.log(params);
   let service = [];
   const data = [
     {
@@ -142,14 +141,21 @@ export const Services = () => {
     },
   ];
 
-  const handleService = () => {
-    service = data.filter((serv) => serv.id === params.name);
+  service = data.filter((serv) => serv.id === params.name);
+
+  // Map service ID to image sizes
+  const mobileSizeMap = {
+    trained: "w-50",
+    nursing: "w-70",
+    physiotherapy: "w-50",
+    eldercare: "w-62",
+    doctconsult: "w-70",
+    vaccine: "w-80",
+    counselling: "w-70",
+    diabetescare: "w-60",
   };
 
-  handleService();
-
-  // 🔑 Map service ID to image size
-  const sizeMap = {
+  const desktopSizeMap = {
     trained: "w-120",
     nursing: "w-170",
     physiotherapy: "w-[500px]",
@@ -160,44 +166,74 @@ export const Services = () => {
     diabetescare: "w-150",
   };
 
-  const imgSize = sizeMap[service[0].id] || "w-96"; // fallback size
+  const mobileRightMap = {
+    trained: "-190px",
+    nursing: "-160px",
+    physiotherapy: "-210px",
+    eldercare: "-170px",
+    doctconsult: "-150px",
+    vaccine: "-140px",
+    counselling: "-17 0px",
+    diabetescare: "-150px",
+      };
 
-  console.log(service[0]);
 
+  const mobileImgSize = mobileSizeMap[service[0].id] || "w-[150px]";
+  const desktopImgSize = desktopSizeMap[service[0].id] || "w-[380px]";
+  const mobileRightOffset = mobileRightMap[service[0].id] || "-100px";
   return (
     <div className="font-[poppins]">
       <div className="h-5 lg:h-0"></div>
       <Navbar />
-      <div className="relative flex  mt-4  lg:mx-4 mx-2   rounded-2xl bg-gradient-to-tl from-[#5966a1] to-[#020460] ">
-        <div className="lg:w-1/2 p-3 lg:p-7 relative overflow-hidden z-20">
+      <div className="relative flex mt-4 lg:mx-4 mx-2 rounded-2xl overflow-hidden bg-gradient-to-tl from-[#5966a1] to-[#020460] lg:h-auto h-50">
+        <div className="lg:w-1/2 p-3 lg:p-7 relative z-20 grid place-items-center ">
           <div className="lg:ml-8 lg:mt-29">
-            <h2 className="text-3xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2  text-white lg:pr-0 pr-25 mt-3 lg:mt-0">
+
+            <h2 className="text-3xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white lg:pr-0  mt-13 lg:mt-0 pr-40 hidden lg:block">
               {service[0].name}
             </h2>
-            <p className="pl-5  text-white hidden lg:flex text-[17px]">
+
+
+          <div className="lg:hidden ">
+  <h2 className="text-3xl lg:text-6xl font-bold lg:pl-5 lg:pb-3 pl-2 text-white lg:pr-0 lg:mt-0 pr-40 ">
+    {service[0].name}
+  </h2>
+</div>
+
+
+                   
+
+
+            <p className="pl-5 text-white hidden lg:flex text-[17px]">
               {service[0].desc}
             </p>
-            <div className="lg:ml-5 lg:pt-8">
-              <h1 className=" text-[#ffffff] font-bold inline px-2 py-1 rounded-[5px] lg:text-[17px] text-[10px]">
+            <div className="lg:ml-5 lg:pt-8 hidden lg:block">
+              <h1 className="text-[#ffffff] font-bold inline px-2 py-1 rounded-[5px] lg:text-[17px] text-[10px]">
                 Services They Provide:
               </h1>
             </div>
-
-            <ul className="text-white lg:ml-10 ml-4 lg:text-[17px] text-[10px] mb-3 lg:mb-0 ">
+            <ul className="text-white lg:ml-10 ml-4 lg:text-[17px] text-[10px] mb-3 lg:mb-0 hidden lg:block ">
               {service[0].services.map((service, index) => (
                 <li key={index}>{`• ${service}`}</li>
               ))}
             </ul>
           </div>
         </div>
-        <img
-          className="w-55 absolute bottom-0 right-0 lg:hidden z-10"
-          src={service[0].image}
-          alt="doctor"
-        />
-        <div className="w-1/2 hidden lg:block relative">
+
+        {/* Mobile Image */}
+        <div className="absolute bottom-0 lg:hidden z-10 overflow-visible">
           <img
-            className={`${imgSize} absolute bottom-0 left-1/2 -translate-x-1/2`}
+            className={`${mobileImgSize} object-contain`}
+            style={{ position: "relative", right: mobileRightOffset }}
+            src={service[0].image}
+            alt="doctor"
+          />
+        </div>
+
+        {/* Desktop Image */}
+        <div className="w-1/2 hidden lg:flex relative items-end justify-center">
+          <img
+            className={`${desktopImgSize} object-contain`}
             src={service[0].image}
             alt="doctor"
           />

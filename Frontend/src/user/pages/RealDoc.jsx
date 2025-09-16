@@ -420,7 +420,7 @@ export const RealDoc = () => {
 
           
           
- <form className="grid grid-cols-1 gap-y-3 px-4">
+ <form className="grid grid-cols-1 gap-y-3 px-4 ">
   <div className=" hidden lg:block  mb-5 relative">
     
 
@@ -654,8 +654,8 @@ export const RealDoc = () => {
         </div>
 
         {/* Content Area */}
-        <div className="bg-[#f6f8fc] rounded-2xl lg:ml-5">
-          <div className="w-full lg:h-full h-114 overflow-y-scroll scrollbar-none p-1">
+        <div className="bg-[#f6f8fc] rounded-2xl lg:ml-5 mb-10 lg:mb-0">
+          <div className="w-full lg:h-full h-185 overflow-y-scroll scrollbar-none p-1 ">
             {/* ✅ Cards Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-3  lg:gap-5 gap-2">
               {doctors.map((doc, index) => (
