@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Booking = () => {
   return (
-    <div>
+    <div className='bg-red-700'>
         
     </div>
   )
