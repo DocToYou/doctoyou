@@ -5,7 +5,6 @@ import { HowItWorks } from "../components/home/HowItWorks";
 import { Footer } from "../components//home/Footer";
 import { doc, doc2, } from "../assets/home";
 import { Emergency } from "./Emergency";
-import { Booking } from "../components/home/Booking";
 
 export const Home = () => {
   const servicesRef = useRef(null);
@@ -120,7 +119,7 @@ export const Home = () => {
 
         <div className="w-1/2 hidden lg:flex relative">
           <img
-            className="h-140 absolute bottom-0  object-cover pt-5"
+            className="h-140 absolute bottom-0  object-cover"
             src="./dochome.png"
             alt="docter"
           />
@@ -134,7 +133,6 @@ export const Home = () => {
 
       <HowItWorks />
       <Footer />
-      <Booking/>
     </div>
   );
 };

@@ -29,7 +29,7 @@ BEGIN
         INSERT INTO doctor_cred(p_id,license,specialization) 
         VALUES (new_id, p_license, p_specialization);
     ELSEIF p_role = 'Nurse' THEN
-        INSERT INTO nurse_cred(p_id,license,department)
+        INSERT INTO nurse_cred(p_id,license,degree)
         VALUES (new_id, p_registration, p_department);
     ELSEIF p_role = 'Caretaker' THEN
         INSERT INTO caretaker_cred (p_id)
@@ -44,20 +44,34 @@ CREATE PROCEDURE get_providers(
     IN p_role ENUM('Doctor', 'Nurse', 'Caretaker','Admin')
 )
 BEGIN
-    -- Declare a handler for SQL exceptions
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        -- You can log the error, rollback, or just signal failure
-        SELECT 'An error occurred while fetching providers.' AS error_message;
-    END;
-    IF p_role='Doctor' THEN
-    select fname,lname,gender,phone,email from providers where role=p_role order by fname desc;
-    END IF;
+    select * from providers where role=p_role;
 END$$
 DELIMITER $$;
-select * from availability where day_of_week=DAYNAME(CURDATE()+1);*
--- SELECT CURRENT_DATE() AS CurrentDate, DAYNAME(CURRENT_DATE()) AS CurrentDay;
 
-procedure to retrive
-select is_available from availability;
-select fname,lname,gender,phone,email from providers where role='Doctor' order by created_at desc;
+drop procedure get_providers;
+call get_providers("Doctor");
+select * from providers;
+select * from doctor_cred;
+
+-- SELECT * FROM information_schema.columns WHERE table_schema = 'doctoyou';
+CALL add_provider(
+  'Alice', 'Smith', 'F', 'Doctor', 9876543210, 'alice@hospital.com', 'securepass',
+  'DOC12345', 'Cardiology', NULL, NULL
+);
+CALL add_provider(
+  'Bob', 'Jones', 'M', 'Nurse', 9876543211, 'bob@nurse.com', 'securepass',
+  NULL, NULL, 'NUR67890', 'Emergency'
+);
+
+CALL add_provider(
+  'Charlie', 'Brown', 'M', 'Caretaker', 9876543212, 'charlie@care.com', 'securepass',
+  NULL, NULL, NULL, NULL
+);
+
+truncate table providers;
+select * from providers; 
+
+select * from providers;
+select * from doctor_cred;
+select * from nurse_cred;
+select * from caretaker_cred;
