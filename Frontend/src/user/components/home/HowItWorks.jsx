@@ -3,7 +3,7 @@ export const HowItWorks = () => {
   return (
     <div>
       <div className="mx-6 lg:mx-30 mt-10 lg:mt-20 relative lg:flex font-[Poppins]">
-        <div className="mt-15">
+        <div className="mt-15 lg:mt-20">
           <h1 className="font-[Poppins] lg:text-6xl text-[#1815a1] lg:font-bold font-bold text-4xl ">
             Who we are?
           </h1>
@@ -18,7 +18,7 @@ export const HowItWorks = () => {
               alt=""
             />
           </div>
-          <p className="lg:pr-18 mt-8 lg:text-[21px] text-justify">
+          <p className="lg:pr-18 mt-8  lg:text-[21px] text-justify">
             Doc2you is a modern healthcare service platform that connects
             patients with verified doctors near them, providing quick and
             convenient medical consultations at their home or preferred
@@ -38,7 +38,7 @@ export const HowItWorks = () => {
         <h1 className="lg:text-6xl text-[#1815a1] pt-17 lg:text-center ml-6 font-bold text-4xl">
           How It Works?..
         </h1>
-        <p className="pt-4 text-[18px] lg:text-center pl-6 pr-10">
+        <p className="pt-4 text-[17px] lg:text-center pl-6 pr-10">
           Experience a seamless, step-by-step care process designed around your
           needs.
         </p>
