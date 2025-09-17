@@ -28,6 +28,7 @@ const NurseCred = db.define(
       allowNull: false,
     },
   },
+  
   {
     indexes:[{
       name: "pk",
