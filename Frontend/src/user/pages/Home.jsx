@@ -120,7 +120,7 @@ export const Home = () => {
 
         <div className="w-1/2 hidden lg:flex relative">
           <img
-            className="h-140 absolute bottom-0  object-cover"
+            className="h-140 absolute bottom-0  object-cover pt-5"
             src="./dochome.png"
             alt="docter"
           />

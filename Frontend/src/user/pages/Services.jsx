@@ -173,7 +173,7 @@ export const Services = () => {
     eldercare: "-170px",
     doctconsult: "-150px",
     vaccine: "-140px",
-    counselling: "-17 0px",
+    counselling: "-170px",
     diabetescare: "-150px",
       };
 
