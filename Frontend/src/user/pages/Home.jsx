@@ -5,6 +5,7 @@ import { HowItWorks } from "../components/home/HowItWorks";
 import { Footer } from "../components//home/Footer";
 import { doc, doc2, } from "../assets/home";
 import { Emergency } from "./Emergency";
+import { Booking } from "../components/home/Booking";
 
 export const Home = () => {
   const servicesRef = useRef(null);
@@ -133,6 +134,7 @@ export const Home = () => {
 
       <HowItWorks />
       <Footer />
+      <Booking/>
     </div>
   );
 };

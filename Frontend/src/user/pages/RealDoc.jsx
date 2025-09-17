@@ -41,13 +41,13 @@ const DoctorCard = ({
         <div className="lg:flex justify-between lg:mt-4 lg:gap-2 lg:mb-0 mb-2">
           <span
             href="#"
-            className="lg:bg-[#15a159] lg:text-white text-[#15a159] font-bold lg:font-normal rounded lg:flex  lg:items-center lg:justify-center   lg:h-10 lg:w-20 text-xs md:text-sm"
+            className="lg:bg-[#14a149] lg:text-white text-[#14a149] font-bold lg:font-normal rounded lg:flex  lg:items-center lg:justify-center   lg:h-10 lg:w-20 text-xs md:text-sm"
           >
             {price}
           </span>
           <a
             href="#"
-            className="bg-[#1815a1] text-white rounded flex items-center justify-center h-8 md:h-9 lg:h-10 flex-1 text-xs md:text-sm"
+            className="bg-[#1814a1] text-white rounded flex items-center justify-center h-8 md:h-9 lg:h-10 flex-1 text-xs md:text-sm"
           >
             Book Appointment
           </a>
@@ -56,6 +56,9 @@ const DoctorCard = ({
     </div>
   );
 };
+
+
+
 
 export const RealDoc = () => {
   const doctors = [
@@ -92,7 +95,7 @@ export const RealDoc = () => {
       name: "Dr. Priya",
       specialization: "Cardiologist",
       location: "Velachery, Chennai",
-      experience: "15 years experience",
+      experience: "14 years experience",
       availability: "Available Today",
       price: "₹1200",
     },
@@ -103,7 +106,7 @@ export const RealDoc = () => {
       location: "T. Nagar, Chennai",
       experience: "11 years experience",
       availability: "Available Tomorrow",
-      price: "₹1500",
+      price: "₹1400",
     },
     {
       image: "/docs1.png",
@@ -156,8 +159,8 @@ export const RealDoc = () => {
     <>
 
     {/* filter icon */}
-      <div className=" lg:hidden mt-5 mx-3 h-10 relative">
-        <h1 className="text-xl font-bold absolute bottom-0 text-[#1815a1] px-2">
+      <div className=" lg:hidden mt-2 mx-3 h-10 relative">
+        <h1 className="text-xl font-bold absolute bottom-0 text-[#1814a1] px-2">
           Choose your Doctor
         </h1>
 
@@ -168,14 +171,491 @@ export const RealDoc = () => {
         </a>
       </div>
 
+ {/* for response */}
 
       <div className="grid lg:grid-rows-[680px] lg:grid-cols-[250px_1fr] grid-cols-[1fr] gap-5 px-3 lg:pt-10 lg:pb-10 font-[Poppins]">
         {/* Sidebar */}
-        <div className="lg:bg-[#1815a1] lg:border-4 lg:w-70 lg:border-white lg:rounded-2xl lg:p-3"></div>
+        <div className="lg:bg-[#1814a1] lg:border-4 lg:w-70 lg:border-white lg:rounded-2xl lg:p-3 lg:hidden">
+
+          
+          
+ <form className="grid grid-cols-1 gap-y- px-4 bg-[#1814a1] w-[200px] py-5 rounded-[5px] absolute">
+  <div className=" hidden lg:block  mb-5 relative">
+    
+
+        <div href="" className="absolute  flex">
+          <img src="/Vector.png" class="h-3 mt-1 filter brightness-0 invert" alt="" />
+
+
+          <h1 className=" pl-2 pr-3 text-[14px] text-white">Filter</h1>
+        </div>
+      </div>
+      {/* Location */}
+      <div>
+        <span className="text-white text-[16px]">Location</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="loc1"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc1" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+          <input
+            type="checkbox"
+            id="loc2"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc2" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+          <input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+           <input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+<input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div>
+        <span className="text-white text-[16px]">Experience</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="exp1"
+            name="experience"
+            value="0-1 Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp1" className="text-white text-[14px]">0-1 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp2"
+            name="experience"
+            value="2-4 Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp2" className="text-white text-[14px]">1-2 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">2-3 Years</label><br/>
+
+
+<input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">3-5 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">5+ Years</label><br/>
+
+
+        </div>
+      </div>
+
+      {/* Pricing */}
+      <div>
+        <span className="text-white text-[16px]">Pricing</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="price1"
+            name="pricing"
+            value="Low"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          
+          <label htmlFor="price1" className="text-white text-[14px]">₹200 - ₹500</label><br/>
+
+          <input
+            type="checkbox"
+            id="price1"
+            name="pricing"
+            value="Low"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price1" className="text-white text-[14px]">₹500 - ₹1000</label><br/>
+
+          <input
+            type="checkbox"
+            id="price2"
+            name="pricing"
+            value="Medium"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price2" className="text-white text-[14px]">₹1000 - ₹2000</label><br/>
+
+          <input
+            type="checkbox"
+            id="price3"
+            name="pricing"
+            value="High"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price3" className="text-white text-[14px]">₹2000+</label><br/>
+        </div>
+      </div>
+
+      {/* Availability */}
+      <div>
+        <span className="text-white text-[16px]">Availability</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="avail1"
+            name="availability"
+            value="Immediate"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail1" className="text-white text-[14px]">Today</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail2"
+            name="availability"
+            value="Within a week"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail2" className="text-white text-[14px]">Tomorrow</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail3"
+            name="availability"
+            value="Later"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail3" className="text-white text-[14px]">Day after Tomorrow</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail3"
+            name="availability"
+            value="Later"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail3" className="text-white text-[14px]">This Weekend</label><br/>
+
+          
+        </div>
+      </div>
+
+      {/* Submit */}
+      <input
+        type="submit"
+        value="Submit"
+        className="text-[#1814a1] bg-white px-3 rounded-[5px]"
+      />
+    </form>
+
+
+        </div>
+
+
+       
+
+
+        <div className="lg:bg-[#1814a1] lg:border-4 lg:w-70 lg:border-white lg:rounded-2xl lg:p-3 hidden lg:block">
+
+          
+          
+ <form className="grid grid-cols-1 gap-y-3 px-4">
+  <div className=" hidden lg:block  mb-5 relative">
+    
+
+        <div href="" className="absolute  flex">
+          <img src="/Vector.png" class="h-3 mt-1 filter brightness-0 invert" alt="" />
+
+
+          <h1 className=" pl-2 pr-3 text-[14px] text-white">Filter</h1>
+        </div>
+      </div>
+      {/* Location */}
+      <div>
+        <span className="text-white text-[16px]">Location</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="loc1"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc1" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+          <input
+            type="checkbox"
+            id="loc2"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc2" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+          <input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+           <input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+<input
+            type="checkbox"
+            id="loc3"
+            name="location"
+            value="Nearby Chennai"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "location")}
+          />
+          <label htmlFor="loc3" className="text-white text-[14px]">Nearby Chennai</label><br/>
+
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div>
+        <span className="text-white text-[16px]">Experience</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="exp1"
+            name="experience"
+            value="0-1 Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp1" className="text-white text-[14px]">0-1 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp2"
+            name="experience"
+            value="2-4 Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp2" className="text-white text-[14px]">1-2 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">2-3 Years</label><br/>
+
+
+<input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">3-5 Years</label><br/>
+
+          <input
+            type="checkbox"
+            id="exp3"
+            name="experience"
+            value="5+ Years"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "experience")}
+          />
+          <label htmlFor="exp3" className="text-white text-[14px]">5+ Years</label><br/>
+
+
+        </div>
+      </div>
+
+      {/* Pricing */}
+      <div>
+        <span className="text-white text-[16px]">Pricing</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="price1"
+            name="pricing"
+            value="Low"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          
+          <label htmlFor="price1" className="text-white text-[14px]">₹200 - ₹500</label><br/>
+
+          <input
+            type="checkbox"
+            id="price1"
+            name="pricing"
+            value="Low"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price1" className="text-white text-[14px]">₹500 - ₹1000</label><br/>
+
+          <input
+            type="checkbox"
+            id="price2"
+            name="pricing"
+            value="Medium"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price2" className="text-white text-[14px]">₹1000 - ₹2000</label><br/>
+
+          <input
+            type="checkbox"
+            id="price3"
+            name="pricing"
+            value="High"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "pricing")}
+          />
+          <label htmlFor="price3" className="text-white text-[14px]">₹2000+</label><br/>
+        </div>
+      </div>
+
+      {/* Availability */}
+      <div>
+        <span className="text-white text-[16px]">Availability</span><br/>
+        <div className="ml-2">
+          <input
+            type="checkbox"
+            id="avail1"
+            name="availability"
+            value="Immediate"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail1" className="text-white text-[14px]">Today</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail2"
+            name="availability"
+            value="Within a week"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail2" className="text-white text-[14px]">Tomorrow</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail3"
+            name="availability"
+            value="Later"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail3" className="text-white text-[14px]">Day after Tomorrow</label><br/>
+
+          <input
+            type="checkbox"
+            id="avail3"
+            name="availability"
+            value="Later"
+            className="size-3 mr-2"
+            onChange={(e) => handleSingleCheck(e, "availability")}
+          />
+          <label htmlFor="avail3" className="text-white text-[14px]">This Weekend</label><br/>
+
+          
+        </div>
+      </div>
+
+      {/* Submit */}
+      <input
+        type="submit"
+        value="Submit"
+        className="text-[#1814a1] bg-white px-3 rounded-[5px]"
+      />
+    </form>
+
+
+        </div>
 
         {/* Content Area */}
         <div className="bg-[#f6f8fc] rounded-2xl lg:ml-5">
-          <div className="w-full lg:h-full h-115 overflow-y-scroll scrollbar-none p-1">
+          <div className="w-full lg:h-full h-114 overflow-y-scroll scrollbar-none p-1">
             {/* ✅ Cards Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-3  lg:gap-5 gap-2">
               {doctors.map((doc, index) => (
