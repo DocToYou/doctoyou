@@ -40,7 +40,7 @@ DELIMITER ;
 
 -- procedure to retrieve provider data
 DELIMITER $$
-CREATE PROCEDURE get_available_providers(
+CREATE PROCEDURE get_providers(
     IN p_role ENUM('Doctor', 'Nurse', 'Caretaker','Admin')
 )
 BEGIN
@@ -55,7 +55,7 @@ BEGIN
     END IF;
 END$$
 DELIMITER $$;
-select * from availability where day_of_week=DAYNAME(CURDATE());
+select * from availability where day_of_week=DAYNAME(CURDATE()+1);*
 -- SELECT CURRENT_DATE() AS CurrentDate, DAYNAME(CURRENT_DATE()) AS CurrentDay;
 
 procedure to retrive

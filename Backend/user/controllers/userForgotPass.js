@@ -1,6 +1,6 @@
 const User = require("../models/Users");
 const bcrypt = require("bcryptjs");
-const helper = require("../helper");
+const helper = require("../../helper");
 const client = helper.twilio;
 const generateOtp = helper.sendOtp;
 
