@@ -2,18 +2,21 @@ use doctoyou;
 show tables;
 select * from users;
 select * from providers;
--- SELECT GROUP_CONCAT('DROP TABLE IF EXISTS ', table_name, ';') 
--- FROM information_schema.tables 
--- WHERE table_schema = 'doctoyou';
+SELECT GROUP_CONCAT('DROP TABLE IF EXISTS ', table_name, ';') 
+FROM information_schema.tables 
+WHERE table_schema = 'doctoyou';
 DROP TABLE IF EXISTS appointments;
 DROP TABLE IF EXISTS availability;
 DROP TABLE IF EXISTS caretaker_cred;
 DROP TABLE IF EXISTS doctor_cred;
 DROP TABLE IF EXISTS nurse_cred;
 DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS providers;
 DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS p_details;
+DROP TABLE IF EXISTS providers;
+DROP TABLE IF EXISTS user_address;
 DROP TABLE IF EXISTS users;
+
 drop procedure add_provider;
 CREATE TABLE IF NOT EXISTS providers(
 	id INT auto_increment,
@@ -39,7 +42,7 @@ constraint UNIQUE_LICENSE_doctor unique(license)
 );
 
 CREATE TABLE IF NOT exists nurse_cred (
-id int auto_increment, p_id int, license varchar(255) not null, degree varchar(30) not null,
+id int auto_increment, p_id int, license varchar(255) not null, department varchar(30) not null,
 constraint pk primary key(id),
 constraint FK_pid_nurse foreign key(p_id) references providers(id),
 constraint UNIQUE_LICENSE_nurse unique(license)
@@ -70,7 +73,7 @@ CREATE TABLE IF NOT EXISTS services (
     name VARCHAR(60) NOT NULL,
     description TEXT,
     -- service_type ENUM(""),
-    -- price DECIMAL(10, 2) NOT NULL
+    price DECIMAL(10, 2) NOT NULL,
     constraint pk_ID_services primary key(id)
 );
 
@@ -93,7 +96,7 @@ CREATE TABLE IF NOT EXISTS availability (
     id INT AUTO_INCREMENT PRIMARY KEY,
     is_available boolean,
     provider_id INT NOT NULL,
-    day_of_week ENUM('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') NOT NULL,
+    day_of_week ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') NOT NULL,
     start_time TIME NOT NULL,
     end_time TIME NOT NULL,
     FOREIGN KEY (provider_id) REFERENCES providers(id) ON DELETE CASCADE on update cascade
@@ -110,4 +113,28 @@ CREATE TABLE IF NOT EXISTS reviews (
     FOREIGN KEY (provider_id) REFERENCES providers(id) ON DELETE CASCADE on update cascade
 );
 
+CREATE TABLE IF NOT EXISTS user_address (
+id INT AUTO_INCREMENT PRIMARY KEY,
+u_id INT NOT NULL,
+is_primary boolean,
+door_no varchar(5),
+street varchar(30),
+city varchar(15),
+district varchar(10),
+state varchar(20),
+pincode int,
+created_at TIMESTAMP default CURRENT_TIMESTAMP,
+FOREIGN KEY fk_id (u_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS p_details(
+id int primary key auto_increment,
+p_id int not null,
+base_price DECIMAL(10,2),
+degree varchar(10),
+university varchar(50),
+profile_pic blob,
+FOREIGN KEY fk_p_id (p_id) REFERENCES providers(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 show index from providers;
+select * from nurse_cred limit 5;

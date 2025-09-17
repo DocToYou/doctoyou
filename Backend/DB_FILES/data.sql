@@ -23,7 +23,7 @@ CALL add_provider('Rita', 'Singh', 'F', 'Caretaker', 9876543227, 'rita@care.com'
 CALL add_provider('Sam', 'Wilson', 'M', 'Doctor', 9876543228, 'sam@hospital.com', 'securepass', 'DOC12351', 'Urology', NULL, NULL);
 CALL add_provider('Tina', 'Nguyen', 'F', 'Nurse', 9876543229, 'tina@nurse.com', 'securepass', NULL, NULL, 'NUR67896', 'Neonatal');
 CALL add_provider('Uma', 'Desai', 'F', 'Caretaker', 9876543230, 'uma@care.com', 'securepass', NULL, NULL, NULL, NULL);
-CALL add_provider('Victor', 'Lopez', 'M', 'Doctor', 9876543231, 'victor@hospital.com', 'securepass', 'DOC12352', 'Pulmonology', NULL, NULL);
+CALL add_provider('Victor', 'Lopez', 'M', 'Doctor', 9876543231, 'victor@hospital.com', 'securepass', 'DOC12352', 'PulMondayology', NULL, NULL);
 CALL add_provider('Wendy', 'Kim', 'F', 'Nurse', 9876543232, 'wendy@nurse.com', 'securepass', NULL, NULL, 'NUR67897', 'Rehab');
 CALL add_provider('Xavier', 'Clark', 'M', 'Caretaker', 9876543233, 'xavier@care.com', 'securepass', NULL, NULL, NULL, NULL);
 CALL add_provider('Yara', 'Ali', 'F', 'Doctor', 9876543234, 'yara@hospital.com', 'securepass', 'DOC12353', 'Endocrinology', NULL, NULL);
@@ -119,3 +119,39 @@ INSERT INTO users VALUES (NULL, 'Ava', 'Morgan', 'F', 9876543236, 'ava@care.com'
 INSERT INTO users VALUES (NULL, 'Ben', 'Foster', 'M', 9876543237, 'ben@hospital.com', 'securepass', DEFAULT);
 INSERT INTO users VALUES (NULL, 'Clara', 'Diaz', 'F', 9876543238, 'clara@nurse.com', 'securepass', DEFAULT);
 INSERT INTO users VALUES (NULL, 'David', 'Young', 'M', 9876543239, 'david@care.com', 'securepass', DEFAULT);
+
+-- availability records
+-- Provider 1
+INSERT INTO availability VALUES (NULL, TRUE, 1, 'Monday', '09:00:00', '13:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 1, 'Tuesday', '14:00:00', '18:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 1, 'Wednesday', '08:00:00', '12:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 1, 'Thursday', '10:00:00', '14:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 1, 'Friday', '13:00:00', '17:00:00');
+
+-- Provider 2
+INSERT INTO availability VALUES (NULL, TRUE, 2, 'Monday', '10:00:00', '14:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 2, 'Tuesday', '09:00:00', '12:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 2, 'Wednesday', '14:00:00', '18:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 2, 'Thursday', '08:00:00', '11:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 2, 'Friday', '12:00:00', '16:00:00');
+
+-- Provider 3
+INSERT INTO availability VALUES (NULL, TRUE, 3, 'Monday', '09:00:00', '13:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 3, 'Tuesday', '14:00:00', '18:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 3, 'Wednesday', '08:00:00', '12:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 3, 'Thursday', '10:00:00', '14:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 3, 'Friday', '13:00:00', '17:00:00');
+
+-- Provider 4
+INSERT INTO availability VALUES (NULL, TRUE, 4, 'Monday', '10:00:00', '14:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 4, 'Tuesday', '09:00:00', '12:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 4, 'Wednesday', '14:00:00', '18:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 4, 'Thursday', '08:00:00', '11:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 4, 'Friday', '12:00:00', '16:00:00');
+
+-- Provider 5
+INSERT INTO availability VALUES (NULL, TRUE, 5, 'Monday', '09:00:00', '13:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 5, 'Tuesday', '14:00:00', '18:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 5, 'Wednesday', '08:00:00', '12:00:00');
+INSERT INTO availability VALUES (NULL, FALSE, 5, 'Thursday', '10:00:00', '14:00:00');
+INSERT INTO availability VALUES (NULL, TRUE, 5, 'Friday', '13:00:00', '17:00:00');
