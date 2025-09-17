@@ -187,7 +187,7 @@ const toggleSlide = (e) => {
         </a>
       </div>
 
- {/* for response */}
+ {/* filter for desktop */}
 
      
       <div className="grid lg:grid-rows-[680px] lg:grid-cols-[250px_1fr] grid-cols-[1fr] gap-5 px-3 lg:pt-10 lg:pb-10 font-[Poppins]">
@@ -418,33 +418,27 @@ const toggleSlide = (e) => {
       {/* Submit */}
       <input
         type="submit"
-        value="Submit"
-        className="text-[#1814a1] bg-white px-3 rounded-[5px]"
+        value="Apply Filter"
+        className="text-[#1814a1] bg-white px-3 rounded-[5px] py-1"
       />
     </form>
+</div>
 
-
-        </div>
-
+        
+        
+        
         {/* Content Area */}
-        <div className="bg-[#f6f8fc] rounded-2xl lg:ml-5 mb-10 lg:mb-0  overflow-x-hidden">
+<div className="bg-[#f6f8fc] rounded-2xl lg:ml-5 mb-10 lg:mb-0">
 
-        {/* sliderbar */}
+{/* sliderbar for response */}
 
-
- <div className="lg:bg-[#1814a1] lg:border-4 lg:w-70 lg:border-white lg:rounded-2xl lg:p-3 lg:hidden ">
-
-          
-          
- <form
-  className={`grid grid-cols-1 gap-y-2 px-4 bg-[#1814a1] w-[200px] py-5 rounded-[5px] absolute  h-185 transform transition-transform duration-500 ease-in-out ${
-    isOpen ? "translate-x-1" : "-translate-x-full"
+ <div className="lg:bg-[#1814a1] lg:border-4 lg:w-70 lg:border-white lg:rounded-2xl lg:p-3 lg:hidden right-0">          
+<form
+  className={`grid grid-cols-1 gap-y-6 px-4 bg-[#1814a1] w-[200px] py-5 rounded-[5px] absolute h-185 transform transition-transform duration-500 ease-in-out ${
+    isOpen ? "translate-x-0" : "-translate-x-[300px]"
   }`}
 >
-
   <div className=" hidden lg:block  mb-5 relative">
-    
-
         <div href="" className="absolute  flex">
           <img src="/Vector.png" class="h-3 mt-1 filter brightness-0 invert" alt="" />
 
