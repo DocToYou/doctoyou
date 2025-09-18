@@ -6,6 +6,7 @@ import { Footer } from "../components//home/Footer";
 import { doc, doc2, } from "../assets/home";
 import { Emergency } from "./Emergency";
 import { Booking } from "../components/home/Booking";
+import { EmergencyBook } from "./EmergencyBook"
 
 export const Home = () => {
   const servicesRef = useRef(null);
@@ -15,10 +16,10 @@ export const Home = () => {
   };
   return (
     <div className="lg:bg-white h-screen font-[Poppins]">
-      <div className="h-5"></div>
+      {/* <div className="h-5"></div>
       <Navbar handleScrollToServices={scrollToServices} />
 
-      {/* for response */}
+      
       <div className="lg:hidden mt-10 mx-2 bg-gradient-to-tl from-[#5966a1] to-[#020460] font-[Poppins] rounded-2xl relative overflow-hidden">
         <img
           src="dochome2.png"
@@ -134,7 +135,8 @@ export const Home = () => {
 
       <HowItWorks />
       <Footer />
-      <Booking/>
+      <Booking/>*/}
+      <EmergencyBook/>
     </div>
   );
 };

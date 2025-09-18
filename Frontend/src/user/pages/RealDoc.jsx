@@ -158,6 +158,16 @@ export const RealDoc = () => {
       availability: "Available Today",
       price: "₹900",
     },
+
+    {
+      image: "/docs1.png",
+      name: "Dr. RajaMohan",
+      specialization: "Gynecologist",
+      location: "Chromepet, Chennai",
+      experience: "9 years experience",
+      availability: "Available Today",
+      price: "₹900",
+    },
   ];
 
 const [isOpen, setIsOpen] = useState(false);
