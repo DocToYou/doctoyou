@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { EmergencyBook } from "./EmergencyBook"
 
 export const Emergency = () => {
   return (
@@ -83,9 +85,9 @@ export const Emergency = () => {
               </div>
 
               <div className="flex justify-center py-3 lg:pt-5 lg:justify-start">
-                <button className="bg-red-500 hover:bg-red-600 text-[14px]  px-20 py-4 text-white lg:px-30 lg:py-3 rounded-xl font-semibold ">
+                <Link to={"/EmergencyBooking"}><button className="bg-red-500 hover:bg-red-600 text-[14px]  px-20 py-4 text-white lg:px-30 lg:py-3 rounded-xl font-semibold ">
                   Book Emergency Help Now
-                </button>
+                </button></Link>
               </div>
             </div>
 

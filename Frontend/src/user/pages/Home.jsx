@@ -16,7 +16,7 @@ export const Home = () => {
   };
   return (
     <div className="lg:bg-white h-screen font-[Poppins]">
-      {/* <div className="h-5"></div>
+      <div className="h-5"></div>
       <Navbar handleScrollToServices={scrollToServices} />
 
       
@@ -135,7 +135,7 @@ export const Home = () => {
 
       <HowItWorks />
       <Footer />
-      <Booking/>*/}
+      <Booking/>
       <EmergencyBook/>
     </div>
   );

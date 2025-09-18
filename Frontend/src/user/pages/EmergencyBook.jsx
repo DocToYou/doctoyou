@@ -87,18 +87,160 @@ export const EmergencyBook = () => {
 
 
     </div>
+    
     <div className='lg:w-1/2 lg:flex hidden'>
     <img src="Emergencybutton.png" className='w-140 mx-auto relative lg:bottom-12 ' alt="" />
     </div>
+</div>
+</div>
+
+<form>
+<div className='bg-[#f6f8fc] w-50vh mx-5  rounded-2xl mt-5 pb-10'>
+<h1 className='text-5xl font-bold text-[#1815a1] pl-10 pt-8'>Get Help Instantly.</h1>
+<h1 className='pl-10 mt-3 text-[14px]'>get quick access to doctors, ambulances, or home care.</h1>
+<div className='grid  px-10 mt-7 grid-cols-[420px_420px_auto]'>
+  {/* first box */}
+<div  className=' space-y-7 px-5 '>Personal Information
+  <div>
+      <label class="block text-black mb-1 font-medium mt-3">Name*</label>
+      <div class="grid grid-cols-2 gap-3">
+        <input 
+          type="text" 
+          placeholder="First name"
+          class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input 
+          type="text" 
+          placeholder="Last name"
+          class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    </div>
+
+   
+    <div>
+      <label class="block text-black mb-1 font-medium">Age*</label>
+      <input 
+        type="number" 
+        placeholder="Age"
+        class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
 
     
+    <div>
+      <label class="block text-black mb-1 font-medium">Gender</label>
+      <select 
+        class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option>Select your gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+
     
-    
+    <div>
+      <label class="block text-black mb-1 font-medium">Mobile Number*</label>
+      <input 
+        type="tel" 
+        placeholder="(+91) xxxxxxxxxx"
+        class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
 
 </div>
 
+{/* second box */}
+<div  className='space-y-7 px-5 '>Address
+  <div className='mt-3'>
+      <label class="block text-black mb-1 font-medium">Location*</label>
+      <input 
+        type="text" 
+        placeholder="Ex - 4/595, 5th cross Street,KK Nagar, Chennai, Tami"
+        class="w-full px-3  py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block text-black mb-1 font-medium">Land Mark*</label>
+      <input 
+        type="text" 
+        placeholder="Ex - Beside MR Veg Shop"
+        class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+<div><h1 className=' text-black'>GPS Tag *</h1>
+
+    <button className='bg-[#1815a1] text-white text-[13px] py-2 px-3 rounded-[5px] flex mt-1.5'>
+     <span className='mr-1 relative '><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  
+                  fill="currentColor"
+                  className="bi bi-geo-alt-fill mt-1"
+                  viewBox="0 0 16 16"
+                  // className="mt-1"
+                >
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+    </svg></span> 
+    <span>Use my current Location</span>
+    
+    
+    </button>
+      
+    
+    </div>
+    <div className='w-50vh h-40 bg-[#dddddd] rounded-[8px] border'> Map</div>
+</div>
+
+{/* third box */}
+<div  className='px-5'>Symptoms
+  <div className="mt-3">
+  <label className="block text-black mb-1 font-medium">
+    Describe your Problem*
+  </label>
+  <textarea
+    placeholder="Type your problem here..."
+    className="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-58 resize-none"
+  ></textarea>
+</div>
+
+
+    <button className='bg-[#1815a1] text-white text-[13px] py-2 px-3 h-9 rounded-[5px] flex mt-6'> 
+    <span>Add File</span>
+    <span>
+      <svg width="15" height="40" viewBox="0 0 24 24" className='ml-1 relative bottom-2.5' fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M21.1525 10.8995L12.1369 19.9151C10.0866 21.9653 6.7625 21.9653 4.71225 19.9151C2.662 17.8648 2.662 14.5407 4.71225 12.4904L13.7279 3.47483C15.0947 2.108 17.3108 2.108 18.6776 3.47483C20.0444 4.84167 20.0444 7.05775 18.6776 8.42458L10.0156 17.0866C9.33213 17.7701 8.22409 17.7701 7.54068 17.0866C6.85726 16.4032 6.85726 15.2952 7.54068 14.6118L15.1421 7.01037"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+    </button>
+    <div className='mt-5'>
+      <label class="block text-black mb-1 font-medium">Select Service</label>
+      <select 
+        class="w-full px-3 py-2 border rounded-[5px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option>Select your Service</option>
+        <option>ortho</option>
+        <option>ENT</option>
+        <option>Counsling</option>
+      </select>
+    </div>
+    
+</div>
 
 </div>
+<div className='bg-[#1815a1] flex items-center justify-center mx-10 rounded-[8px]  mt-10'>
+<button type="submit"  className=' text-white py-3'>Get help Now</button></div>
+
+
+
+
+</div>
+</form>
 
 
     </div>
