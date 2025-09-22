@@ -6,7 +6,7 @@ import { Footer } from "../components//home/Footer";
 import { doc, doc2, } from "../assets/home";
 import { Emergency } from "./Emergency";
 import { Booking } from "../components/home/Booking";
-import { EmergencyBook } from "./EmergencyBook"
+
 
 export const Home = () => {
   const servicesRef = useRef(null);
@@ -32,7 +32,7 @@ export const Home = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="text-[#149b56] size-3"
+              className="text-[#149b56] size-4"
             >
               <path
                 fillRule="evenodd"
@@ -41,7 +41,7 @@ export const Home = () => {
               />
             </svg>
 
-            <span className="font-medium leading-none">
+            <span className="font-medium leading-none pt-0.5">
               100% verified and licensed doctors
             </span>
           </div>
@@ -136,7 +136,7 @@ export const Home = () => {
       <HowItWorks />
       <Footer />
       <Booking/>
-      <EmergencyBook/>
+      
     </div>
   );
 };
